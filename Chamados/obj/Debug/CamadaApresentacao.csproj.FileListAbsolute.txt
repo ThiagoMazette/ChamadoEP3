@@ -1,0 +1,56 @@
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmAbrirChamado.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmAtenderChamado.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmListarChamado.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmCadastro.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmPrincipal.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.Properties.Resources.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\CamadaApresentacao.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\Chamados.exe
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\Chamados.pdb
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\CamadaDados.dll
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\CamadaDados.pdb
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.CopyComplete
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.exe
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.pdb
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\CamadaModelo.dll
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\CamadaModelo.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\Chamados.exe
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\Chamados.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\CamadaDados.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\CamadaModelo.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\CamadaDados.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\CamadaModelo.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\CamadaApresentacao.csprojAssemblyReference.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmAbrirChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmAtenderChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmListarChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmCadastro.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmPrincipal.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.Properties.Resources.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.GenerateResource.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.CoreCompileInputs.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\CamadaApresentacao.csproj.CopyComplete
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.exe
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\obj\Debug\Chamados.frmListagem.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\Chamados.exe
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\Chamados.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\CamadaDados.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\CamadaModelo.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\CamadaDados.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\bin\Debug\CamadaModelo.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\CamadaApresentacao.csprojAssemblyReference.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmAbrirChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmAtenderChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmListagem.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmListarChamado.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmCadastro.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.frmPrincipal.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.Properties.Resources.resources
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\CamadaApresentacao.csproj.GenerateResource.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\CamadaApresentacao.csproj.CoreCompileInputs.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\CamadaApresentacao.csproj.CopyComplete
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.exe
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\Chamados\obj\Debug\Chamados.pdb

@@ -1,0 +1,13 @@
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\Chamados.exe
+C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\Chamados.pdb
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.Properties.Resources.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.exe
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.pdb
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmPrincipal.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmCadastro.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmAbrirChamado.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmAtenderChamado.resources
+C:\Users\Usuario\source\repos\Chamados\Chamados\obj\Debug\Chamados.frmListarChamado.resources
