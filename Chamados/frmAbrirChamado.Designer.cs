@@ -42,15 +42,7 @@
             this.txtAbrirChamadoID = new System.Windows.Forms.TextBox();
             this.txtAbrirChamadoCNPJ = new System.Windows.Forms.TextBox();
             this.txtProcurar = new System.Windows.Forms.MaskedTextBox();
-            this.dgvResumo = new System.Windows.Forms.DataGridView();
-            this.rec_chvbfj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndBchvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProcurar
@@ -194,6 +186,7 @@
             this.txtAbrirChamadoID.Size = new System.Drawing.Size(51, 20);
             this.txtAbrirChamadoID.TabIndex = 12;
             this.txtAbrirChamadoID.TabStop = false;
+            this.txtAbrirChamadoID.Visible = false;
             // 
             // txtAbrirChamadoCNPJ
             // 
@@ -202,6 +195,7 @@
             this.txtAbrirChamadoCNPJ.Size = new System.Drawing.Size(100, 20);
             this.txtAbrirChamadoCNPJ.TabIndex = 13;
             this.txtAbrirChamadoCNPJ.TabStop = false;
+            this.txtAbrirChamadoCNPJ.Visible = false;
             // 
             // txtProcurar
             // 
@@ -209,92 +203,17 @@
             this.txtProcurar.Location = new System.Drawing.Point(87, 26);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(347, 20);
-            this.txtProcurar.TabIndex = 2;
+            this.txtProcurar.TabIndex = 14;
+            this.txtProcurar.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtProcurar_MaskInputRejected);
+            this.txtProcurar.Enter += new System.EventHandler(this.txtProcurar_Enter_1);
             this.txtProcurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProcurar_KeyPress_1);
-            // 
-            // dgvResumo
-            // 
-            this.dgvResumo.AllowDrop = true;
-            this.dgvResumo.AllowUserToAddRows = false;
-            this.dgvResumo.AllowUserToDeleteRows = false;
-            this.dgvResumo.AllowUserToResizeRows = false;
-            this.dgvResumo.BackgroundColor = System.Drawing.Color.White;
-            this.dgvResumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rec_chvbfj,
-            this.doc,
-            this.vndBchvvnda,
-            this.vndBchvps,
-            this.pschvps,
-            this.Dsc});
-            this.dgvResumo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvResumo.Location = new System.Drawing.Point(15, 423);
-            this.dgvResumo.MultiSelect = false;
-            this.dgvResumo.Name = "dgvResumo";
-            this.dgvResumo.ReadOnly = true;
-            this.dgvResumo.RowHeadersVisible = false;
-            this.dgvResumo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvResumo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumo.Size = new System.Drawing.Size(608, 175);
-            this.dgvResumo.TabIndex = 15;
-            this.dgvResumo.TabStop = false;
-            this.dgvResumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResumo_CellContentClick);
-            // 
-            // rec_chvbfj
-            // 
-            this.rec_chvbfj.DataPropertyName = "chvbfj";
-            this.rec_chvbfj.HeaderText = "rec.chvbfj";
-            this.rec_chvbfj.Name = "rec_chvbfj";
-            this.rec_chvbfj.ReadOnly = true;
-            this.rec_chvbfj.Visible = false;
-            // 
-            // doc
-            // 
-            this.doc.DataPropertyName = "doc";
-            this.doc.HeaderText = "doc";
-            this.doc.Name = "doc";
-            this.doc.ReadOnly = true;
-            this.doc.Visible = false;
-            // 
-            // vndBchvvnda
-            // 
-            this.vndBchvvnda.DataPropertyName = "chvvnda";
-            this.vndBchvvnda.HeaderText = "chvvnda";
-            this.vndBchvvnda.Name = "vndBchvvnda";
-            this.vndBchvvnda.ReadOnly = true;
-            this.vndBchvvnda.Visible = false;
-            // 
-            // vndBchvps
-            // 
-            this.vndBchvps.DataPropertyName = "vndB.chvps";
-            this.vndBchvps.HeaderText = "vndB.chvps";
-            this.vndBchvps.Name = "vndBchvps";
-            this.vndBchvps.ReadOnly = true;
-            this.vndBchvps.Visible = false;
-            // 
-            // pschvps
-            // 
-            this.pschvps.DataPropertyName = "ps.chvps";
-            this.pschvps.HeaderText = "ps.chvps";
-            this.pschvps.Name = "pschvps";
-            this.pschvps.ReadOnly = true;
-            this.pschvps.Visible = false;
-            // 
-            // Dsc
-            // 
-            this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dsc.DataPropertyName = "Dsc";
-            this.Dsc.HeaderText = "Descrição";
-            this.Dsc.Name = "Dsc";
-            this.Dsc.ReadOnly = true;
             // 
             // frmAbrirChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(637, 610);
-            this.Controls.Add(this.dgvResumo);
+            this.ClientSize = new System.Drawing.Size(637, 414);
             this.Controls.Add(this.txtProcurar);
             this.Controls.Add(this.txtAbrirChamadoCNPJ);
             this.Controls.Add(this.txtAbrirChamadoID);
@@ -314,7 +233,6 @@
             this.Text = "Abrir Chamado";
             this.Load += new System.EventHandler(this.frmAbrirChamado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,12 +254,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.MaskedTextBox txtProcurar;
         private System.Windows.Forms.DataGridView dgvResultado;
-        private System.Windows.Forms.DataGridView dgvResumo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rec_chvbfj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvvnda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvps;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pschvps;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dsc;
     }
 }

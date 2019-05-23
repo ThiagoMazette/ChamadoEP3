@@ -49,8 +49,8 @@ namespace Chamados
             _mdlEmpresa.FiltroAbrirChamado = cbbSelecao.Text;
 
             txtProcurar.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; // tira a formatação
-            txtProcurar.Text = txtProcurar.Text; //texto não formatado
-            _mdlEmpresa.FiltrotxtProcurar = txtProcurar.Text;
+            label1.Text = txtProcurar.Text; //texto não formatado
+            _mdlEmpresa.FiltrotxtProcurar = label1.Text;
 
             dgvResultado.DataSource = _ctlEmpresa.PesquisarMDL(_mdlEmpresa);
         }
@@ -68,19 +68,6 @@ namespace Chamados
                 txtAbrirChamadoNome.Text = dgvResultado.CurrentRow.Cells["nome"].Value.ToString();
                 txtAbrirChamadoID.Text = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
                 txtAbrirChamadoCNPJ.Text = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
-
-
-
-                ctlEmpresa _ctlEmpresa = new ctlEmpresa();
-                mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-                _mdlEmpresa.ID = txtAbrirChamadoID.Text;
-
-                dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
-
-
-
-
-
             }
 
            
@@ -165,6 +152,31 @@ namespace Chamados
             AbrirChamado();
         }
 
+        private void txtProcurar_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProcurar_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtProcurar_Enter_1(object sender, EventArgs e)
+        {
+            /*
+            if (cbbSelecao.Text == "CNPJ")
+            {
+                txtProcurar.Mask = "00.000.000/0000-00";
+            }
+            else if (cbbSelecao.Text == "Nome")
+            {
+                txtProcurar.Mask = "";
+            }
+            substituido por txtProcurar_KeyPress_1
+            */
+        }
+
         private void txtProcurar_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (cbbSelecao.Text == "CNPJ")
@@ -192,11 +204,6 @@ namespace Chamados
                 txtProcurar.MaxLength = 16;
 
             }
-        }
-
-        private void dgvResumo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
