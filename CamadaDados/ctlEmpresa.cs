@@ -45,7 +45,7 @@ namespace CamadaDados
 
         public DataTable PesquisarMDL(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string Query = "select chvbfj, cnpjcpf, rzs from bfj where ";
@@ -350,12 +350,12 @@ namespace CamadaDados
             }
             else if (_mdlEmpresa.cbbTecnico == "Todos")
             {
- 
-              /*        Query = "select * " +
+
+        /*        Query = "select * " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
                         "on tb_chamados.fk_idempresa = tb_empresas.id where fk_idempresa=@EmpresaSelecionada";
-             Aparccer nome */
+    Aparccer nome */
                 Query += "where fk_idempresa=@EmpresaSelecionada";
             }
 
@@ -386,47 +386,6 @@ namespace CamadaDados
             return empresas;
         }
 
-        public DataTable PesquisaResumo(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
-        {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
-            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
-            ConexaoDB.Open();
-            /* funcionando, mas dados errado
-            string Query = "Select rec.chvbfj, rec.doc, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
-                  "From (( " +
-                  "rec " +
-                  "inner join vndB " +
-                  "on CStr(vndB.chvvnda) = rec.doc) " +
-                  "inner join ps " +
-                  "on ps.chvps = vndB.chvps) " +
-                  "where rec.chvbfj=@id";  */
-
-            string Query = "Select rec.chvbfj, rec.chvori, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
-                   "From (( " +
-                   "rec " +
-                   "inner join vndB " +
-                   "on vndB.chvvnda = rec.chvori) " +
-                   "inner join ps " +
-                   "on ps.chvps = vndB.chvps) " +
-                   "where rec.chvbfj=@id";
-
-            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
-
-            cmd.CommandType = CommandType.Text;
-            OleDbParameter pmtID = cmd.CreateParameter();
-            pmtID.ParameterName = "@id";
-            pmtID.DbType = DbType.String;
-            pmtID.Value = _mdlEmpresa.ID;
-            cmd.Parameters.Add(pmtID); 
-
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            DataTable empresas = new DataTable();
-            da.Fill(empresas);
-         //   ConexaoDB.Close();
-            return empresas;
-        }
-
-
         /* public void AtenderChamado()
         {
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -446,9 +405,6 @@ namespace CamadaDados
             conexao.Fechar();
 
         } */
-
-
-
     }
 
 

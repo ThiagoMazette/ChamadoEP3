@@ -16,12 +16,3 @@ C:\Users\Usuario\source\repos\Chamados\CamadaDados\obj\Debug\CamadaDados.pdb
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaDados\obj\Debug\CamadaDados.csproj.CopyComplete
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaDados\obj\Debug\CamadaDados.dll
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaDados\obj\Debug\CamadaDados.pdb
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\bin\Debug\CamadaDados.dll
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\bin\Debug\CamadaDados.pdb
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\bin\Debug\CamadaModelo.dll
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\bin\Debug\CamadaModelo.pdb
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\obj\Debug\CamadaDados.csprojAssemblyReference.cache
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\obj\Debug\CamadaDados.csproj.CoreCompileInputs.cache
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\obj\Debug\CamadaDados.csproj.CopyComplete
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\obj\Debug\CamadaDados.dll
-\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaDados\obj\Debug\CamadaDados.pdb
