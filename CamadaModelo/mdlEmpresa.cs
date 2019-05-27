@@ -19,6 +19,8 @@ namespace CamadaModelos
         public string FiltroAbrirChamado { get; set; }
         public string FiltrotxtProcurar { get; set; }
 
+        public string txtDataBloqueio { get; set; }
+        public string txtAbrirChamadoID { get; set; }
         public string txtEmpresaID { get; set; }
         public string txtEmpresa { get; set; }
         public string cbbTecnico { get; set; }

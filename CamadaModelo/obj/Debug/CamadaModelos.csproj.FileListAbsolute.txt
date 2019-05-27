@@ -10,3 +10,9 @@ C:\Users\Usuario\source\repos\Chamados\CamadaModelo\obj\Debug\CamadaModelo.pdb
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaModelo\obj\Debug\CamadaModelos.csproj.CoreCompileInputs.cache
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaModelo\obj\Debug\CamadaModelo.dll
 \\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\CamadaModelo\obj\Debug\CamadaModelo.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\bin\Debug\CamadaModelo.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\bin\Debug\CamadaModelo.pdb
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\obj\Debug\CamadaModelos.csprojAssemblyReference.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\obj\Debug\CamadaModelos.csproj.CoreCompileInputs.cache
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\obj\Debug\CamadaModelo.dll
+\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados - EPMais\CamadaModelo\obj\Debug\CamadaModelo.pdb
