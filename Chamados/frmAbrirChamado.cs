@@ -36,6 +36,39 @@ namespace Chamados
             txtAbrirChamadoNome.Text = "";
         }
 
+        void DataBloqueio()
+        {
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+            _mdlEmpresa.txtAbrirChamadoID = txtAbrirChamadoID.Text;
+
+            txtDataBloqueio.Text = _ctlEmpresa.DataBloqueio(_mdlEmpresa);
+            if (txtDataBloqueio.Text != "")
+            {
+                string Data = txtDataBloqueio.Text.Substring(0, 10);
+                txtDataBloqueio.Text = Data;
+
+                DateTime dataAtu = DateTime.Now;
+                DateTime dataBloq = Convert.ToDateTime(Data);
+
+                if (dataAtu > dataBloq || dataAtu == dataBloq)
+                {
+                    lblBloqueio.Visible = true;
+                    lblBloqueio.Text = "BLOQUEADA";
+                }
+                else if (dataAtu < dataBloq)
+                {
+                    lblBloqueio.Visible = true;
+                    lblBloqueio.Text = "Data bloqueio Maior que data atual";
+                }
+            }
+            else
+            {
+                lblBloqueio.Visible = false;
+                //lblBloqueio.Text = " Sem Situação ";
+            }
+        }
+
         void Procurar()
         {
            /* string str = txtProcurar.Text;
@@ -49,33 +82,63 @@ namespace Chamados
             _mdlEmpresa.FiltroAbrirChamado = cbbSelecao.Text;
 
             txtProcurar.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; // tira a formatação
-            label1.Text = txtProcurar.Text; //texto não formatado
-            _mdlEmpresa.FiltrotxtProcurar = label1.Text;
+            txtProcurar.Text = txtProcurar.Text; //texto não formatado
+            _mdlEmpresa.FiltrotxtProcurar = txtProcurar.Text;
 
             dgvResultado.DataSource = _ctlEmpresa.PesquisarMDL(_mdlEmpresa);
+
+            if (dgvResultado.Rows.Count != 0)
+            {
+                dgvResultado.CurrentRow.Selected = false;
+            }
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
             Procurar();
+            if(dgvResultado.Rows.Count == 0)
+            {
+                MessageBox.Show( "Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         
         private void dgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (dgvResultado.CurrentRow != null)
             {
                 txtAbrirChamadoNome.Text = dgvResultado.CurrentRow.Cells["nome"].Value.ToString();
                 txtAbrirChamadoID.Text = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
                 txtAbrirChamadoCNPJ.Text = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
-            }
 
-           
+                ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+                mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+                _mdlEmpresa.ID = txtAbrirChamadoID.Text;
+
+                dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
+
+                DataBloqueio();
+                PintarDataGrid();
+                ProcurarTelefones();
+            }
         }
 
-        private void dgvResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        void PintarDataGrid()
         {
+            if (dgvResumo.Rows.Count != 0)
+            {
+                dgvResumo.CurrentRow.Selected = false;
+            }
+            foreach (DataGridViewRow row in dgvResumo.Rows)
+            {
+                //  if (Convert.ToInt32(row.Cells["pschvps"].Value) == 609) *por codigo
 
+                string str;
+                str = Convert.ToString(row.Cells["Dsc"].Value);
+                if (str.Contains("CONTRATO") == true || str.Contains("Contrato") == true)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         void AbrirChamado()
@@ -104,6 +167,11 @@ namespace Chamados
                     bool retornoComp = _ctlEmpresa.AbrirSoChamado(_mdlEmpresa);
                     if (retornoComp)
                     {
+                        if(txtDataBloqueio.Text != "")
+                        {
+                            MessageBox.Show("Empresa Bloqueda !!! ", "BLOQUEADA !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Close();
+                        }
                         MessageBox.Show("Chamado Aberto com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         Close();
                     }
@@ -134,17 +202,25 @@ namespace Chamados
             }
         }
 
+        void ProcurarTelefones()
+        {
+
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+            _mdlEmpresa.ID = txtAbrirChamadoID.Text;
+
+            dgvTelefones.DataSource = _ctlEmpresa.PesquisarTelefones(_mdlEmpresa);
+
+            txtTel1.Text = dgvTelefones.CurrentRow.Cells["tel1"].Value.ToString();
+            txtTel2.Text = dgvTelefones.CurrentRow.Cells["tel2"].Value.ToString();
+            txtTel3.Text = dgvTelefones.CurrentRow.Cells["tel3"].Value.ToString();
+            txtTel4.Text = dgvTelefones.CurrentRow.Cells["tel4"].Value.ToString();
+            txtTel5.Text = dgvTelefones.CurrentRow.Cells["tel5"].Value.ToString();
+        }
+
         private void btnAbrirChamado_Click(object sender, EventArgs e)
         {
             AbrirChamado();
-        }
-
-        private void txtProcurar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (txtProcurar.Text.Length >= 2)
-            {
-                Procurar();
-            }
         }
 
         private void dgvResultado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -152,32 +228,7 @@ namespace Chamados
             AbrirChamado();
         }
 
-        private void txtProcurar_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtProcurar_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txtProcurar_Enter_1(object sender, EventArgs e)
-        {
-            /*
-            if (cbbSelecao.Text == "CNPJ")
-            {
-                txtProcurar.Mask = "00.000.000/0000-00";
-            }
-            else if (cbbSelecao.Text == "Nome")
-            {
-                txtProcurar.Mask = "";
-            }
-            substituido por txtProcurar_KeyPress_1
-            */
-        }
-
-        private void txtProcurar_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtProcurar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbbSelecao.Text == "CNPJ")
             {
@@ -204,6 +255,12 @@ namespace Chamados
                 txtProcurar.MaxLength = 16;
 
             }
+
+            if (txtProcurar.Text.Length >= 2)
+            {
+                Procurar();
+            }
         }
+
     }
 }

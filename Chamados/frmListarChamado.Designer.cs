@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvResultado = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.EmpresaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data_final = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,10 +40,9 @@
             this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAtualizar = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             this.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmpresaID,
+            this.telefone,
             this.chamadoId,
             this.atendimento,
             this.data_final,
@@ -60,6 +63,7 @@
             this.fk_idempresa,
             this.Nome,
             this.fk_idtecnico,
+            this.contato,
             this.resumo,
             this.data});
             this.dgvResultado.Location = new System.Drawing.Point(23, 24);
@@ -71,8 +75,32 @@
             this.dgvResultado.Size = new System.Drawing.Size(468, 394);
             this.dgvResultado.TabIndex = 0;
             this.dgvResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellClick);
-            this.dgvResultado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellContentClick);
-            this.dgvResultado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellContentDoubleClick);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.BackColor = System.Drawing.Color.Blue;
+            this.btnAtualizar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizar.Location = new System.Drawing.Point(497, 24);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(84, 23);
+            this.btnAtualizar.TabIndex = 1;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Blue;
+            this.btnVoltar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnVoltar.ForeColor = System.Drawing.Color.White;
+            this.btnVoltar.Location = new System.Drawing.Point(497, 395);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(84, 23);
+            this.btnVoltar.TabIndex = 2;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // EmpresaID
             // 
@@ -81,6 +109,14 @@
             this.EmpresaID.Name = "EmpresaID";
             this.EmpresaID.ReadOnly = true;
             this.EmpresaID.Visible = false;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            this.telefone.Visible = false;
             // 
             // chamadoId
             // 
@@ -122,6 +158,7 @@
             this.fk_idempresa.Name = "fk_idempresa";
             this.fk_idempresa.ReadOnly = true;
             this.fk_idempresa.Visible = false;
+            this.fk_idempresa.Width = 76;
             // 
             // Nome
             // 
@@ -138,6 +175,14 @@
             this.fk_idtecnico.Name = "fk_idtecnico";
             this.fk_idtecnico.ReadOnly = true;
             this.fk_idtecnico.Visible = false;
+            // 
+            // contato
+            // 
+            this.contato.DataPropertyName = "contato";
+            this.contato.HeaderText = "contato";
+            this.contato.Name = "contato";
+            this.contato.ReadOnly = true;
+            this.contato.Visible = false;
             // 
             // resumo
             // 
@@ -156,32 +201,6 @@
             this.data.ReadOnly = true;
             this.data.Width = 55;
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.Blue;
-            this.btnAtualizar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
-            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(497, 24);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(84, 23);
-            this.btnAtualizar.TabIndex = 1;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = false;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.BackColor = System.Drawing.Color.Blue;
-            this.btnVoltar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
-            this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(497, 395);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(84, 23);
-            this.btnVoltar.TabIndex = 2;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = false;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
             // frmListarChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +214,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListarChamado";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Chamado";
             this.Load += new System.EventHandler(this.frmListarChamado_Load);
@@ -209,6 +230,7 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmpresaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn atendimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn data_final;
@@ -216,6 +238,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idempresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idtecnico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contato;
         private System.Windows.Forms.DataGridViewTextBoxColumn resumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
     }

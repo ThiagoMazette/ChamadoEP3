@@ -40,22 +40,21 @@
             this.txtEmpresaSelecionada = new System.Windows.Forms.TextBox();
             this.btnListarResultado = new System.Windows.Forms.Button();
             this.dgvListarResultado = new System.Windows.Forms.DataGridView();
-            this.NomeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbEmpresa = new System.Windows.Forms.ComboBox();
             this.txtEmpresaID = new System.Windows.Forms.TextBox();
             this.btnLimparEmpresa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcurarEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -92,6 +91,7 @@
             this.txtProcurarEmpresa.Name = "txtProcurarEmpresa";
             this.txtProcurarEmpresa.Size = new System.Drawing.Size(459, 20);
             this.txtProcurarEmpresa.TabIndex = 3;
+            this.txtProcurarEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProcurarEmpresa_KeyPress);
             // 
             // btnProcurarEmpresa
             // 
@@ -124,7 +124,7 @@
             this.dgvProcurarEmpresa.ReadOnly = true;
             this.dgvProcurarEmpresa.RowHeadersVisible = false;
             this.dgvProcurarEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcurarEmpresa.Size = new System.Drawing.Size(459, 125);
+            this.dgvProcurarEmpresa.Size = new System.Drawing.Size(459, 130);
             this.dgvProcurarEmpresa.TabIndex = 5;
             this.dgvProcurarEmpresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcurarEmpresa_CellClick);
             this.dgvProcurarEmpresa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcurarEmpresa_CellContentClick);
@@ -185,110 +185,29 @@
             // dgvListarResultado
             // 
             this.dgvListarResultado.AllowUserToAddRows = false;
+            this.dgvListarResultado.AllowUserToDeleteRows = false;
             this.dgvListarResultado.AllowUserToResizeRows = false;
             this.dgvListarResultado.BackgroundColor = System.Drawing.Color.White;
             this.dgvListarResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListarResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.data,
             this.NomeE,
-            this.aberto,
+            this.resumo,
+            this.contato,
             this.id1,
             this.fk_idempresa,
             this.dataFinal,
             this.fk_idtecnico,
-            this.resumo,
-            this.data,
             this.atendimento,
-            this.telefone1,
-            this.contato});
-            this.dgvListarResultado.Location = new System.Drawing.Point(12, 182);
+            this.telefone1});
+            this.dgvListarResultado.Location = new System.Drawing.Point(12, 188);
             this.dgvListarResultado.MultiSelect = false;
             this.dgvListarResultado.Name = "dgvListarResultado";
+            this.dgvListarResultado.ReadOnly = true;
             this.dgvListarResultado.RowHeadersVisible = false;
-            this.dgvListarResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListarResultado.Size = new System.Drawing.Size(1044, 387);
+            this.dgvListarResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvListarResultado.Size = new System.Drawing.Size(1044, 372);
             this.dgvListarResultado.TabIndex = 6;
-            // 
-            // NomeE
-            // 
-            this.NomeE.DataPropertyName = "nome";
-            this.NomeE.HeaderText = "NomeE";
-            this.NomeE.Name = "NomeE";
-            this.NomeE.Visible = false;
-            // 
-            // aberto
-            // 
-            this.aberto.DataPropertyName = "aberto";
-            this.aberto.HeaderText = "aberto";
-            this.aberto.Name = "aberto";
-            this.aberto.Visible = false;
-            // 
-            // id1
-            // 
-            this.id1.DataPropertyName = "id";
-            this.id1.HeaderText = "id1";
-            this.id1.Name = "id1";
-            this.id1.Visible = false;
-            // 
-            // fk_idempresa
-            // 
-            this.fk_idempresa.DataPropertyName = "fk_idempresa";
-            this.fk_idempresa.HeaderText = "fk_idempresa";
-            this.fk_idempresa.Name = "fk_idempresa";
-            this.fk_idempresa.Visible = false;
-            // 
-            // dataFinal
-            // 
-            this.dataFinal.DataPropertyName = "dataFinal";
-            this.dataFinal.HeaderText = "dataFinal";
-            this.dataFinal.Name = "dataFinal";
-            this.dataFinal.Visible = false;
-            // 
-            // fk_idtecnico
-            // 
-            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
-            this.fk_idtecnico.HeaderText = "Técnico";
-            this.fk_idtecnico.Name = "fk_idtecnico";
-            this.fk_idtecnico.Width = 5;
-            // 
-            // resumo
-            // 
-            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.resumo.DataPropertyName = "resumo";
-            this.resumo.HeaderText = "Resumo";
-            this.resumo.Name = "resumo";
-            // 
-            // data
-            // 
-            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.data.DataPropertyName = "data";
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.Width = 55;
-            // 
-            // atendimento
-            // 
-            this.atendimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.atendimento.DataPropertyName = "atendimento";
-            this.atendimento.HeaderText = "Atendimento";
-            this.atendimento.Name = "atendimento";
-            this.atendimento.Width = 5;
-            // 
-            // telefone1
-            // 
-            this.telefone1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.telefone1.DataPropertyName = "telefone";
-            this.telefone1.HeaderText = "Telefone";
-            this.telefone1.Name = "telefone1";
-            this.telefone1.Width = 74;
-            // 
-            // contato
-            // 
-            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.contato.DataPropertyName = "contato";
-            this.contato.HeaderText = "Contato";
-            this.contato.Name = "contato";
-            this.contato.Width = 69;
             // 
             // cbbEmpresa
             // 
@@ -328,7 +247,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtEmpresaSelecionada);
             this.groupBox1.Controls.Add(this.btnListarResultado);
-            this.groupBox1.Location = new System.Drawing.Point(12, 125);
+            this.groupBox1.Location = new System.Drawing.Point(12, 132);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(573, 50);
             this.groupBox1.TabIndex = 12;
@@ -344,17 +263,101 @@
             this.groupBox2.Controls.Add(this.txtEmpresaID);
             this.groupBox2.Location = new System.Drawing.Point(438, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(618, 173);
+            this.groupBox2.Size = new System.Drawing.Size(618, 180);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Procurar Empresa:";
+            // 
+            // data
+            // 
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "Data/Hora";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.Width = 83;
+            // 
+            // NomeE
+            // 
+            this.NomeE.DataPropertyName = "nome";
+            this.NomeE.HeaderText = "Empresa";
+            this.NomeE.Name = "NomeE";
+            this.NomeE.ReadOnly = true;
+            // 
+            // resumo
+            // 
+            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.resumo.DataPropertyName = "resumo";
+            this.resumo.HeaderText = "Resumo";
+            this.resumo.Name = "resumo";
+            this.resumo.ReadOnly = true;
+            // 
+            // contato
+            // 
+            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.contato.DataPropertyName = "contato";
+            this.contato.HeaderText = "Contato";
+            this.contato.Name = "contato";
+            this.contato.ReadOnly = true;
+            this.contato.Width = 5;
+            // 
+            // id1
+            // 
+            this.id1.DataPropertyName = "id";
+            this.id1.HeaderText = "id1";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            this.id1.Visible = false;
+            // 
+            // fk_idempresa
+            // 
+            this.fk_idempresa.DataPropertyName = "fk_idempresa";
+            this.fk_idempresa.HeaderText = "fk_idempresa";
+            this.fk_idempresa.Name = "fk_idempresa";
+            this.fk_idempresa.ReadOnly = true;
+            this.fk_idempresa.Visible = false;
+            // 
+            // dataFinal
+            // 
+            this.dataFinal.DataPropertyName = "dataFinal";
+            this.dataFinal.HeaderText = "dataFinal";
+            this.dataFinal.Name = "dataFinal";
+            this.dataFinal.ReadOnly = true;
+            this.dataFinal.Visible = false;
+            // 
+            // fk_idtecnico
+            // 
+            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
+            this.fk_idtecnico.HeaderText = "Técnico";
+            this.fk_idtecnico.Name = "fk_idtecnico";
+            this.fk_idtecnico.ReadOnly = true;
+            this.fk_idtecnico.Width = 5;
+            // 
+            // atendimento
+            // 
+            this.atendimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.atendimento.DataPropertyName = "atendimento";
+            this.atendimento.HeaderText = "Atendimento";
+            this.atendimento.Name = "atendimento";
+            this.atendimento.ReadOnly = true;
+            this.atendimento.Width = 5;
+            // 
+            // telefone1
+            // 
+            this.telefone1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.telefone1.DataPropertyName = "telefone";
+            this.telefone1.HeaderText = "Telefone";
+            this.telefone1.Name = "telefone1";
+            this.telefone1.ReadOnly = true;
+            this.telefone1.Width = 74;
             // 
             // frmListagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(1068, 581);
+            this.ClientSize = new System.Drawing.Size(1068, 574);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvListarResultado);
             this.Controls.Add(this.dgvProcurarEmpresa);
@@ -365,6 +368,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListagem";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listagem de Chamados";
             this.Load += new System.EventHandler(this.frmListagem_Load);
@@ -396,18 +401,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cnpj;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aberto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resumo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contato;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idempresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idtecnico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resumo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn atendimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contato;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

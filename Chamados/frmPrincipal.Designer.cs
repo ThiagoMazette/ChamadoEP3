@@ -34,6 +34,8 @@
             this.btnListar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnComoEsta = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAbrirChamado
@@ -77,11 +79,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(139, 169);
+            this.label1.Location = new System.Drawing.Point(240, 174);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Integracao";
+            this.label1.Text = "Integracao 2.6.2";
             // 
             // btnCadastrar
             // 
@@ -96,6 +98,29 @@
             this.btnCadastrar.Visible = false;
             this.btnCadastrar.Click += new System.EventHandler(this.button3_Click);
             // 
+            // btnComoEsta
+            // 
+            this.btnComoEsta.ForeColor = System.Drawing.Color.Silver;
+            this.btnComoEsta.Location = new System.Drawing.Point(12, 538);
+            this.btnComoEsta.Name = "btnComoEsta";
+            this.btnComoEsta.Size = new System.Drawing.Size(133, 23);
+            this.btnComoEsta.TabIndex = 6;
+            this.btnComoEsta.Text = "Como Está?";
+            this.btnComoEsta.UseVisualStyleBackColor = true;
+            this.btnComoEsta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseDown);
+            this.btnComoEsta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseUp);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.ForeColor = System.Drawing.Color.Silver;
+            this.btnAtualizar.Location = new System.Drawing.Point(12, 538);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(133, 23);
+            this.btnAtualizar.TabIndex = 7;
+            this.btnAtualizar.Text = "Deseja Atualizar ?";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,9 +132,11 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnAtenderChamado);
             this.Controls.Add(this.btnAbrirChamado);
+            this.Controls.Add(this.btnComoEsta);
+            this.Controls.Add(this.btnAtualizar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPrincipal";
-            this.Text = "Chamados";
+            this.Text = "Chamados - REP Relogios *Demonstação*  -  Thiago Mazette";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.ResumeLayout(false);
@@ -124,6 +151,8 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnComoEsta;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
 

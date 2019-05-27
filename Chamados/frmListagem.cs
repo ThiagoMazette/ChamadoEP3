@@ -25,7 +25,6 @@ namespace Chamados
             _mdlEmpresa.CNPJ = txtEmpresaSelecionada.Text;
             _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
             dgvListarResultado.DataSource = _ctlEmpresa.ListarChamado(_mdlEmpresa);
-
         }
 
         void EmpresaProcurar()
@@ -36,6 +35,7 @@ namespace Chamados
             _mdlEmpresa.FiltrotxtProcurar = txtProcurarEmpresa.Text;
             dgvProcurarEmpresa.DataSource = _ctlEmpresa.PesquisarMDL(_mdlEmpresa);
         }
+
         private void btnProcurarEmpresa_Click(object sender, EventArgs e)
         {
             EmpresaProcurar();
@@ -45,7 +45,6 @@ namespace Chamados
         {
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-
 
             _mdlEmpresa.FiltrotxtProcurar = txtEmpresaID.Text;
             _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
@@ -66,7 +65,6 @@ namespace Chamados
 
         private void dgvProcurarEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (dgvProcurarEmpresa.CurrentRow != null)
             {
                 txtEmpresaID.Text = dgvProcurarEmpresa.CurrentRow.Cells["id"].Value.ToString();
@@ -84,6 +82,14 @@ namespace Chamados
             txtEmpresaSelecionada.Text = "";
             txtEmpresaID.Text = "";
             txtProcurarEmpresa.Text = "";
+        }
+
+        private void txtProcurarEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtProcurarEmpresa.Text.Length >= 2)
+            {
+                EmpresaProcurar();
+            }
         }
     }
 }

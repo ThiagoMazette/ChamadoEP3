@@ -35,6 +35,11 @@ namespace Chamados
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
             dgvResultado.DataSource = _ctlEmpresa.ListarChamado(_mdlEmpresa);
 
+            if (dgvResultado.Rows.Count != 0)
+            {
+                dgvResultado.CurrentRow.Selected = false;
+            }
+
         }
 
         private void frmListarChamado_Load(object sender, EventArgs e)
@@ -48,23 +53,18 @@ namespace Chamados
             {
                 mdlEmpresa _mdlEmpresa = new mdlEmpresa();
                 frmAtenderChamado frmAC = new frmAtenderChamado();
-                frmAC.txtEmpresaID.Text = dgvResultado.CurrentRow.Cells[5].FormattedValue.ToString();
-                frmAC.txtEmpresa.Text = dgvResultado.CurrentRow.Cells[6].FormattedValue.ToString();
+                frmAC.txtEmpresaID.Text = dgvResultado.CurrentRow.Cells["fk_idempresa"].FormattedValue.ToString();
+                frmAC.txtEmpresa.Text = dgvResultado.CurrentRow.Cells["Nome"].FormattedValue.ToString();
                 frmAC.txtChamadoID.Text = dgvResultado.CurrentRow.Cells["chamadoId"].Value.ToString();
+                frmAC.txtContato.Text = dgvResultado.CurrentRow.Cells["contato"].Value.ToString();
+                frmAC.txtTelefone.Text = dgvResultado.CurrentRow.Cells["telefone"].Value.ToString();
+                frmAC.cbbTecnico.Text = dgvResultado.CurrentRow.Cells["fk_idtecnico"].Value.ToString();
+                frmAC.txtResumo.Text = dgvResultado.CurrentRow.Cells["resumo"].Value.ToString();
+                frmAC.cbbAtendimento.Text = dgvResultado.CurrentRow.Cells["atendimento"].Value.ToString();
 
                 frmAC.ShowDialog();
                 ListarChamado();
             }
-        }
-
-        private void dgvResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-             
-        }
-
-        private void dgvResultado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
