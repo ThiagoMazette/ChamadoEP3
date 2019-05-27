@@ -35,17 +35,19 @@ namespace CamadaDados
             int verif = (int)cmdver.ExecuteScalar();
             if (verif > 0)
             {
+                ConexaoDB.Close();
                 return true;
             }
             else
             {
+                ConexaoDB.Close();
                 return false;
             }
         }
 
         public DataTable PesquisarMDL(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string Query = "select chvbfj, cnpjcpf, rzs from bfj where ";
@@ -73,6 +75,7 @@ namespace CamadaDados
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
             da.Fill(empresas);
+            ConexaoDB.Close();
             return empresas;
         }
 
@@ -199,7 +202,7 @@ namespace CamadaDados
             string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
-            string Query = "select * from tb_chamados where fk_idempresa=@empresaid AND aberto='0' order by dataFinal desc";
+            string Query = "select * from tb_chamados where fk_idempresa=@empresaid AND aberto='0' order by id desc";
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
             cmd.CommandType = CommandType.Text;
@@ -212,6 +215,7 @@ namespace CamadaDados
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
             da.Fill(empresas);
+            ConexaoDB.Close();
             return empresas;
 
         }
@@ -297,14 +301,7 @@ namespace CamadaDados
             OleDbConnection BancoA = new OleDbConnection(ConexaoA);
             BancoA.Open();
 
-          //  string Query = "SELECT * FROM tb_chamados where aberto='1'";
-            //              string Query = "SELECT chvbfj, cnpjcpf, rzs FROM bfj IN '//REP_SERVER/publica/Dropbox/Thiago/Meus Documentos/Visual Studio 2017/Chamados/Chamados/bin/Debug/EP3.mdb' where chvbfj < 20";
-            //         string Query = "select bfj.chvbfj, bfj.rzs, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id " +
-            //                       "FROM bfj IN '//REP_SERVER/publica/Dropbox/Thiago/Meus Documentos/Visual Studio 2017/Chamados/Chamados/bin/Debug/EP3.mdb'" +
-            //                      " inner join tb_chamados " +
-            //                     "on tb_chamados.fk_idempresa = bfj.chvbfj"; // where tb_chamados.aberto = '1' order by tb_chamados.id desc";
-       
-         string Query = "select tb_empresas.id, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id " +
+            string Query = "select tb_empresas.id, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
                         "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' order by tb_chamados.id desc";
@@ -317,7 +314,6 @@ namespace CamadaDados
             da.Fill(lista);
             BancoA.Close();
             return lista;
-
         }
 
         public DataTable ListagemResultado(CamadaModelos.mdlEmpresa _mdlEmpresa)
@@ -325,7 +321,11 @@ namespace CamadaDados
             string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
-            string Query = "select * from tb_chamados ";
+            //ok string Query = "select * from tb_chamados ";
+            string Query = "SELECT tb_chamados.data, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato " +
+                "FROM tb_chamados " +
+                "INNER JOIN tb_empresas " +
+                "ON tb_chamados.fk_idempresa = tb_empresas.id ";
 
             if (_mdlEmpresa.FiltrotxtProcurar == "" && _mdlEmpresa.cbbTecnico != "Todos")
             {
@@ -342,6 +342,7 @@ namespace CamadaDados
                 OleDbDataAdapter daT = new OleDbDataAdapter(cmdT);
                 DataTable empresasT = new DataTable();
                 daT.Fill(empresasT);
+                ConexaoDB.Close();
                 return empresasT;
             }
             else if (_mdlEmpresa.FiltrotxtProcurar == "" && _mdlEmpresa.cbbTecnico == "Todos")
@@ -350,12 +351,12 @@ namespace CamadaDados
             }
             else if (_mdlEmpresa.cbbTecnico == "Todos")
             {
-
-        /*        Query = "select * " +
+ 
+              /*        Query = "select * " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
                         "on tb_chamados.fk_idempresa = tb_empresas.id where fk_idempresa=@EmpresaSelecionada";
-    Aparccer nome */
+             Aparccer nome */
                 Query += "where fk_idempresa=@EmpresaSelecionada";
             }
 
@@ -364,7 +365,7 @@ namespace CamadaDados
                 Query += "where fk_idempresa=@EmpresaSelecionada AND fk_idtecnico=@tecnico";
             }
 
-            Query += " order by data desc";
+            Query += " order by tb_chamados.id desc";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
@@ -383,8 +384,182 @@ namespace CamadaDados
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
             da.Fill(empresas);
+            ConexaoDB.Close();
             return empresas;
         }
+
+        public DataTable PesquisaResumo(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+            
+            string Query = "Select rec.chvbfj, rec.chvori, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
+                   "From (( " +
+                   "rec " +
+                   "inner join vndB " +
+                   "on vndB.chvvnda = rec.chvori) " +
+                   "inner join ps " +
+                   "on ps.chvps = vndB.chvps) " +
+                   "where rec.chvbfj=@id order by ps.Dsc";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID); 
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable empresas = new DataTable();
+            da.Fill(empresas);
+            ConexaoDB.Close();
+            return empresas;
+        }
+
+        public bool SalvarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "update tb_chamados " +
+                "set " +
+                "fk_idtecnico=@tec, " +
+                "atendimento=@atendimento, " +
+                "resumo=@resumo, " +
+                "telefone=@telefone, " +
+                "contato=@contato " +
+                "where id = @id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            cmd.CommandType = CommandType.Text;
+
+            var pmttec = cmd.CreateParameter();
+            pmttec.ParameterName = "@tec";
+            pmttec.DbType = DbType.String;
+            pmttec.Value = _mdlEmpresa.cbbTecnico;
+            cmd.Parameters.Add(pmttec);
+
+            var pmtAtendimento = cmd.CreateParameter();
+            pmtAtendimento.ParameterName = "@atendimento";
+            pmtAtendimento.DbType = DbType.String;
+            pmtAtendimento.Value = _mdlEmpresa.Atendimento;
+            cmd.Parameters.Add(pmtAtendimento);
+
+            var pmtResumo = cmd.CreateParameter();
+            pmtResumo.ParameterName = "@resumo";
+            pmtResumo.DbType = DbType.String;
+            pmtResumo.Value = _mdlEmpresa.Resumo;
+            cmd.Parameters.Add(pmtResumo);
+
+            var pmtTelefone = cmd.CreateParameter();
+            pmtTelefone.ParameterName = "@telefone";
+            pmtTelefone.DbType = DbType.String;
+            pmtTelefone.Value = _mdlEmpresa.Telefone;
+            cmd.Parameters.Add(pmtTelefone);
+
+            var pmtContato = cmd.CreateParameter();
+            pmtContato.ParameterName = "@contato";
+            pmtContato.DbType = DbType.String;
+            pmtContato.Value = _mdlEmpresa.Contato;
+            cmd.Parameters.Add(pmtContato);
+
+            var pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            cmd.ExecuteNonQuery();
+            int resultado = cmd.ExecuteNonQuery();
+            ConexaoDB.Close();
+            return resultado > 0;
+        }
+
+        public string DataBloqueio(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "Select Dt_Bloq from cli where chvbfj=@id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.txtAbrirChamadoID;
+            cmd.Parameters.Add(pmtID);
+
+            OleDbDataReader myReader = cmd.ExecuteReader();
+            while (myReader.Read())
+            {
+                return myReader["Dt_Bloq"].ToString();
+            }
+            ConexaoDB.Close();
+            return string.Empty;
+
+            /* 1 DataSet ds = new DataSet();
+             if (da.Fill(ds) != 0)
+             {
+                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                 {
+                     _mdlEmpresa.txtDataBloqueio = ds.Tables[0].Rows[i]["Dt_Bloq"].ToString();
+                 }
+             }
+
+             return _mdlEmpresa.txtDataBloqueio; 1 */
+        }
+
+        public DataTable PesquisarTelefones(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "SELECT tel1, tel2, tel3, tel4, tel5 FROM ende WHERE chvbfj=@id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable telefones = new DataTable();
+            da.Fill(telefones);
+            ConexaoDB.Close();
+            return telefones;
+        }
+
+        /* TESTE public DataTable ListagemResultadoTESTE(CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+            //  string Query = "select * from tb_chamados ";
+            // ok string Query = "select tb_empresas.nome, tb_empresas.id, tb_chamados.fk_idempresa, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.data, tb_chamados.dataFinal, tb_chamados.telefone, tb_chamados.contato from tb_chamados inner join tb_empresas on tb_chamados.fk_idempresa=tb_empresas.id";
+            string Query = "select tb_chamados.data, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato from tb_chamados inner join tb_empresas on tb_chamados.fk_idempresa=tb_empresas.id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable empresas = new DataTable();
+            da.Fill(empresas);
+            ConexaoDB.Close();
+            return empresas;
+        } */
+
+
+
 
         /* public void AtenderChamado()
         {
@@ -405,6 +580,9 @@ namespace CamadaDados
             conexao.Fechar();
 
         } */
+
+
+
     }
 
 
