@@ -42,7 +42,7 @@ namespace Chamados
         {
             string fileName = "EP3.MDB";
             string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
-            string targetPath = @"\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug";
+            string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug";
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
 
@@ -66,7 +66,7 @@ namespace Chamados
         {
             string fileName = "EP3.MDB";
             string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
-            string targetPath = @"\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp";
+            string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp";
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
 
@@ -87,8 +87,8 @@ namespace Chamados
 
             byte[] ByteArray1 = null;
             byte[] ByteArray2 = null;
-            string File1 = @"\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.MDB";
-            string File2 = @"\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.MDB";
+            string File1 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.MDB";
+            string File2 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.MDB";
 
             ByteArray1 = File.ReadAllBytes(File1);
             ByteArray2 = File.ReadAllBytes(File2);
@@ -137,6 +137,11 @@ namespace Chamados
         private void btnComoEsta_MouseDown(object sender, MouseEventArgs e)
         {
             btnComoEsta.Text = " Aguarde ...";
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

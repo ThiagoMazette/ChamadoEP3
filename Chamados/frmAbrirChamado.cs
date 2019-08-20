@@ -115,6 +115,7 @@ namespace Chamados
                 _mdlEmpresa.ID = txtAbrirChamadoID.Text;
 
                 dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
+                dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
 
                 DataBloqueio();
                 PintarDataGrid();
@@ -204,18 +205,20 @@ namespace Chamados
 
         void ProcurarTelefones()
         {
-
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
             _mdlEmpresa.ID = txtAbrirChamadoID.Text;
 
             dgvTelefones.DataSource = _ctlEmpresa.PesquisarTelefones(_mdlEmpresa);
 
-            txtTel1.Text = dgvTelefones.CurrentRow.Cells["tel1"].Value.ToString();
-            txtTel2.Text = dgvTelefones.CurrentRow.Cells["tel2"].Value.ToString();
-            txtTel3.Text = dgvTelefones.CurrentRow.Cells["tel3"].Value.ToString();
-            txtTel4.Text = dgvTelefones.CurrentRow.Cells["tel4"].Value.ToString();
-            txtTel5.Text = dgvTelefones.CurrentRow.Cells["tel5"].Value.ToString();
+            if (dgvTelefones.Rows.Count > 0)
+            {
+                txtTel1.Text = dgvTelefones.CurrentRow.Cells["tel1"].Value.ToString();
+                txtTel2.Text = dgvTelefones.CurrentRow.Cells["tel2"].Value.ToString();
+                txtTel3.Text = dgvTelefones.CurrentRow.Cells["tel3"].Value.ToString();
+                txtTel4.Text = dgvTelefones.CurrentRow.Cells["tel4"].Value.ToString();
+                txtTel5.Text = dgvTelefones.CurrentRow.Cells["tel5"].Value.ToString();
+            }
         }
 
         private void btnAbrirChamado_Click(object sender, EventArgs e)
@@ -228,7 +231,7 @@ namespace Chamados
             AbrirChamado();
         }
 
-        private void txtProcurar_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtProcurar_KeyUp(object sender, KeyEventArgs e)
         {
             if (cbbSelecao.Text == "CNPJ")
             {
@@ -261,6 +264,5 @@ namespace Chamados
                 Procurar();
             }
         }
-
     }
 }

@@ -60,19 +60,24 @@
             this.txtTel5 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvFollowUP = new System.Windows.Forms.DataGridView();
+            this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFollowUP)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProcurar
             // 
             this.btnProcurar.BackColor = System.Drawing.Color.Blue;
-            this.btnProcurar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnProcurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnProcurar.ForeColor = System.Drawing.Color.White;
-            this.btnProcurar.Location = new System.Drawing.Point(511, 10);
+            this.btnProcurar.Location = new System.Drawing.Point(643, 8);
             this.btnProcurar.Name = "btnProcurar";
             this.btnProcurar.Size = new System.Drawing.Size(85, 23);
             this.btnProcurar.TabIndex = 3;
@@ -112,7 +117,7 @@
             this.dgvResultado.RowHeadersVisible = false;
             this.dgvResultado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultado.Size = new System.Drawing.Size(665, 285);
+            this.dgvResultado.Size = new System.Drawing.Size(797, 285);
             this.dgvResultado.TabIndex = 6;
             this.dgvResultado.TabStop = false;
             this.dgvResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellClick);
@@ -146,9 +151,9 @@
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.Blue;
-            this.btnLimpar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(602, 10);
+            this.btnLimpar.Location = new System.Drawing.Point(734, 8);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 4;
@@ -159,9 +164,9 @@
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.Blue;
-            this.btnVoltar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(569, 558);
+            this.btnVoltar.Location = new System.Drawing.Point(701, 555);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(108, 23);
             this.btnVoltar.TabIndex = 6;
@@ -174,7 +179,7 @@
             this.txtAbrirChamadoNome.Location = new System.Drawing.Point(15, 356);
             this.txtAbrirChamadoNome.Name = "txtAbrirChamadoNome";
             this.txtAbrirChamadoNome.ReadOnly = true;
-            this.txtAbrirChamadoNome.Size = new System.Drawing.Size(435, 20);
+            this.txtAbrirChamadoNome.Size = new System.Drawing.Size(443, 20);
             this.txtAbrirChamadoNome.TabIndex = 4;
             this.txtAbrirChamadoNome.TabStop = false;
             // 
@@ -190,11 +195,11 @@
             // btnAbrirChamado
             // 
             this.btnAbrirChamado.BackColor = System.Drawing.Color.Blue;
-            this.btnAbrirChamado.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnAbrirChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAbrirChamado.ForeColor = System.Drawing.Color.White;
-            this.btnAbrirChamado.Location = new System.Drawing.Point(569, 521);
+            this.btnAbrirChamado.Location = new System.Drawing.Point(701, 490);
             this.btnAbrirChamado.Name = "btnAbrirChamado";
-            this.btnAbrirChamado.Size = new System.Drawing.Size(108, 23);
+            this.btnAbrirChamado.Size = new System.Drawing.Size(108, 49);
             this.btnAbrirChamado.TabIndex = 5;
             this.btnAbrirChamado.Text = "Abrir Chamado";
             this.btnAbrirChamado.UseVisualStyleBackColor = false;
@@ -223,9 +228,9 @@
             this.txtProcurar.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtProcurar.Location = new System.Drawing.Point(87, 11);
             this.txtProcurar.Name = "txtProcurar";
-            this.txtProcurar.Size = new System.Drawing.Size(418, 20);
+            this.txtProcurar.Size = new System.Drawing.Size(550, 20);
             this.txtProcurar.TabIndex = 2;
-            this.txtProcurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProcurar_KeyPress);
+            this.txtProcurar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtProcurar_KeyUp);
             // 
             // dgvResumo
             // 
@@ -251,7 +256,7 @@
             this.dgvResumo.RowHeadersVisible = false;
             this.dgvResumo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResumo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumo.Size = new System.Drawing.Size(538, 196);
+            this.dgvResumo.Size = new System.Drawing.Size(302, 196);
             this.dgvResumo.TabIndex = 15;
             this.dgvResumo.TabStop = false;
             // 
@@ -339,7 +344,7 @@
             this.dgvTelefones.AllowUserToDeleteRows = false;
             this.dgvTelefones.AllowUserToResizeRows = false;
             this.dgvTelefones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTelefones.Location = new System.Drawing.Point(445, 406);
+            this.dgvTelefones.Location = new System.Drawing.Point(445, 403);
             this.dgvTelefones.MultiSelect = false;
             this.dgvTelefones.Name = "dgvTelefones";
             this.dgvTelefones.ReadOnly = true;
@@ -402,7 +407,7 @@
             this.groupBox1.Controls.Add(this.txtTel1);
             this.groupBox1.Controls.Add(this.txtTel4);
             this.groupBox1.Controls.Add(this.txtTel2);
-            this.groupBox1.Location = new System.Drawing.Point(559, 385);
+            this.groupBox1.Location = new System.Drawing.Point(691, 337);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(118, 128);
             this.groupBox1.TabIndex = 27;
@@ -413,19 +418,69 @@
             // 
             this.groupBox2.Controls.Add(this.txtDataBloqueio);
             this.groupBox2.Controls.Add(this.lblBloqueio);
-            this.groupBox2.Location = new System.Drawing.Point(456, 337);
+            this.groupBox2.Location = new System.Drawing.Point(464, 337);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(221, 45);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Bloqueio:";
             // 
+            // dgvFollowUP
+            // 
+            this.dgvFollowUP.AllowDrop = true;
+            this.dgvFollowUP.AllowUserToAddRows = false;
+            this.dgvFollowUP.AllowUserToDeleteRows = false;
+            this.dgvFollowUP.AllowUserToResizeRows = false;
+            this.dgvFollowUP.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFollowUP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFollowUP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chvent,
+            this.Dt_fwu,
+            this.M_desc});
+            this.dgvFollowUP.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.dgvFollowUP.Location = new System.Drawing.Point(323, 385);
+            this.dgvFollowUP.MultiSelect = false;
+            this.dgvFollowUP.Name = "dgvFollowUP";
+            this.dgvFollowUP.ReadOnly = true;
+            this.dgvFollowUP.RowHeadersVisible = false;
+            this.dgvFollowUP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvFollowUP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFollowUP.Size = new System.Drawing.Size(362, 196);
+            this.dgvFollowUP.TabIndex = 29;
+            this.dgvFollowUP.TabStop = false;
+            // 
+            // chvent
+            // 
+            this.chvent.DataPropertyName = "chvent";
+            this.chvent.HeaderText = "chvent";
+            this.chvent.Name = "chvent";
+            this.chvent.ReadOnly = true;
+            this.chvent.Visible = false;
+            // 
+            // Dt_fwu
+            // 
+            this.Dt_fwu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Dt_fwu.DataPropertyName = "Dt_fwu";
+            this.Dt_fwu.HeaderText = "Data";
+            this.Dt_fwu.Name = "Dt_fwu";
+            this.Dt_fwu.ReadOnly = true;
+            this.Dt_fwu.Width = 55;
+            // 
+            // M_desc
+            // 
+            this.M_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_desc.DataPropertyName = "M_desc";
+            this.M_desc.HeaderText = "Follow-UP";
+            this.M_desc.Name = "M_desc";
+            this.M_desc.ReadOnly = true;
+            // 
             // frmAbrirChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(689, 596);
+            this.ClientSize = new System.Drawing.Size(821, 596);
+            this.Controls.Add(this.dgvFollowUP);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvResumo);
@@ -457,6 +512,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFollowUP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,5 +552,9 @@
         private System.Windows.Forms.TextBox txtTel5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvFollowUP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chvent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dt_fwu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_desc;
     }
 }
