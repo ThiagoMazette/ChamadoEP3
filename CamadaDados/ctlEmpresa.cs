@@ -19,7 +19,7 @@ namespace CamadaDados
 
         public static bool VerificarDuplicidade(string CNPJ)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string qexiste = "select count(1) from tb_empresas where CNPJ = @CNPJ";
@@ -47,7 +47,7 @@ namespace CamadaDados
 
         public DataTable PesquisarMDL(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string Query = "select chvbfj, cnpjcpf, rzs from bfj where ";
@@ -81,7 +81,7 @@ namespace CamadaDados
 
         public bool AbrirSoChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -123,7 +123,7 @@ namespace CamadaDados
 
         public bool AbrirChamadoCompleto(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -159,7 +159,7 @@ namespace CamadaDados
                 ConexaoDB.Close();
             }
 
-            string ConexaoAccess1 = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess1 = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB1 = new OleDbConnection(ConexaoAccess1);
             ConexaoDB1.Open();
             string Query1 = "insert into tb_empresas(id, cnpj, nome) values(@id, @cnpj, @nome);";
@@ -199,7 +199,7 @@ namespace CamadaDados
 
         public DataTable CarregarOutrosChamados(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string Query = "select * from tb_chamados where fk_idempresa=@empresaid AND aberto='0' order by id desc";
@@ -222,7 +222,7 @@ namespace CamadaDados
 
         public bool FinalizarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -297,7 +297,7 @@ namespace CamadaDados
 
         public DataTable ListarChamado(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoA = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoA = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection BancoA = new OleDbConnection(ConexaoA);
             BancoA.Open();
 
@@ -318,7 +318,7 @@ namespace CamadaDados
 
         public DataTable ListagemResultado(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             //ok string Query = "select * from tb_chamados ";
@@ -390,7 +390,7 @@ namespace CamadaDados
 
         public DataTable PesquisaResumo(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             
@@ -419,9 +419,36 @@ namespace CamadaDados
             return empresas;
         }
 
+        public DataTable PesquisaFollowUP(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "Select chvent, M_desc, Dt_fwu " +
+                   "From fwu " +
+                   "where chvent=@id order by Dt_fwu";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable empresas = new DataTable();
+            da.Fill(empresas);
+            ConexaoDB.Close();
+            return empresas;
+        }
+
+
         public bool SalvarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -481,7 +508,7 @@ namespace CamadaDados
 
         public string DataBloqueio(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -518,7 +545,7 @@ namespace CamadaDados
 
         public DataTable PesquisarTelefones(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
@@ -542,7 +569,7 @@ namespace CamadaDados
 
         /* TESTE public DataTable ListagemResultadoTESTE(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             //  string Query = "select * from tb_chamados ";
