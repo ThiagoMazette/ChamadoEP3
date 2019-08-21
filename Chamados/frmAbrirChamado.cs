@@ -117,6 +117,11 @@ namespace Chamados
                 dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
                 dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
 
+		if (dgvFollowUP.Rows.Count != 0)
+	        {
+      	          dgvFollowUP.CurrentRow.Selected = false;
+        	}
+
                 DataBloqueio();
                 PintarDataGrid();
                 ProcurarTelefones();
@@ -264,5 +269,6 @@ namespace Chamados
                 Procurar();
             }
         }
+
     }
 }
