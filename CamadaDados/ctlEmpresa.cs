@@ -393,15 +393,15 @@ namespace CamadaDados
             string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
-            
-            string Query = "Select rec.chvbfj, rec.chvori, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
+
+            string Query = "Select rec.chvbfj, rec.chvori, rec.dt_dem, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
                    "From (( " +
                    "rec " +
                    "inner join vndB " +
                    "on vndB.chvvnda = rec.chvori) " +
                    "inner join ps " +
                    "on ps.chvps = vndB.chvps) " +
-                   "where rec.chvbfj=@id order by ps.Dsc";
+                   "where rec.chvbfj=@id order by rec.dt_dem desc"; // ps.Dsc";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
@@ -427,7 +427,7 @@ namespace CamadaDados
 
             string Query = "Select chvent, M_desc, Dt_fwu " +
                    "From fwu " +
-                   "where chvent=@id order by Dt_fwu";
+                   "where chvent=@id order by Dt_fwu desc";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
