@@ -108,7 +108,7 @@ namespace Chamados
                 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-          //  Atualizar();
+            Atualizar();
         }
 
         private void btnListar_Click(object sender, EventArgs e)

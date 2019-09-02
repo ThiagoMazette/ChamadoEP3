@@ -43,6 +43,14 @@
             this.txtAbrirChamadoCNPJ = new System.Windows.Forms.TextBox();
             this.txtProcurar = new System.Windows.Forms.MaskedTextBox();
             this.dgvResumo = new System.Windows.Forms.DataGridView();
+            this.dt_dem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rec_chvbfj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chvori = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndBchvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDataBloqueio = new System.Windows.Forms.TextBox();
             this.lblBloqueio = new System.Windows.Forms.Label();
             this.dgvTelefones = new System.Windows.Forms.DataGridView();
@@ -57,14 +65,6 @@
             this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.M_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dt_dem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rec_chvbfj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chvori = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndBchvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
@@ -118,7 +118,7 @@
             this.dgvResultado.RowHeadersVisible = false;
             this.dgvResultado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultado.Size = new System.Drawing.Size(797, 153);
+            this.dgvResultado.Size = new System.Drawing.Size(797, 156);
             this.dgvResultado.TabIndex = 6;
             this.dgvResultado.TabStop = false;
             this.dgvResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellClick);
@@ -261,6 +261,71 @@
             this.dgvResumo.Size = new System.Drawing.Size(302, 196);
             this.dgvResumo.TabIndex = 15;
             this.dgvResumo.TabStop = false;
+            // 
+            // dt_dem
+            // 
+            this.dt_dem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dt_dem.DataPropertyName = "dt_dem";
+            this.dt_dem.HeaderText = "Data";
+            this.dt_dem.Name = "dt_dem";
+            this.dt_dem.ReadOnly = true;
+            this.dt_dem.Width = 55;
+            // 
+            // rec_chvbfj
+            // 
+            this.rec_chvbfj.DataPropertyName = "chvbfj";
+            this.rec_chvbfj.HeaderText = "rec.chvbfj";
+            this.rec_chvbfj.Name = "rec_chvbfj";
+            this.rec_chvbfj.ReadOnly = true;
+            this.rec_chvbfj.Visible = false;
+            // 
+            // chvori
+            // 
+            this.chvori.DataPropertyName = "chvori";
+            this.chvori.HeaderText = "chvori";
+            this.chvori.Name = "chvori";
+            this.chvori.ReadOnly = true;
+            this.chvori.Visible = false;
+            // 
+            // doc
+            // 
+            this.doc.DataPropertyName = "doc";
+            this.doc.HeaderText = "doc";
+            this.doc.Name = "doc";
+            this.doc.ReadOnly = true;
+            this.doc.Visible = false;
+            // 
+            // vndBchvvnda
+            // 
+            this.vndBchvvnda.DataPropertyName = "chvvnda";
+            this.vndBchvvnda.HeaderText = "chvvnda";
+            this.vndBchvvnda.Name = "vndBchvvnda";
+            this.vndBchvvnda.ReadOnly = true;
+            this.vndBchvvnda.Visible = false;
+            // 
+            // vndBchvps
+            // 
+            this.vndBchvps.DataPropertyName = "vndB.chvps";
+            this.vndBchvps.HeaderText = "vndB.chvps";
+            this.vndBchvps.Name = "vndBchvps";
+            this.vndBchvps.ReadOnly = true;
+            this.vndBchvps.Visible = false;
+            // 
+            // pschvps
+            // 
+            this.pschvps.DataPropertyName = "ps.chvps";
+            this.pschvps.HeaderText = "ps.chvps";
+            this.pschvps.Name = "pschvps";
+            this.pschvps.ReadOnly = true;
+            this.pschvps.Visible = false;
+            // 
+            // Dsc
+            // 
+            this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dsc.DataPropertyName = "Dsc";
+            this.Dsc.HeaderText = "Descrição";
+            this.Dsc.Name = "Dsc";
+            this.Dsc.ReadOnly = true;
             // 
             // txtDataBloqueio
             // 
@@ -419,71 +484,6 @@
             this.M_desc.HeaderText = "Follow-UP";
             this.M_desc.Name = "M_desc";
             this.M_desc.ReadOnly = true;
-            // 
-            // dt_dem
-            // 
-            this.dt_dem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dt_dem.DataPropertyName = "dt_dem";
-            this.dt_dem.HeaderText = "Data";
-            this.dt_dem.Name = "dt_dem";
-            this.dt_dem.ReadOnly = true;
-            this.dt_dem.Width = 55;
-            // 
-            // rec_chvbfj
-            // 
-            this.rec_chvbfj.DataPropertyName = "chvbfj";
-            this.rec_chvbfj.HeaderText = "rec.chvbfj";
-            this.rec_chvbfj.Name = "rec_chvbfj";
-            this.rec_chvbfj.ReadOnly = true;
-            this.rec_chvbfj.Visible = false;
-            // 
-            // chvori
-            // 
-            this.chvori.DataPropertyName = "chvori";
-            this.chvori.HeaderText = "chvori";
-            this.chvori.Name = "chvori";
-            this.chvori.ReadOnly = true;
-            this.chvori.Visible = false;
-            // 
-            // doc
-            // 
-            this.doc.DataPropertyName = "doc";
-            this.doc.HeaderText = "doc";
-            this.doc.Name = "doc";
-            this.doc.ReadOnly = true;
-            this.doc.Visible = false;
-            // 
-            // vndBchvvnda
-            // 
-            this.vndBchvvnda.DataPropertyName = "chvvnda";
-            this.vndBchvvnda.HeaderText = "chvvnda";
-            this.vndBchvvnda.Name = "vndBchvvnda";
-            this.vndBchvvnda.ReadOnly = true;
-            this.vndBchvvnda.Visible = false;
-            // 
-            // vndBchvps
-            // 
-            this.vndBchvps.DataPropertyName = "vndB.chvps";
-            this.vndBchvps.HeaderText = "vndB.chvps";
-            this.vndBchvps.Name = "vndBchvps";
-            this.vndBchvps.ReadOnly = true;
-            this.vndBchvps.Visible = false;
-            // 
-            // pschvps
-            // 
-            this.pschvps.DataPropertyName = "ps.chvps";
-            this.pschvps.HeaderText = "ps.chvps";
-            this.pschvps.Name = "pschvps";
-            this.pschvps.ReadOnly = true;
-            this.pschvps.Visible = false;
-            // 
-            // Dsc
-            // 
-            this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dsc.DataPropertyName = "Dsc";
-            this.Dsc.HeaderText = "Descrição";
-            this.Dsc.Name = "Dsc";
-            this.Dsc.ReadOnly = true;
             // 
             // frmAbrirChamado
             // 

@@ -140,10 +140,17 @@ namespace Chamados
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            if (dgvListarResultado.RowCount >0)
+            {
 
-            DGVPrinter printer = new DGVPrinter();
-            printDocument.DefaultPageSettings.Landscape = true;
-            printer.PrintDataGridView(dgvListarResultado);
+                DGVPrinter printer = new DGVPrinter();
+                printDocument.DefaultPageSettings.Landscape = true;
+                printer.PrintDataGridView(dgvListarResultado);
+            }
+            else
+            {
+                MessageBox.Show("Nada para Imprimir!!", "Nenhuma Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
