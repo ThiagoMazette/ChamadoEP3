@@ -108,7 +108,7 @@ namespace Chamados
                 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            Atualizar();
+          //  Atualizar();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
@@ -131,17 +131,11 @@ namespace Chamados
             {
                 Comparar();
             }
-            
         }
 
         private void btnComoEsta_MouseDown(object sender, MouseEventArgs e)
         {
             btnComoEsta.Text = " Aguarde ...";
-        }
-
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

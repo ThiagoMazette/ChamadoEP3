@@ -63,12 +63,13 @@
             this.lblBloqueio = new System.Windows.Forms.Label();
             this.lblDataBloqueio = new System.Windows.Forms.Label();
             this.dgvDsc = new System.Windows.Forms.DataGridView();
+            this.dt_dem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chvbfj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chvori = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutrosAtendimentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDsc)).BeginInit();
             this.SuspendLayout();
@@ -266,7 +267,7 @@
             // btnFinalizar
             // 
             this.btnFinalizar.BackColor = System.Drawing.Color.Blue;
-            this.btnFinalizar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnFinalizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnFinalizar.Location = new System.Drawing.Point(711, 40);
             this.btnFinalizar.Name = "btnFinalizar";
@@ -279,7 +280,7 @@
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.Blue;
-            this.btnSair.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(792, 40);
             this.btnSair.Name = "btnSair";
@@ -343,7 +344,7 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Blue;
-            this.btnSalvar.Font = new System.Drawing.Font("Copperplate Gothic Light", 8.25F);
+            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Location = new System.Drawing.Point(792, 11);
             this.btnSalvar.Name = "btnSalvar";
@@ -364,12 +365,12 @@
             // lblBloqueio
             // 
             this.lblBloqueio.AutoSize = true;
-            this.lblBloqueio.Font = new System.Drawing.Font("Miriam CLM", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblBloqueio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblBloqueio.ForeColor = System.Drawing.Color.Red;
             this.lblBloqueio.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.lblBloqueio.Location = new System.Drawing.Point(661, 14);
             this.lblBloqueio.Name = "lblBloqueio";
-            this.lblBloqueio.Size = new System.Drawing.Size(100, 17);
+            this.lblBloqueio.Size = new System.Drawing.Size(129, 20);
             this.lblBloqueio.TabIndex = 16;
             this.lblBloqueio.Text = "BLOQUEADA !";
             this.lblBloqueio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -386,7 +387,6 @@
             // 
             // dgvDsc
             // 
-            this.dgvDsc.AllowDrop = true;
             this.dgvDsc.AllowUserToAddRows = false;
             this.dgvDsc.AllowUserToDeleteRows = false;
             this.dgvDsc.AllowUserToResizeRows = false;
@@ -396,12 +396,13 @@
             this.dgvDsc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDsc.ColumnHeadersVisible = false;
             this.dgvDsc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dt_dem,
+            this.Dsc,
             this.chvbfj,
             this.chvori,
             this.chvvnda,
             this.vndBchvps,
-            this.pschvps,
-            this.Dsc});
+            this.pschvps});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -410,8 +411,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDsc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDsc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.dgvDsc.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.dgvDsc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvDsc.Location = new System.Drawing.Point(664, 70);
             this.dgvDsc.MultiSelect = false;
             this.dgvDsc.Name = "dgvDsc";
@@ -425,10 +425,26 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDsc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDsc.RowHeadersVisible = false;
-            this.dgvDsc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDsc.Size = new System.Drawing.Size(203, 114);
             this.dgvDsc.TabIndex = 18;
             this.dgvDsc.TabStop = false;
+            // 
+            // dt_dem
+            // 
+            this.dt_dem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dt_dem.DataPropertyName = "dt_dem";
+            this.dt_dem.HeaderText = "Data";
+            this.dt_dem.Name = "dt_dem";
+            this.dt_dem.ReadOnly = true;
+            this.dt_dem.Width = 5;
+            // 
+            // Dsc
+            // 
+            this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dsc.DataPropertyName = "Dsc";
+            this.Dsc.HeaderText = "Descrição";
+            this.Dsc.Name = "Dsc";
+            this.Dsc.ReadOnly = true;
             // 
             // chvbfj
             // 
@@ -469,14 +485,6 @@
             this.pschvps.Name = "pschvps";
             this.pschvps.ReadOnly = true;
             this.pschvps.Visible = false;
-            // 
-            // Dsc
-            // 
-            this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dsc.DataPropertyName = "Dsc";
-            this.Dsc.HeaderText = "Descrição";
-            this.Dsc.Name = "Dsc";
-            this.Dsc.ReadOnly = true;
             // 
             // frmAtenderChamado
             // 
@@ -554,11 +562,12 @@
         private System.Windows.Forms.Label lblBloqueio;
         private System.Windows.Forms.Label lblDataBloqueio;
         private System.Windows.Forms.DataGridView dgvDsc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dt_dem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvbfj;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvori;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvvnda;
         private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvps;
         private System.Windows.Forms.DataGridViewTextBoxColumn pschvps;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dsc;
     }
 }
