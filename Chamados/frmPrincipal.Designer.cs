@@ -79,11 +79,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(123, 146);
+            this.label1.Location = new System.Drawing.Point(12, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Integracao 2.8.2";
+            this.label1.Text = "Integracao 2.8.7";
             // 
             // btnCadastrar
             // 
@@ -107,6 +107,7 @@
             this.btnComoEsta.TabIndex = 6;
             this.btnComoEsta.Text = "Como Está?";
             this.btnComoEsta.UseVisualStyleBackColor = true;
+            this.btnComoEsta.Visible = false;
             this.btnComoEsta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseDown);
             this.btnComoEsta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseUp);
             // 
@@ -119,6 +120,7 @@
             this.btnAtualizar.TabIndex = 7;
             this.btnAtualizar.Text = "Deseja Atualizar ?";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmPrincipal

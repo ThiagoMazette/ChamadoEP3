@@ -43,14 +43,15 @@
             this.txtAbrirChamadoCNPJ = new System.Windows.Forms.TextBox();
             this.txtProcurar = new System.Windows.Forms.MaskedTextBox();
             this.dgvResumo = new System.Windows.Forms.DataGridView();
-            this.dt_dem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rec_chvbfj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chvori = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vndBchvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dt_dem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_vlr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDataBloqueio = new System.Windows.Forms.TextBox();
             this.lblBloqueio = new System.Windows.Forms.Label();
             this.dgvTelefones = new System.Windows.Forms.DataGridView();
@@ -65,6 +66,7 @@
             this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.M_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtchvvnda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
@@ -118,11 +120,11 @@
             this.dgvResultado.RowHeadersVisible = false;
             this.dgvResultado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultado.Size = new System.Drawing.Size(797, 156);
+            this.dgvResultado.Size = new System.Drawing.Size(673, 155);
             this.dgvResultado.TabIndex = 6;
             this.dgvResultado.TabStop = false;
-            this.dgvResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellClick);
-            this.dgvResultado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultado_CellContentDoubleClick);
+            this.dgvResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvResultado_CellClick);
+            this.dgvResultado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DgvResultado_KeyUp);
             // 
             // id
             // 
@@ -167,9 +169,9 @@
             this.btnVoltar.BackColor = System.Drawing.Color.Blue;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(701, 416);
+            this.btnVoltar.Location = new System.Drawing.Point(691, 220);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(108, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(118, 23);
             this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
@@ -198,9 +200,9 @@
             this.btnAbrirChamado.BackColor = System.Drawing.Color.Blue;
             this.btnAbrirChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAbrirChamado.ForeColor = System.Drawing.Color.White;
-            this.btnAbrirChamado.Location = new System.Drawing.Point(701, 351);
+            this.btnAbrirChamado.Location = new System.Drawing.Point(691, 172);
             this.btnAbrirChamado.Name = "btnAbrirChamado";
-            this.btnAbrirChamado.Size = new System.Drawing.Size(108, 49);
+            this.btnAbrirChamado.Size = new System.Drawing.Size(118, 39);
             this.btnAbrirChamado.TabIndex = 5;
             this.btnAbrirChamado.Text = "Abrir Chamado";
             this.btnAbrirChamado.UseVisualStyleBackColor = false;
@@ -242,34 +244,28 @@
             this.dgvResumo.BackgroundColor = System.Drawing.Color.White;
             this.dgvResumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dt_dem,
             this.rec_chvbfj,
             this.chvori,
             this.doc,
             this.vndBchvvnda,
             this.vndBchvps,
             this.pschvps,
-            this.Dsc});
+            this.dt_dem,
+            this.Dsc,
+            this.c_vlr});
             this.dgvResumo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvResumo.Location = new System.Drawing.Point(15, 246);
+            this.dgvResumo.Location = new System.Drawing.Point(15, 249);
             this.dgvResumo.MultiSelect = false;
             this.dgvResumo.Name = "dgvResumo";
             this.dgvResumo.ReadOnly = true;
             this.dgvResumo.RowHeadersVisible = false;
             this.dgvResumo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResumo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumo.Size = new System.Drawing.Size(302, 196);
+            this.dgvResumo.Size = new System.Drawing.Size(344, 199);
             this.dgvResumo.TabIndex = 15;
             this.dgvResumo.TabStop = false;
-            // 
-            // dt_dem
-            // 
-            this.dt_dem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dt_dem.DataPropertyName = "dt_dem";
-            this.dt_dem.HeaderText = "Data";
-            this.dt_dem.Name = "dt_dem";
-            this.dt_dem.ReadOnly = true;
-            this.dt_dem.Width = 55;
+            this.dgvResumo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvResumo_CellClick);
+            this.dgvResumo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DgvResumo_KeyUp);
             // 
             // rec_chvbfj
             // 
@@ -297,6 +293,7 @@
             // 
             // vndBchvvnda
             // 
+            this.vndBchvvnda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.vndBchvvnda.DataPropertyName = "chvvnda";
             this.vndBchvvnda.HeaderText = "chvvnda";
             this.vndBchvvnda.Name = "vndBchvvnda";
@@ -319,6 +316,15 @@
             this.pschvps.ReadOnly = true;
             this.pschvps.Visible = false;
             // 
+            // dt_dem
+            // 
+            this.dt_dem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dt_dem.DataPropertyName = "dt_dem";
+            this.dt_dem.HeaderText = "Data";
+            this.dt_dem.Name = "dt_dem";
+            this.dt_dem.ReadOnly = true;
+            this.dt_dem.Width = 55;
+            // 
             // Dsc
             // 
             this.Dsc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -326,6 +332,15 @@
             this.Dsc.HeaderText = "Descrição";
             this.Dsc.Name = "Dsc";
             this.Dsc.ReadOnly = true;
+            // 
+            // c_vlr
+            // 
+            this.c_vlr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.c_vlr.DataPropertyName = "c_vlr";
+            this.c_vlr.HeaderText = "Valor";
+            this.c_vlr.Name = "c_vlr";
+            this.c_vlr.ReadOnly = true;
+            this.c_vlr.Width = 5;
             // 
             // txtDataBloqueio
             // 
@@ -418,7 +433,7 @@
             this.groupBox1.Controls.Add(this.txtTel1);
             this.groupBox1.Controls.Add(this.txtTel4);
             this.groupBox1.Controls.Add(this.txtTel2);
-            this.groupBox1.Location = new System.Drawing.Point(691, 198);
+            this.groupBox1.Location = new System.Drawing.Point(691, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(118, 128);
             this.groupBox1.TabIndex = 27;
@@ -449,14 +464,14 @@
             this.Dt_fwu,
             this.M_desc});
             this.dgvFollowUP.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvFollowUP.Location = new System.Drawing.Point(323, 246);
+            this.dgvFollowUP.Location = new System.Drawing.Point(365, 249);
             this.dgvFollowUP.MultiSelect = false;
             this.dgvFollowUP.Name = "dgvFollowUP";
             this.dgvFollowUP.ReadOnly = true;
             this.dgvFollowUP.RowHeadersVisible = false;
             this.dgvFollowUP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFollowUP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFollowUP.Size = new System.Drawing.Size(362, 196);
+            this.dgvFollowUP.Size = new System.Drawing.Size(444, 199);
             this.dgvFollowUP.TabIndex = 29;
             this.dgvFollowUP.TabStop = false;
             // 
@@ -485,12 +500,20 @@
             this.M_desc.Name = "M_desc";
             this.M_desc.ReadOnly = true;
             // 
+            // txtchvvnda
+            // 
+            this.txtchvvnda.Location = new System.Drawing.Point(183, 191);
+            this.txtchvvnda.Name = "txtchvvnda";
+            this.txtchvvnda.Size = new System.Drawing.Size(37, 20);
+            this.txtchvvnda.TabIndex = 30;
+            this.txtchvvnda.Visible = false;
+            // 
             // frmAbrirChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(821, 460);
+            this.ClientSize = new System.Drawing.Size(819, 464);
             this.Controls.Add(this.dgvFollowUP);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -507,6 +530,7 @@
             this.Controls.Add(this.txtAbrirChamadoCNPJ);
             this.Controls.Add(this.txtAbrirChamadoID);
             this.Controls.Add(this.dgvTelefones);
+            this.Controls.Add(this.txtchvvnda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -560,13 +584,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dt_fwu;
         private System.Windows.Forms.DataGridViewTextBoxColumn M_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dt_dem;
+        private System.Windows.Forms.TextBox txtchvvnda;
         private System.Windows.Forms.DataGridViewTextBoxColumn rec_chvbfj;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvori;
         private System.Windows.Forms.DataGridViewTextBoxColumn doc;
         private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvvnda;
         private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvps;
         private System.Windows.Forms.DataGridViewTextBoxColumn pschvps;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dt_dem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dsc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_vlr;
     }
 }

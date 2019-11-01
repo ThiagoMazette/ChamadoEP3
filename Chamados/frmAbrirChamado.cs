@@ -101,32 +101,6 @@ namespace Chamados
                 MessageBox.Show( "Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        
-        private void dgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvResultado.CurrentRow != null)
-            {
-                txtAbrirChamadoNome.Text = dgvResultado.CurrentRow.Cells["nome"].Value.ToString();
-                txtAbrirChamadoID.Text = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
-                txtAbrirChamadoCNPJ.Text = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
-
-                ctlEmpresa _ctlEmpresa = new ctlEmpresa();
-                mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-                _mdlEmpresa.ID = txtAbrirChamadoID.Text;
-
-                dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
-                dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
-
-		if (dgvFollowUP.Rows.Count != 0)
-	        {
-      	          dgvFollowUP.CurrentRow.Selected = false;
-        	}
-
-                DataBloqueio();
-                PintarDataGrid();
-                ProcurarTelefones();
-            }
-        }
 
         void PintarDataGrid()
         {
@@ -140,9 +114,22 @@ namespace Chamados
 
                 string str;
                 str = Convert.ToString(row.Cells["Dsc"].Value);
-                if (str.Contains("CONTRATO") == true || str.Contains("Contrato") == true)
+                if (str.Contains("CONTRATO") == true || str.Contains("Contrato") == true || str.Contains("contrato") == true)
                 {
                     row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                if (str.Contains("RELOGIO")    == true || 
+                    str.Contains("Relogio")    == true || 
+                    str.Contains("relogio")    == true || 
+                    str.Contains("Relógio")    == true ||
+                    str.Contains("RELÓGIO")    == true ||
+                    str.Contains("KURUMIM")    == true ||
+                    str.Contains("INNER")      == true ||
+                    str.Contains("GUILHOTINA") == true ||
+                    str.Contains("PLUS")
+                    )
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightBlue;
                 }
             }
         }
@@ -231,11 +218,6 @@ namespace Chamados
             AbrirChamado();
         }
 
-        private void dgvResultado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            AbrirChamado();
-        }
-
         private void TxtProcurar_KeyUp(object sender, KeyEventArgs e)
         {
             if (cbbSelecao.Text == "CNPJ")
@@ -270,5 +252,95 @@ namespace Chamados
             }
         }
 
+        void ListarDescricao()
+        {
+            if (dgvResultado.CurrentRow != null)
+            {
+                txtAbrirChamadoNome.Text = dgvResultado.CurrentRow.Cells["nome"].Value.ToString();
+                txtAbrirChamadoID.Text = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
+                txtAbrirChamadoCNPJ.Text = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
+
+                ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+                mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+                _mdlEmpresa.ID = txtAbrirChamadoID.Text;
+
+                dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
+                ListarFollowIndividual();
+               // ListarFollowTodos();
+              //  dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
+
+                if (dgvFollowUP.Rows.Count != 0)
+                {
+          //          dgvFollowUP.CurrentRow.Selected = false;
+                }
+
+                DataBloqueio();
+                PintarDataGrid();
+                ProcurarTelefones();
+            }
+        }
+
+        private void DgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ListarDescricao();
+        }
+
+        private void DgvResultado_KeyUp(object sender, KeyEventArgs e)
+        {
+            ListarDescricao();
+        }
+
+        void ListarFollowIndividual()
+        {
+            if (dgvResumo.CurrentRow != null)
+            {
+                ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+                mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+            
+                _mdlEmpresa.chvvnda = dgvResumo.CurrentRow.Cells["vndBchvvnda"].Value.ToString();
+
+                  dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa); 
+               //nao add linha,em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+                if (dgvFollowUP.Rows.Count != 0)
+                {
+                    dgvFollowUP.CurrentRow.Selected = false;
+                }
+            }
+        }
+
+
+     /*   void ListarFollowTodos()
+        {
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+            //       string [] okk = new string [dgvResumo.Rows.Count];
+            string[] okk = new string[20];
+
+            int i = 0;
+
+            foreach (DataGridViewRow row in dgvResumo.Rows)
+            {
+                //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
+                okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
+                _mdlEmpresa.chvvnda = okk[i];
+
+                dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+               
+                //  vndBchvvnda.Add(row.Cells[i].Value);
+                i++;
+            }
+        } */ // nao vai :(
+
+
+        private void DgvResumo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ListarFollowIndividual();
+        }
+
+        private void DgvResumo_KeyUp(object sender, KeyEventArgs e)
+        {
+            ListarFollowIndividual();
+        }
     }
 }

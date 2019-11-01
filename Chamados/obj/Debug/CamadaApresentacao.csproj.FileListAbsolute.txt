@@ -125,8 +125,5 @@ Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\stdol
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CamadaDados.pdb
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CamadaModelo.pdb
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\obj\Debug\CamadaApresentacao.csproj.CopyComplete
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CrystalDecisions.ReportSource.dll
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CrystalDecisions.Shared.dll
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\CrystalDecisions.Windows.Forms.dll
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\FlashControlV71.dll
+Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\Chamados.exe.config
+Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\obj\Debug\ImprimirDataGridView.PrintOptions.resources

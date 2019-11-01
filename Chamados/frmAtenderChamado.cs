@@ -76,7 +76,6 @@ namespace Chamados
             {
                 dgvDsc.CurrentRow.Selected = false;
             }
-
             foreach (DataGridViewRow row in dgvDsc.Rows)
             {
                 //  if (Convert.ToInt32(row.Cells["pschvps"].Value) == 609) *por codigo
@@ -87,7 +86,7 @@ namespace Chamados
                 {
                     row.DefaultCellStyle.BackColor = Color.Red;
                 }
-            }
+            } 
         }
 
         private void frmAtenderChamado_Load(object sender, EventArgs e)

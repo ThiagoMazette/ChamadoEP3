@@ -120,13 +120,13 @@
             this.cnpj,
             this.nome,
             this.telefone});
-            this.dgvProcurarEmpresa.Location = new System.Drawing.Point(591, 44);
+            this.dgvProcurarEmpresa.Location = new System.Drawing.Point(591, 43);
             this.dgvProcurarEmpresa.MultiSelect = false;
             this.dgvProcurarEmpresa.Name = "dgvProcurarEmpresa";
             this.dgvProcurarEmpresa.ReadOnly = true;
             this.dgvProcurarEmpresa.RowHeadersVisible = false;
             this.dgvProcurarEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcurarEmpresa.Size = new System.Drawing.Size(459, 130);
+            this.dgvProcurarEmpresa.Size = new System.Drawing.Size(459, 133);
             this.dgvProcurarEmpresa.TabIndex = 5;
             this.dgvProcurarEmpresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcurarEmpresa_CellClick);
             this.dgvProcurarEmpresa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcurarEmpresa_CellContentClick);
@@ -209,7 +209,7 @@
             this.dgvListarResultado.ReadOnly = true;
             this.dgvListarResultado.RowHeadersVisible = false;
             this.dgvListarResultado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvListarResultado.Size = new System.Drawing.Size(1044, 372);
+            this.dgvListarResultado.Size = new System.Drawing.Size(1044, 375);
             this.dgvListarResultado.TabIndex = 6;
             // 
             // data
@@ -376,7 +376,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(1068, 574);
+            this.ClientSize = new System.Drawing.Size(1068, 580);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvListarResultado);
