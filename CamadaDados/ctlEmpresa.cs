@@ -54,7 +54,7 @@ namespace CamadaDados
 
             if(_mdlEmpresa.FiltroAbrirChamado == "CNPJ")
             {
-                //Query += "cnpjcpf LIKE \"%\" + @Filtro + \"%\""; procura qualquer parte
+              //Query += "cnpjcpf LIKE \"%\" + @Filtro + \"%\""; procura qualquer parte
                 Query += "cnpjcpf LIKE + @Filtro + \"%\"";
             }
             else if(_mdlEmpresa.FiltroAbrirChamado == "Nome")
@@ -394,7 +394,7 @@ namespace CamadaDados
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
-            string Query = "Select rec.chvbfj, rec.chvori, rec.dt_dem, vndB.chvvnda, vndB.chvps, ps.chvps, ps.Dsc " +
+            string Query = "Select rec.chvbfj, rec.chvori, rec.dt_dem, vndB.chvvnda, vndB.c_vlr, vndB.chvps, ps.chvps, ps.Dsc " +
                    "From (( " +
                    "rec " +
                    "inner join vndB " +
@@ -410,7 +410,28 @@ namespace CamadaDados
             pmtID.ParameterName = "@id";
             pmtID.DbType = DbType.String;
             pmtID.Value = _mdlEmpresa.ID;
-            cmd.Parameters.Add(pmtID); 
+            cmd.Parameters.Add(pmtID);
+
+      /*      DataSet ds = new DataSet();
+            DataTable dtClientes = new DataTable();
+
+            OleDbDataReader dr = cmd.ExecuteReader();
+            int nColunas = dr.FieldCount;
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            int dr1 = int.Parse(cmd.ExecuteScalar().ToString());
+            string[] linhaDados = new string[nColunas];
+            while (dr.Read())
+            {
+                percorre cada uma das colunas
+                      for (int a = 0; a < nColunas; a++)
+                {
+                    linhaDados[a] = dr.GetInt32(a).ToString();
+                    //da erro nessa parte.
+                }
+                atribui a linha ao datagridview
+                      dataGridView1.Rows.Add(linhaDados);
+
+            }*/
 
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
@@ -418,6 +439,77 @@ namespace CamadaDados
             ConexaoDB.Close();
             return empresas;
         }
+
+        /*  
+          {
+              string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+              OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+              ConexaoDB.Open();
+
+            //  string Query2 = "Select chvent, M_desc, Dt_fwu " +
+            //         "From fwu " +
+            //         "where chvent=@id order by Dt_fwu desc";
+
+              string Query = "Select count(*) From fwu " +
+                     "where chvent=@id";
+              OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            //  OleDbCommand cmd2 = new OleDbCommand(Query2, ConexaoDB);
+              cmd.CommandType = CommandType.Text;
+              OleDbParameter pmtID = cmd.CreateParameter();
+              pmtID.ParameterName = "@id";
+              pmtID.DbType = DbType.String;
+
+              pmtID.Value = _mdlEmpresa.chvvnda;
+              cmd.Parameters.Add(pmtID);
+
+
+              DataSet ds = new DataSet();
+              DataTable dtClientes = new DataTable();
+
+
+
+            // vetor pra guardar
+              string[] column0Array = new string[dataGridView1.Rows.Count];
+              string[] column1Array = new string[dataGridView1.Rows.Count];
+
+              int i = 0;
+              foreach (DataGridViewRow row in dataGridView1.Rows) {
+                  column0Array[i] = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : string.Empty;
+                  column1Array[i] = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
+                  i++;
+              }
+        // fim do vetor.
+
+        // outro vetor
+            ArrayList col1Items = new ArrayList();
+            ArrayList col2Items = new ArrayList();
+
+            foreach(DataGridViewRow dr in dgv_Data.Rows)
+            {
+              col1Items.Add(dr.Cells[0].Value);
+              col2Items.Add(dr.Cells[1].Value);
+            }
+// fim do outro vetor.
+
+
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    int nColunas = dr.FieldCount ;
+              int count = Convert.ToInt32(cmd.ExecuteScalar());
+              int dr1 = int.Parse(cmd.ExecuteScalar().ToString());
+                    string[] linhaDados = new string[nColunas];
+                    while (dr.Read())
+                    {
+                        percorre cada uma das colunas
+                        for (int a = 0; a < nColunas; a++)
+                          {
+                             linhaDados[a] = dr.GetInt32(a).ToString();
+                          }
+                        atribui a linha ao datagridview
+                        dataGridView1.Rows.Add(linhaDados);
+
+                    }
+              return string.Empty;
+          } */ // todas as descricoes no follow
 
         public DataTable PesquisaFollowUP(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
@@ -435,7 +527,35 @@ namespace CamadaDados
             OleDbParameter pmtID = cmd.CreateParameter();
             pmtID.ParameterName = "@id";
             pmtID.DbType = DbType.String;
-            pmtID.Value = _mdlEmpresa.ID;
+
+            //   pmtID.Value = _mdlEmpresa.chvvnda;
+            pmtID.Value = _mdlEmpresa.ID; //eh esse
+            cmd.Parameters.Add(pmtID);
+                        
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable empresas = new DataTable();
+            da.Fill(empresas);
+            ConexaoDB.Close();
+            return empresas;
+        }
+
+        public DataTable PesquisaFollowUPIndividual(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "Select chvent, M_desc, Dt_fwu " +
+                   "From fwu " +
+                   "where chvent=@id order by Dt_fwu desc";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.chvvnda;
             cmd.Parameters.Add(pmtID);
 
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
@@ -444,7 +564,6 @@ namespace CamadaDados
             ConexaoDB.Close();
             return empresas;
         }
-
 
         public bool SalvarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
@@ -566,28 +685,7 @@ namespace CamadaDados
             ConexaoDB.Close();
             return telefones;
         }
-
-        /* TESTE public DataTable ListagemResultadoTESTE(CamadaModelos.mdlEmpresa _mdlEmpresa)
-        {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
-            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
-            ConexaoDB.Open();
-            //  string Query = "select * from tb_chamados ";
-            // ok string Query = "select tb_empresas.nome, tb_empresas.id, tb_chamados.fk_idempresa, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.data, tb_chamados.dataFinal, tb_chamados.telefone, tb_chamados.contato from tb_chamados inner join tb_empresas on tb_chamados.fk_idempresa=tb_empresas.id";
-            string Query = "select tb_chamados.data, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato from tb_chamados inner join tb_empresas on tb_chamados.fk_idempresa=tb_empresas.id";
-
-            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
-
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            DataTable empresas = new DataTable();
-            da.Fill(empresas);
-            ConexaoDB.Close();
-            return empresas;
-        } */
-
-
-
-
+        
         /* public void AtenderChamado()
         {
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -608,9 +706,5 @@ namespace CamadaDados
 
         } */
 
-
-
     }
-
-
 }
