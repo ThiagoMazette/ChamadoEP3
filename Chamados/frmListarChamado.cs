@@ -54,6 +54,7 @@ namespace Chamados
                 mdlEmpresa _mdlEmpresa = new mdlEmpresa();
                 frmAtenderChamado frmAC = new frmAtenderChamado();
                 frmAC.txtEmpresaID.Text = dgvResultado.CurrentRow.Cells["fk_idempresa"].FormattedValue.ToString();
+                frmAC.txtCNPJ.Text = dgvResultado.CurrentRow.Cells["cnpj"].Value.ToString();
                 frmAC.txtEmpresa.Text = dgvResultado.CurrentRow.Cells["Nome"].FormattedValue.ToString();
                 frmAC.txtChamadoID.Text = dgvResultado.CurrentRow.Cells["chamadoId"].Value.ToString();
                 frmAC.txtContato.Text = dgvResultado.CurrentRow.Cells["contato"].Value.ToString();
@@ -61,7 +62,6 @@ namespace Chamados
                 frmAC.cbbTecnico.Text = dgvResultado.CurrentRow.Cells["fk_idtecnico"].Value.ToString();
                 frmAC.txtResumo.Text = dgvResultado.CurrentRow.Cells["resumo"].Value.ToString();
                 frmAC.cbbAtendimento.Text = dgvResultado.CurrentRow.Cells["atendimento"].Value.ToString();
-
                 frmAC.ShowDialog();
                 ListarChamado();
             }

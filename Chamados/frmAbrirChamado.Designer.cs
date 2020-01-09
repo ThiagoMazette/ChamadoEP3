@@ -62,11 +62,11 @@
             this.txtTel5 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvFollowUP = new System.Windows.Forms.DataGridView();
-            this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtchvvnda = new System.Windows.Forms.TextBox();
+            this.M_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvFollowUP = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
@@ -451,6 +451,39 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Bloqueio:";
             // 
+            // txtchvvnda
+            // 
+            this.txtchvvnda.Location = new System.Drawing.Point(183, 191);
+            this.txtchvvnda.Name = "txtchvvnda";
+            this.txtchvvnda.Size = new System.Drawing.Size(37, 20);
+            this.txtchvvnda.TabIndex = 30;
+            this.txtchvvnda.Visible = false;
+            // 
+            // M_desc
+            // 
+            this.M_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_desc.DataPropertyName = "M_desc";
+            this.M_desc.HeaderText = "Follow-UP";
+            this.M_desc.Name = "M_desc";
+            this.M_desc.ReadOnly = true;
+            // 
+            // Dt_fwu
+            // 
+            this.Dt_fwu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Dt_fwu.DataPropertyName = "Dt_fwu";
+            this.Dt_fwu.HeaderText = "Data";
+            this.Dt_fwu.Name = "Dt_fwu";
+            this.Dt_fwu.ReadOnly = true;
+            this.Dt_fwu.Width = 55;
+            // 
+            // chvent
+            // 
+            this.chvent.DataPropertyName = "chvent";
+            this.chvent.HeaderText = "chvent";
+            this.chvent.Name = "chvent";
+            this.chvent.ReadOnly = true;
+            this.chvent.Visible = false;
+            // 
             // dgvFollowUP
             // 
             this.dgvFollowUP.AllowDrop = true;
@@ -474,39 +507,6 @@
             this.dgvFollowUP.Size = new System.Drawing.Size(444, 199);
             this.dgvFollowUP.TabIndex = 29;
             this.dgvFollowUP.TabStop = false;
-            // 
-            // chvent
-            // 
-            this.chvent.DataPropertyName = "chvent";
-            this.chvent.HeaderText = "chvent";
-            this.chvent.Name = "chvent";
-            this.chvent.ReadOnly = true;
-            this.chvent.Visible = false;
-            // 
-            // Dt_fwu
-            // 
-            this.Dt_fwu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Dt_fwu.DataPropertyName = "Dt_fwu";
-            this.Dt_fwu.HeaderText = "Data";
-            this.Dt_fwu.Name = "Dt_fwu";
-            this.Dt_fwu.ReadOnly = true;
-            this.Dt_fwu.Width = 55;
-            // 
-            // M_desc
-            // 
-            this.M_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_desc.DataPropertyName = "M_desc";
-            this.M_desc.HeaderText = "Follow-UP";
-            this.M_desc.Name = "M_desc";
-            this.M_desc.ReadOnly = true;
-            // 
-            // txtchvvnda
-            // 
-            this.txtchvvnda.Location = new System.Drawing.Point(183, 191);
-            this.txtchvvnda.Name = "txtchvvnda";
-            this.txtchvvnda.Size = new System.Drawing.Size(37, 20);
-            this.txtchvvnda.TabIndex = 30;
-            this.txtchvvnda.Visible = false;
             // 
             // frmAbrirChamado
             // 
@@ -580,10 +580,6 @@
         private System.Windows.Forms.TextBox txtTel5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvFollowUP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chvent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dt_fwu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_desc;
         private System.Windows.Forms.TextBox txtchvvnda;
         private System.Windows.Forms.DataGridViewTextBoxColumn rec_chvbfj;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvori;
@@ -594,5 +590,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dt_dem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_vlr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dt_fwu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chvent;
+        private System.Windows.Forms.DataGridView dgvFollowUP;
     }
 }

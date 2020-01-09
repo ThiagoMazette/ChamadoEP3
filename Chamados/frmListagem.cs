@@ -44,6 +44,10 @@ namespace Chamados
         private void btnProcurarEmpresa_Click(object sender, EventArgs e)
         {
             EmpresaProcurar();
+            if (dgvProcurarEmpresa.Rows.Count == 0)
+            {
+                MessageBox.Show("Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnListarResultado_Click(object sender, EventArgs e)
@@ -54,6 +58,10 @@ namespace Chamados
             _mdlEmpresa.FiltrotxtProcurar = txtEmpresaID.Text;
             _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
             dgvListarResultado.DataSource = _ctlEmpresa.ListagemResultado(_mdlEmpresa);
+            if (dgvListarResultado.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum resultado encontrado !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void frmListagem_Load(object sender, EventArgs e)
@@ -151,6 +159,29 @@ namespace Chamados
             {
                 MessageBox.Show("Nada para Imprimir!!", "Nenhuma Empresa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void DgvListarResultado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+          //  if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+          //  {
+                if (dgvListarResultado.CurrentRow != null)
+                {
+                    mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+                    frmListagemDetalhes frmLD = new frmListagemDetalhes();
+
+                    frmLD.txtTecnico.Text = dgvListarResultado.CurrentRow.Cells["fk_idtecnico"].Value.ToString();
+                    frmLD.txtInicio.Text = dgvListarResultado.CurrentRow.Cells["data"].Value.ToString();
+                    frmLD.txtFim.Text = dgvListarResultado.CurrentRow.Cells["dataFinal"].Value.ToString();
+                    frmLD.txtAtendimento.Text = dgvListarResultado.CurrentRow.Cells["atendimento"].Value.ToString();
+                    frmLD.txtEmpresa.Text = dgvListarResultado.CurrentRow.Cells["nomeE"].Value.ToString();
+                    frmLD.txtCNPJ.Text = dgvListarResultado.CurrentRow.Cells["cnpjcpf"].Value.ToString();
+                    frmLD.txtContato.Text = dgvListarResultado.CurrentRow.Cells["contato"].Value.ToString();
+                    frmLD.txtTelefone.Text = dgvListarResultado.CurrentRow.Cells["telefone1"].Value.ToString();
+                    frmLD.txtResumo.Text = dgvListarResultado.CurrentRow.Cells["resumo"].Value.ToString();
+                    frmLD.ShowDialog();
+                }
+            //}
         }
     }
 }

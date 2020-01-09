@@ -265,9 +265,9 @@ namespace Chamados
                 _mdlEmpresa.ID = txtAbrirChamadoID.Text;
 
                 dgvResumo.DataSource = _ctlEmpresa.PesquisaResumo(_mdlEmpresa);
-                ListarFollowIndividual();
-               // ListarFollowTodos();
-              //  dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
+                ListarFollowIndividual(); // esse funciona
+                dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUP(_mdlEmpresa);
+                // ListarFollowTodos();
 
                 if (dgvFollowUP.Rows.Count != 0)
                 {
@@ -300,7 +300,7 @@ namespace Chamados
                 _mdlEmpresa.chvvnda = dgvResumo.CurrentRow.Cells["vndBchvvnda"].Value.ToString();
 
                   dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa); 
-               //nao add linha,em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+               //nao add linha, add em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
                 if (dgvFollowUP.Rows.Count != 0)
                 {
                     dgvFollowUP.CurrentRow.Selected = false;
@@ -309,14 +309,89 @@ namespace Chamados
         }
 
 
-     /*   void ListarFollowTodos()
+        /* void ListarFollowTodos()
+         {
+             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+             //       string [] okk = new string [dgvResumo.Rows.Count];
+             string[] okk = new string[20];
+
+             int i = 0;
+
+             foreach (DataGridViewRow row in dgvResumo.Rows)
+             {
+                 //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
+                 okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
+                 _mdlEmpresa.chvvnda = okk[i];
+                 dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+
+                 //  vndBchvvnda.Add(row.Cells[i].Value);
+                 i++;
+             }
+   
+
+         }  */ // nao vai :(
+
+
+
+        /*   void ListarFollowTodos() // teste esse
+           {
+               ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+               mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+               //       string [] okk = new string [dgvResumo.Rows.Count];
+               string[] okk = new string[20];
+
+               int i = 0;
+
+               foreach (DataGridViewRow row in dgvResumo.Rows)
+               {
+                   //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
+                   okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
+                   // _mdlEmpresa.chvvnda = okk[i];
+           //       textBox1.Text = okk[0];
+
+                   dgvFollowUP2.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+
+                   //  vndBchvvnda.Add(row.Cells[i].Value);
+                   i++;
+               }
+               textBox1.Text = okk[0];
+               textBox2.Text = okk[1];
+               textBox3.Text = okk[2];
+               textBox4.Text = okk[3];
+               textBox5.Text = okk[4];
+               dgvFollowUP2.Columns.Add("chvvnda", "chvvnda");
+               _mdlEmpresa.chvvnda = textBox1.Text;
+               dgvFollowUP2.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+               //dgvFollowUP.DataSource = (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+
+               _mdlEmpresa.chvvnda = textBox2.Text;
+               dgvFollowUP2.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+               //dgvFollowUP.DataSource = (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+
+               _mdlEmpresa.chvvnda = textBox3.Text;
+               dgvFollowUP2.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+               //dgvFollowUP.DataSource = (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+
+               _mdlEmpresa.chvvnda = textBox4.Text;
+               dgvFollowUP2.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+               //dgvFollowUP.DataSource = (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+
+
+           }  */  // nao vai :(  teste ok
+
+
+
+   /*     void ListarFollowTodos()
         {
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
 
             //       string [] okk = new string [dgvResumo.Rows.Count];
-            string[] okk = new string[20];
-
+            //  string[] okk = new string[20];
+            List<Cliente> okk = (List<Clientes>)dgvFollowUP.DataSource;
             int i = 0;
 
             foreach (DataGridViewRow row in dgvResumo.Rows)
@@ -324,13 +399,30 @@ namespace Chamados
                 //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
                 okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
                 _mdlEmpresa.chvvnda = okk[i];
+             //   dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
 
-                dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
-               
                 //  vndBchvvnda.Add(row.Cells[i].Value);
                 i++;
             }
-        } */ // nao vai :(
+
+
+
+            /* List<Clientes> dadosGrid = (List<Clientes>)dgvClientes.DataSource
+                 dadosGrid.Add(new Cliente() { id = 1, Nome = "Fulano de tal" });
+                 //e pode até repassar os dados para o grid, limpando antes:
+
+                 dgvClientes.DataSource = null;
+                 dgvClientes.DataSource = dadosGrid;
+                 //a linha acima, preenche o datagridview, com todos os ítens que já estavam nele antes, da forma que estavam e com um cliente novo adicionado.
+                 */
+
+
+
+     //   }   // nao vai :(
+
+
+
+
 
 
         private void DgvResumo_CellClick(object sender, DataGridViewCellEventArgs e)

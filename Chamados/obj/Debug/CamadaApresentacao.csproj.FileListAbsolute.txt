@@ -127,3 +127,4 @@ Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\Camad
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\obj\Debug\CamadaApresentacao.csproj.CopyComplete
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\bin\Debug\Chamados.exe.config
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\obj\Debug\ImprimirDataGridView.PrintOptions.resources
+Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\Chamados\obj\Debug\Chamados.frmListagemDetalhes.resources

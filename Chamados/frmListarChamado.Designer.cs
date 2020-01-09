@@ -32,6 +32,7 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.EmpresaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +56,7 @@
             this.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmpresaID,
+            this.cnpj,
             this.telefone,
             this.chamadoId,
             this.atendimento,
@@ -109,6 +111,14 @@
             this.EmpresaID.Name = "EmpresaID";
             this.EmpresaID.ReadOnly = true;
             this.EmpresaID.Visible = false;
+            // 
+            // cnpj
+            // 
+            this.cnpj.DataPropertyName = "cnpj";
+            this.cnpj.HeaderText = "cnpj";
+            this.cnpj.Name = "cnpj";
+            this.cnpj.ReadOnly = true;
+            this.cnpj.Visible = false;
             // 
             // telefone
             // 
@@ -230,6 +240,7 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmpresaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnpj;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn chamadoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn atendimento;

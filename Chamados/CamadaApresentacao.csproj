@@ -88,6 +88,12 @@
     <Compile Include="frmListagem.Designer.cs">
       <DependentUpon>frmListagem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListagemDetalhes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListagemDetalhes.Designer.cs">
+      <DependentUpon>frmListagemDetalhes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarChamado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListagem.resx">
       <DependentUpon>frmListagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListagemDetalhes.resx">
+      <DependentUpon>frmListagemDetalhes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarChamado.resx">
       <DependentUpon>frmListarChamado.cs</DependentUpon>

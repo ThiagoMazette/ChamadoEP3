@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,6 +71,8 @@
             this.chvvnda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vndBchvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pschvps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCNPJ = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutrosAtendimentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDsc)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(178, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
@@ -87,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 44);
+            this.label2.Location = new System.Drawing.Point(348, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 1;
@@ -96,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(386, 16);
+            this.label3.Location = new System.Drawing.Point(8, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
@@ -105,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 44);
+            this.label4.Location = new System.Drawing.Point(179, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 3;
@@ -113,10 +115,10 @@
             // 
             // txtEmpresa
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(70, 12);
+            this.txtEmpresa.Location = new System.Drawing.Point(178, 18);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.ReadOnly = true;
-            this.txtEmpresa.Size = new System.Drawing.Size(287, 20);
+            this.txtEmpresa.Size = new System.Drawing.Size(385, 20);
             this.txtEmpresa.TabIndex = 9;
             // 
             // cbbTecnico
@@ -131,14 +133,14 @@
             "Rafael",
             "Beto",
             "Outros"});
-            this.cbbTecnico.Location = new System.Drawing.Point(441, 13);
+            this.cbbTecnico.Location = new System.Drawing.Point(63, 45);
             this.cbbTecnico.Name = "cbbTecnico";
             this.cbbTecnico.Size = new System.Drawing.Size(103, 21);
             this.cbbTecnico.TabIndex = 1;
             // 
             // txtContato
             // 
-            this.txtContato.Location = new System.Drawing.Point(254, 40);
+            this.txtContato.Location = new System.Drawing.Point(226, 45);
             this.txtContato.Name = "txtContato";
             this.txtContato.Size = new System.Drawing.Size(103, 20);
             this.txtContato.TabIndex = 3;
@@ -207,8 +209,8 @@
             // 
             this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.resumo.DataPropertyName = "resumo";
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.resumo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.resumo.DefaultCellStyle = dataGridViewCellStyle9;
             this.resumo.HeaderText = "Resumo";
             this.resumo.Name = "resumo";
             this.resumo.ReadOnly = true;
@@ -262,7 +264,7 @@
             this.txtResumo.Location = new System.Drawing.Point(12, 70);
             this.txtResumo.Multiline = true;
             this.txtResumo.Name = "txtResumo";
-            this.txtResumo.Size = new System.Drawing.Size(638, 114);
+            this.txtResumo.Size = new System.Drawing.Size(582, 114);
             this.txtResumo.TabIndex = 5;
             // 
             // btnFinalizar
@@ -310,7 +312,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(366, 45);
+            this.label5.Location = new System.Drawing.Point(504, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 14;
@@ -328,14 +330,14 @@
             "Sem Contrato",
             "Só Registro",
             "Só Duvidas"});
-            this.cbbAtendimento.Location = new System.Drawing.Point(441, 41);
+            this.cbbAtendimento.Location = new System.Drawing.Point(572, 45);
             this.cbbAtendimento.Name = "cbbAtendimento";
             this.cbbAtendimento.Size = new System.Drawing.Size(103, 21);
             this.cbbAtendimento.TabIndex = 4;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(70, 40);
+            this.txtTelefone.Location = new System.Drawing.Point(400, 45);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(100, 20);
             this.txtTelefone.TabIndex = 2;
@@ -357,7 +359,7 @@
             // 
             // txtDataBloqueio
             // 
-            this.txtDataBloqueio.Location = new System.Drawing.Point(562, 42);
+            this.txtDataBloqueio.Location = new System.Drawing.Point(571, 18);
             this.txtDataBloqueio.Name = "txtDataBloqueio";
             this.txtDataBloqueio.ReadOnly = true;
             this.txtDataBloqueio.Size = new System.Drawing.Size(88, 20);
@@ -369,7 +371,7 @@
             this.lblBloqueio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lblBloqueio.ForeColor = System.Drawing.Color.Red;
             this.lblBloqueio.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lblBloqueio.Location = new System.Drawing.Point(661, 14);
+            this.lblBloqueio.Location = new System.Drawing.Point(661, 17);
             this.lblBloqueio.Name = "lblBloqueio";
             this.lblBloqueio.Size = new System.Drawing.Size(129, 20);
             this.lblBloqueio.TabIndex = 16;
@@ -380,7 +382,7 @@
             // lblDataBloqueio
             // 
             this.lblDataBloqueio.AutoSize = true;
-            this.lblDataBloqueio.Location = new System.Drawing.Point(560, 16);
+            this.lblDataBloqueio.Location = new System.Drawing.Point(571, 2);
             this.lblDataBloqueio.Name = "lblDataBloqueio";
             this.lblDataBloqueio.Size = new System.Drawing.Size(77, 13);
             this.lblDataBloqueio.TabIndex = 17;
@@ -391,8 +393,8 @@
             this.dgvDsc.AllowUserToAddRows = false;
             this.dgvDsc.AllowUserToDeleteRows = false;
             this.dgvDsc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDsc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDsc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDsc.BackgroundColor = System.Drawing.Color.White;
             this.dgvDsc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDsc.ColumnHeadersVisible = false;
@@ -405,29 +407,29 @@
             this.chvvnda,
             this.vndBchvps,
             this.pschvps});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDsc.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDsc.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDsc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvDsc.Location = new System.Drawing.Point(664, 70);
+            this.dgvDsc.Location = new System.Drawing.Point(600, 70);
             this.dgvDsc.MultiSelect = false;
             this.dgvDsc.Name = "dgvDsc";
             this.dgvDsc.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDsc.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDsc.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDsc.RowHeadersVisible = false;
-            this.dgvDsc.Size = new System.Drawing.Size(203, 114);
+            this.dgvDsc.Size = new System.Drawing.Size(267, 114);
             this.dgvDsc.TabIndex = 18;
             this.dgvDsc.TabStop = false;
             // 
@@ -497,12 +499,31 @@
             this.pschvps.ReadOnly = true;
             this.pschvps.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "CNPJ:";
+            // 
+            // txtCNPJ
+            // 
+            this.txtCNPJ.Location = new System.Drawing.Point(12, 18);
+            this.txtCNPJ.Name = "txtCNPJ";
+            this.txtCNPJ.ReadOnly = true;
+            this.txtCNPJ.Size = new System.Drawing.Size(154, 20);
+            this.txtCNPJ.TabIndex = 20;
+            // 
             // frmAtenderChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(879, 546);
+            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtResumo);
             this.Controls.Add(this.txtEmpresaID);
             this.Controls.Add(this.txtChamadoID);
@@ -581,5 +602,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chvvnda;
         private System.Windows.Forms.DataGridViewTextBoxColumn vndBchvps;
         private System.Windows.Forms.DataGridViewTextBoxColumn pschvps;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtCNPJ;
     }
 }
