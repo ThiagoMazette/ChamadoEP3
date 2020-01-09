@@ -301,7 +301,7 @@ namespace CamadaDados
             OleDbConnection BancoA = new OleDbConnection(ConexaoA);
             BancoA.Open();
 
-            string Query = "select tb_empresas.id, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
+            string Query = "select tb_empresas.id, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
                         "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' order by tb_chamados.id desc";
@@ -322,7 +322,7 @@ namespace CamadaDados
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             //ok string Query = "select * from tb_chamados ";
-            string Query = "SELECT tb_chamados.data, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato " +
+            string Query = "SELECT tb_chamados.data, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato " +
                 "FROM tb_chamados " +
                 "INNER JOIN tb_empresas " +
                 "ON tb_chamados.fk_idempresa = tb_empresas.id ";
