@@ -52,12 +52,12 @@ namespace CamadaDados
             ConexaoDB.Open();
             string Query = "select chvbfj, cnpjcpf, rzs from bfj where ";
 
-            if(_mdlEmpresa.FiltroAbrirChamado == "CNPJ")
+            if (_mdlEmpresa.FiltroAbrirChamado == "CNPJ")
             {
-              //Query += "cnpjcpf LIKE \"%\" + @Filtro + \"%\""; procura qualquer parte
+                //Query += "cnpjcpf LIKE \"%\" + @Filtro + \"%\""; procura qualquer parte
                 Query += "cnpjcpf LIKE + @Filtro + \"%\"";
             }
-            else if(_mdlEmpresa.FiltroAbrirChamado == "Nome")
+            else if (_mdlEmpresa.FiltroAbrirChamado == "Nome")
             {
                 Query += "rzs LIKE \"%\" + @Filtro + \"%\"";
             }
@@ -86,7 +86,7 @@ namespace CamadaDados
             ConexaoDB.Open();
 
             string Query = "insert into tb_chamados(aberto, fk_idempresa, data) values(@aberto, @fk_idempresa, @data);";
-            
+
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
             var pmtAbrirChamado = cmd.CreateParameter();
@@ -211,7 +211,7 @@ namespace CamadaDados
             pmtempresa.DbType = DbType.String;
             pmtempresa.Value = _mdlEmpresa.txtEmpresaID;
             cmd.Parameters.Add(pmtempresa);
-            
+
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
             da.Fill(empresas);
@@ -236,7 +236,7 @@ namespace CamadaDados
                 "telefone=@telefone, " +
                 "contato=@contato " +
                 "where id = @id";
-           
+
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
             cmd.CommandType = CommandType.Text;
 
@@ -292,8 +292,8 @@ namespace CamadaDados
             cmd.ExecuteNonQuery();
             int resultado = cmd.ExecuteNonQuery();
             ConexaoDB.Close();
-            return resultado > 0; 
-        } 
+            return resultado > 0;
+        }
 
         public DataTable ListarChamado(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
@@ -308,7 +308,7 @@ namespace CamadaDados
 
             OleDbCommand cmd = new OleDbCommand(Query, BancoA);
             cmd.CommandType = CommandType.Text;
-            
+
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable lista = new DataTable();
             da.Fill(lista);
@@ -322,7 +322,7 @@ namespace CamadaDados
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             //ok string Query = "select * from tb_chamados ";
-            string Query = "SELECT tb_chamados.data, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato " +
+            string Query = "SELECT tb_chamados.data, tb_chamados.id, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.resumo, tb_chamados.fk_idtecnico, tb_chamados.dataFinal, tb_chamados.atendimento, tb_chamados.telefone, tb_chamados.contato " +
                 "FROM tb_chamados " +
                 "INNER JOIN tb_empresas " +
                 "ON tb_chamados.fk_idempresa = tb_empresas.id ";
@@ -351,16 +351,16 @@ namespace CamadaDados
             }
             else if (_mdlEmpresa.cbbTecnico == "Todos")
             {
- 
-              /*        Query = "select * " +
-                        "FROM tb_empresas" +
-                        " inner join tb_chamados " +
-                        "on tb_chamados.fk_idempresa = tb_empresas.id where fk_idempresa=@EmpresaSelecionada";
-             Aparccer nome */
+
+                /*        Query = "select * " +
+                          "FROM tb_empresas" +
+                          " inner join tb_chamados " +
+                          "on tb_chamados.fk_idempresa = tb_empresas.id where fk_idempresa=@EmpresaSelecionada";
+               Aparccer nome */
                 Query += "where fk_idempresa=@EmpresaSelecionada";
             }
 
-            else 
+            else
             {
                 Query += "where fk_idempresa=@EmpresaSelecionada AND fk_idtecnico=@tecnico";
             }
@@ -412,26 +412,26 @@ namespace CamadaDados
             pmtID.Value = _mdlEmpresa.ID;
             cmd.Parameters.Add(pmtID);
 
-      /*      DataSet ds = new DataSet();
-            DataTable dtClientes = new DataTable();
+            /*      DataSet ds = new DataSet();
+                  DataTable dtClientes = new DataTable();
 
-            OleDbDataReader dr = cmd.ExecuteReader();
-            int nColunas = dr.FieldCount;
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            int dr1 = int.Parse(cmd.ExecuteScalar().ToString());
-            string[] linhaDados = new string[nColunas];
-            while (dr.Read())
-            {
-                percorre cada uma das colunas
-                      for (int a = 0; a < nColunas; a++)
-                {
-                    linhaDados[a] = dr.GetInt32(a).ToString();
-                    //da erro nessa parte.
-                }
-                atribui a linha ao datagridview
-                      dataGridView1.Rows.Add(linhaDados);
+                  OleDbDataReader dr = cmd.ExecuteReader();
+                  int nColunas = dr.FieldCount;
+                  int count = Convert.ToInt32(cmd.ExecuteScalar());
+                  int dr1 = int.Parse(cmd.ExecuteScalar().ToString());
+                  string[] linhaDados = new string[nColunas];
+                  while (dr.Read())
+                  {
+                      percorre cada uma das colunas
+                            for (int a = 0; a < nColunas; a++)
+                      {
+                          linhaDados[a] = dr.GetInt32(a).ToString();
+                          //da erro nessa parte.
+                      }
+                      atribui a linha ao datagridview
+                            dataGridView1.Rows.Add(linhaDados);
 
-            }*/
+                  }*/
 
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
@@ -531,7 +531,7 @@ namespace CamadaDados
             //   pmtID.Value = _mdlEmpresa.chvvnda;
             pmtID.Value = _mdlEmpresa.ID; //eh esse
             cmd.Parameters.Add(pmtID);
-                        
+
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             DataTable empresas = new DataTable();
             da.Fill(empresas);
@@ -685,7 +685,7 @@ namespace CamadaDados
             ConexaoDB.Close();
             return telefones;
         }
-        
+
         /* public void AtenderChamado()
         {
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -706,5 +706,79 @@ namespace CamadaDados
 
         } */
 
+
+        public bool ArrumarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "update tb_chamados " +
+                "set " +
+                "fk_idtecnico=@tec, " +
+                "atendimento=@atendimento, " +
+                "resumo=@resumo, " +
+                "telefone=@telefone, " +
+                "contato=@contato, " +
+                "data=@inicial, " +
+                "dataFinal=@final " +
+                "where id = @id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            cmd.CommandType = CommandType.Text;
+
+            var pmttec = cmd.CreateParameter();
+            pmttec.ParameterName = "@tec";
+            pmttec.DbType = DbType.String;
+            pmttec.Value = _mdlEmpresa.cbbTecnico;
+            cmd.Parameters.Add(pmttec);
+
+            var pmtAtendimento = cmd.CreateParameter();
+            pmtAtendimento.ParameterName = "@atendimento";
+            pmtAtendimento.DbType = DbType.String;
+            pmtAtendimento.Value = _mdlEmpresa.Atendimento;
+            cmd.Parameters.Add(pmtAtendimento);
+
+            var pmtResumo = cmd.CreateParameter();
+            pmtResumo.ParameterName = "@resumo";
+            pmtResumo.DbType = DbType.String;
+            pmtResumo.Value = _mdlEmpresa.Resumo;
+            cmd.Parameters.Add(pmtResumo);
+
+            var pmtTelefone = cmd.CreateParameter();
+            pmtTelefone.ParameterName = "@telefone";
+            pmtTelefone.DbType = DbType.String;
+            pmtTelefone.Value = _mdlEmpresa.Telefone;
+            cmd.Parameters.Add(pmtTelefone);
+
+            var pmtContato = cmd.CreateParameter();
+            pmtContato.ParameterName = "@contato";
+            pmtContato.DbType = DbType.String;
+            pmtContato.Value = _mdlEmpresa.Contato;
+            cmd.Parameters.Add(pmtContato);
+
+            var pmtInicial = cmd.CreateParameter();
+            pmtInicial.ParameterName = "@inicial";
+            pmtInicial.DbType = DbType.String;
+            pmtInicial.Value = _mdlEmpresa.Inicial;
+            cmd.Parameters.Add(pmtInicial);
+
+            var pmtFinal = cmd.CreateParameter();
+            pmtFinal.ParameterName = "@final";
+            pmtFinal.DbType = DbType.String;
+            pmtFinal.Value = _mdlEmpresa.Final;
+            cmd.Parameters.Add(pmtFinal);
+
+            var pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            cmd.ExecuteNonQuery();
+            int resultado = cmd.ExecuteNonQuery();
+            ConexaoDB.Close();
+            return resultado > 0;
+        }
     }
 }
