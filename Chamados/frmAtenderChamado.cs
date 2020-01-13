@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using CamadaDados;
 using CamadaModelos;
-using CamadaDados;
-using System.Data.OleDb;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Chamados
 {
@@ -216,7 +210,19 @@ namespace Chamados
 
         private void txtTelefone_Enter(object sender, EventArgs e)
         {
+            string valorSemMascara = "";
+            valorSemMascara= txtTelefone.Text;
+            valorSemMascara = valorSemMascara.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ","");
+            txtTelefone.Text = "";
             txtTelefone.Mask = "";
+            txtTelefone.Text = valorSemMascara;
+          //  txtTelefone.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+
+            //txtTelefone.Mask = "";
+           // var tirarmask = txtTelefone.Text;
+           // txtTelefone.Text = "";
+           // txtTelefone.Mask = "";
+           // txtTelefone.Text = tirarmask;
         }
 
         void FinalizarChamadoOK()

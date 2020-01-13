@@ -50,7 +50,7 @@ namespace Chamados
             }
         }
 
-        private void btnListarResultado_Click(object sender, EventArgs e)
+        void ListarResultado()
         {
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
@@ -64,10 +64,15 @@ namespace Chamados
             }
         }
 
+        private void btnListarResultado_Click(object sender, EventArgs e)
+        {
+            ListarResultado();
+        }
+
         private void frmListagem_Load(object sender, EventArgs e)
         {
             cbbEmpresa.SelectedIndex = 1;
-            cbbTecnico.SelectedIndex = 4;
+            cbbTecnico.SelectedItem = "Todos";
             txtProcurarEmpresa.Focus();
         }
 
@@ -99,10 +104,7 @@ namespace Chamados
 
         private void txtProcurarEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtProcurarEmpresa.Text.Length >= 2)
-            {
-                EmpresaProcurar();
-            }
+           
         }
 
         /*    comeca aki    imprimir em um form feito com cristal report
@@ -150,7 +152,6 @@ namespace Chamados
         {
             if (dgvListarResultado.RowCount >0)
             {
-
                 DGVPrinter printer = new DGVPrinter();
                 printDocument.DefaultPageSettings.Landscape = true;
                 printer.PrintDataGridView(dgvListarResultado);
@@ -179,9 +180,19 @@ namespace Chamados
                     frmLD.txtContato.Text = dgvListarResultado.CurrentRow.Cells["contato"].Value.ToString();
                     frmLD.txtTelefone.Text = dgvListarResultado.CurrentRow.Cells["telefone1"].Value.ToString();
                     frmLD.txtResumo.Text = dgvListarResultado.CurrentRow.Cells["resumo"].Value.ToString();
+                    frmLD.txtChamadoID.Text = dgvListarResultado.CurrentRow.Cells["id1"].Value.ToString();
                     frmLD.ShowDialog();
+                    ListarResultado();
                 }
             //}
+        }
+
+        private void txtProcurarEmpresa_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (txtProcurarEmpresa.Text.Length >= 2)
+            {
+                EmpresaProcurar();
+            }
         }
     }
 }

@@ -48,8 +48,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTempo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtTempo = new System.Windows.Forms.TextBox();
+            this.txtChamadoID = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +111,7 @@
             this.txtAtendimento.Name = "txtAtendimento";
             this.txtAtendimento.ReadOnly = true;
             this.txtAtendimento.Size = new System.Drawing.Size(84, 20);
-            this.txtAtendimento.TabIndex = 4;
+            this.txtAtendimento.TabIndex = 5;
             this.txtAtendimento.DoubleClick += new System.EventHandler(this.TxtAtendimento_DoubleClick);
             // 
             // label4
@@ -125,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 45);
+            this.label5.Location = new System.Drawing.Point(9, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 8;
@@ -143,7 +144,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(548, 71);
+            this.label7.Location = new System.Drawing.Point(538, 71);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 10;
@@ -160,11 +161,11 @@
             // 
             // txtEmpresa
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(67, 41);
+            this.txtEmpresa.Location = new System.Drawing.Point(63, 41);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.ReadOnly = true;
-            this.txtEmpresa.Size = new System.Drawing.Size(465, 20);
-            this.txtEmpresa.TabIndex = 5;
+            this.txtEmpresa.Size = new System.Drawing.Size(469, 20);
+            this.txtEmpresa.TabIndex = 6;
             // 
             // txtContato
             // 
@@ -172,15 +173,15 @@
             this.txtContato.Name = "txtContato";
             this.txtContato.ReadOnly = true;
             this.txtContato.Size = new System.Drawing.Size(112, 20);
-            this.txtContato.TabIndex = 7;
+            this.txtContato.TabIndex = 8;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(608, 68);
+            this.txtTelefone.Location = new System.Drawing.Point(596, 68);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.ReadOnly = true;
-            this.txtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefone.TabIndex = 8;
+            this.txtTelefone.Size = new System.Drawing.Size(111, 20);
+            this.txtTelefone.TabIndex = 9;
             // 
             // txtResumo
             // 
@@ -189,7 +190,7 @@
             this.txtResumo.Name = "txtResumo";
             this.txtResumo.ReadOnly = true;
             this.txtResumo.Size = new System.Drawing.Size(694, 332);
-            this.txtResumo.TabIndex = 9;
+            this.txtResumo.TabIndex = 10;
             // 
             // btnOK
             // 
@@ -198,8 +199,8 @@
             this.btnOK.Location = new System.Drawing.Point(69, 67);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(72, 24);
-            this.btnOK.TabIndex = 10;
-            this.btnOK.Text = "ok";
+            this.btnOK.TabIndex = 11;
+            this.btnOK.Text = "Atualizar";
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
@@ -219,7 +220,7 @@
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.ReadOnly = true;
             this.txtCNPJ.Size = new System.Drawing.Size(126, 20);
-            this.txtCNPJ.TabIndex = 6;
+            this.txtCNPJ.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -239,22 +240,30 @@
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             // 
-            // txtTempo
-            // 
-            this.txtTempo.Location = new System.Drawing.Point(477, 11);
-            this.txtTempo.Name = "txtTempo";
-            this.txtTempo.ReadOnly = true;
-            this.txtTempo.Size = new System.Drawing.Size(52, 20);
-            this.txtTempo.TabIndex = 8;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(434, 15);
+            this.label10.Location = new System.Drawing.Point(433, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 9;
             this.label10.Text = "Tempo:";
+            // 
+            // txtTempo
+            // 
+            this.txtTempo.Location = new System.Drawing.Point(476, 11);
+            this.txtTempo.Name = "txtTempo";
+            this.txtTempo.ReadOnly = true;
+            this.txtTempo.Size = new System.Drawing.Size(60, 20);
+            this.txtTempo.TabIndex = 4;
+            // 
+            // txtChamadoID
+            // 
+            this.txtChamadoID.Location = new System.Drawing.Point(147, 64);
+            this.txtChamadoID.Name = "txtChamadoID";
+            this.txtChamadoID.Size = new System.Drawing.Size(25, 20);
+            this.txtChamadoID.TabIndex = 19;
+            this.txtChamadoID.Visible = false;
             // 
             // frmListagemDetalhes
             // 
@@ -262,6 +271,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(725, 442);
+            this.Controls.Add(this.txtChamadoID);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtCNPJ);
             this.Controls.Add(this.label9);
@@ -314,5 +324,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTempo;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox txtChamadoID;
     }
 }
