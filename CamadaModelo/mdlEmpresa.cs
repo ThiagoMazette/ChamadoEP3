@@ -28,6 +28,7 @@ namespace CamadaModelos
         public string txtContato { get; set; }
         public string txtID { get; set; }
         public string chvvnda { get; set; }
-
+        public string Inicial { get; set; }
+        public string Final { get; set; }
     }
 }

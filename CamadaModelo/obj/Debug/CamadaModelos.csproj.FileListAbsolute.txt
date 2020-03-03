@@ -25,6 +25,5 @@ O:\Dropbox\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\obj
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\bin\Debug\CamadaModelo.dll
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\bin\Debug\CamadaModelo.pdb
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\obj\Debug\CamadaModelos.csprojAssemblyReference.cache
-Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\obj\Debug\CamadaModelos.csproj.CoreCompileInputs.cache
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\obj\Debug\CamadaModelo.dll
 Z:\Thiago\Meus Documentos\Visual Studio 2017\ChamadoEP3\CamadaModelo\obj\Debug\CamadaModelo.pdb
