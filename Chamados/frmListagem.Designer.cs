@@ -40,17 +40,6 @@
             this.txtEmpresaSelecionada = new System.Windows.Forms.TextBox();
             this.btnListarResultado = new System.Windows.Forms.Button();
             this.dgvListarResultado = new System.Windows.Forms.DataGridView();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnpjcpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbEmpresa = new System.Windows.Forms.ComboBox();
             this.txtEmpresaID = new System.Windows.Forms.TextBox();
             this.btnLimparEmpresa = new System.Windows.Forms.Button();
@@ -58,6 +47,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnpjcpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcurarEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -197,16 +197,16 @@
             this.dgvListarResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListarResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.data,
-            this.cnpjcpf,
             this.NomeE,
             this.resumo,
             this.contato,
-            this.id1,
-            this.fk_idempresa,
-            this.dataFinal,
             this.fk_idtecnico,
             this.atendimento,
-            this.telefone1});
+            this.telefone1,
+            this.cnpjcpf,
+            this.id1,
+            this.fk_idempresa,
+            this.dataFinal});
             this.dgvListarResultado.DataMember = "Funcionario";
             this.dgvListarResultado.Location = new System.Drawing.Point(12, 188);
             this.dgvListarResultado.MultiSelect = false;
@@ -217,99 +217,6 @@
             this.dgvListarResultado.Size = new System.Drawing.Size(1044, 375);
             this.dgvListarResultado.TabIndex = 6;
             this.dgvListarResultado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListarResultado_CellDoubleClick);
-            // 
-            // data
-            // 
-            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.data.DataPropertyName = "data";
-            this.data.HeaderText = "Data/Hora";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            this.data.Width = 83;
-            // 
-            // cnpjcpf
-            // 
-            this.cnpjcpf.DataPropertyName = "cnpj";
-            this.cnpjcpf.HeaderText = "cnpjcpf";
-            this.cnpjcpf.Name = "cnpjcpf";
-            this.cnpjcpf.ReadOnly = true;
-            this.cnpjcpf.Visible = false;
-            // 
-            // NomeE
-            // 
-            this.NomeE.DataPropertyName = "nome";
-            this.NomeE.HeaderText = "Empresa";
-            this.NomeE.Name = "NomeE";
-            this.NomeE.ReadOnly = true;
-            this.NomeE.Width = 200;
-            // 
-            // resumo
-            // 
-            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.resumo.DataPropertyName = "resumo";
-            this.resumo.HeaderText = "Resumo";
-            this.resumo.Name = "resumo";
-            this.resumo.ReadOnly = true;
-            // 
-            // contato
-            // 
-            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.contato.DataPropertyName = "contato";
-            this.contato.HeaderText = "Contato";
-            this.contato.Name = "contato";
-            this.contato.ReadOnly = true;
-            this.contato.Width = 69;
-            // 
-            // id1
-            // 
-            this.id1.DataPropertyName = "id";
-            this.id1.HeaderText = "id1";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
-            this.id1.Visible = false;
-            // 
-            // fk_idempresa
-            // 
-            this.fk_idempresa.DataPropertyName = "fk_idempresa";
-            this.fk_idempresa.HeaderText = "fk_idempresa";
-            this.fk_idempresa.Name = "fk_idempresa";
-            this.fk_idempresa.ReadOnly = true;
-            this.fk_idempresa.Visible = false;
-            // 
-            // dataFinal
-            // 
-            this.dataFinal.DataPropertyName = "dataFinal";
-            this.dataFinal.HeaderText = "dataFinal";
-            this.dataFinal.Name = "dataFinal";
-            this.dataFinal.ReadOnly = true;
-            this.dataFinal.Visible = false;
-            // 
-            // fk_idtecnico
-            // 
-            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
-            this.fk_idtecnico.HeaderText = "Técnico";
-            this.fk_idtecnico.Name = "fk_idtecnico";
-            this.fk_idtecnico.ReadOnly = true;
-            this.fk_idtecnico.Width = 71;
-            // 
-            // atendimento
-            // 
-            this.atendimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.atendimento.DataPropertyName = "atendimento";
-            this.atendimento.HeaderText = "Atendimento";
-            this.atendimento.Name = "atendimento";
-            this.atendimento.ReadOnly = true;
-            this.atendimento.Width = 5;
-            // 
-            // telefone1
-            // 
-            this.telefone1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.telefone1.DataPropertyName = "telefone";
-            this.telefone1.HeaderText = "Telefone";
-            this.telefone1.Name = "telefone1";
-            this.telefone1.ReadOnly = true;
-            this.telefone1.Width = 5;
             // 
             // cbbEmpresa
             // 
@@ -385,6 +292,99 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // data
+            // 
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "Data/Hora";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.Width = 83;
+            // 
+            // NomeE
+            // 
+            this.NomeE.DataPropertyName = "nome";
+            this.NomeE.HeaderText = "Empresa";
+            this.NomeE.Name = "NomeE";
+            this.NomeE.ReadOnly = true;
+            this.NomeE.Width = 200;
+            // 
+            // resumo
+            // 
+            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.resumo.DataPropertyName = "resumo";
+            this.resumo.HeaderText = "Resumo";
+            this.resumo.Name = "resumo";
+            this.resumo.ReadOnly = true;
+            // 
+            // contato
+            // 
+            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.contato.DataPropertyName = "contato";
+            this.contato.HeaderText = "Contato";
+            this.contato.Name = "contato";
+            this.contato.ReadOnly = true;
+            this.contato.Width = 69;
+            // 
+            // fk_idtecnico
+            // 
+            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
+            this.fk_idtecnico.HeaderText = "Técnico";
+            this.fk_idtecnico.Name = "fk_idtecnico";
+            this.fk_idtecnico.ReadOnly = true;
+            this.fk_idtecnico.Width = 71;
+            // 
+            // atendimento
+            // 
+            this.atendimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.atendimento.DataPropertyName = "atendimento";
+            this.atendimento.HeaderText = "Atendimento";
+            this.atendimento.Name = "atendimento";
+            this.atendimento.ReadOnly = true;
+            this.atendimento.Width = 5;
+            // 
+            // telefone1
+            // 
+            this.telefone1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.telefone1.DataPropertyName = "telefone";
+            this.telefone1.HeaderText = "Telefone";
+            this.telefone1.Name = "telefone1";
+            this.telefone1.ReadOnly = true;
+            this.telefone1.Width = 5;
+            // 
+            // cnpjcpf
+            // 
+            this.cnpjcpf.DataPropertyName = "cnpj";
+            this.cnpjcpf.HeaderText = "cnpjcpf";
+            this.cnpjcpf.Name = "cnpjcpf";
+            this.cnpjcpf.ReadOnly = true;
+            this.cnpjcpf.Visible = false;
+            // 
+            // id1
+            // 
+            this.id1.DataPropertyName = "id";
+            this.id1.HeaderText = "id1";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            this.id1.Visible = false;
+            // 
+            // fk_idempresa
+            // 
+            this.fk_idempresa.DataPropertyName = "fk_idempresa";
+            this.fk_idempresa.HeaderText = "fk_idempresa";
+            this.fk_idempresa.Name = "fk_idempresa";
+            this.fk_idempresa.ReadOnly = true;
+            this.fk_idempresa.Visible = false;
+            // 
+            // dataFinal
+            // 
+            this.dataFinal.DataPropertyName = "dataFinal";
+            this.dataFinal.HeaderText = "dataFinal";
+            this.dataFinal.Name = "dataFinal";
+            this.dataFinal.ReadOnly = true;
+            this.dataFinal.Visible = false;
+            // 
             // frmListagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,15 +441,15 @@
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnpjcpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeE;
         private System.Windows.Forms.DataGridViewTextBoxColumn resumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn contato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fk_idempresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idtecnico;
         private System.Windows.Forms.DataGridViewTextBoxColumn atendimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnpjcpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_idempresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataFinal;
     }
 }

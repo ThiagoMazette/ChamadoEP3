@@ -171,8 +171,7 @@
             this.dgvOutrosAtendimentos.RowHeadersVisible = false;
             this.dgvOutrosAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOutrosAtendimentos.Size = new System.Drawing.Size(855, 334);
-            this.dgvOutrosAtendimentos.TabIndex = 8;
-            this.dgvOutrosAtendimentos.TabStop = false;
+            this.dgvOutrosAtendimentos.TabIndex = 12;
             // 
             // id
             // 

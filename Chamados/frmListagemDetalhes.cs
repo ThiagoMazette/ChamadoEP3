@@ -21,10 +21,13 @@ namespace Chamados
 
         private void FrmListagemDetalhes_Load(object sender, EventArgs e)
         {
-            var HI = Convert.ToDateTime(txtInicio.Text);
-            var HF = Convert.ToDateTime(txtFim.Text);
-            var TXTTempo = HF - HI;
-            txtTempo.Text = TXTTempo.ToString();
+            if (txtFim.Text != "")
+            {
+                var HI = Convert.ToDateTime(txtInicio.Text);
+                var HF = Convert.ToDateTime(txtFim.Text);
+                var TXTTempo = HF - HI;
+                txtTempo.Text = TXTTempo.ToString();
+            }
         }
 
         void ONReadOnly()

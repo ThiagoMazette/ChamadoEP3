@@ -280,6 +280,7 @@ namespace Chamados
             else if (txtResumo.Text.Length < 6)
             {
                 MessageBox.Show(" De mais detalhes sobre o atendimento ... ", "Preguiçoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtResumo.Focus();
             }
 
             else

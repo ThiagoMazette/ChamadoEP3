@@ -71,12 +71,12 @@ namespace Chamados
 
         void Procurar()
         {
-           /* string str = txtProcurar.Text;
-            string test = str.Replace("/", "").Replace(".", "").Replace("-", "");
-            txtProcurar.Text = test;
-            txtProcurar.Select(txtProcurar.Text.Length, 0);
-            tirar pontuaccao do cnpj
-            */
+            /* string str = txtProcurar.Text;
+             string test = str.Replace("/", "").Replace(".", "").Replace("-", "");
+             txtProcurar.Text = test;
+             txtProcurar.Select(txtProcurar.Text.Length, 0);
+             tirar pontuaccao do cnpj
+             */
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
             _mdlEmpresa.FiltroAbrirChamado = cbbSelecao.Text;
@@ -96,9 +96,9 @@ namespace Chamados
         private void btnProcurar_Click(object sender, EventArgs e)
         {
             Procurar();
-            if(dgvResultado.Rows.Count == 0)
+            if (dgvResultado.Rows.Count == 0)
             {
-                MessageBox.Show( "Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -118,13 +118,13 @@ namespace Chamados
                 {
                     row.DefaultCellStyle.BackColor = Color.Red;
                 }
-                if (str.Contains("RELOGIO")    == true || 
-                    str.Contains("Relogio")    == true || 
-                    str.Contains("relogio")    == true || 
-                    str.Contains("Relógio")    == true ||
-                    str.Contains("RELÓGIO")    == true ||
-                    str.Contains("KURUMIM")    == true ||
-                    str.Contains("INNER")      == true ||
+                if (str.Contains("RELOGIO") == true ||
+                    str.Contains("Relogio") == true ||
+                    str.Contains("relogio") == true ||
+                    str.Contains("Relógio") == true ||
+                    str.Contains("RELÓGIO") == true ||
+                    str.Contains("KURUMIM") == true ||
+                    str.Contains("INNER") == true ||
                     str.Contains("GUILHOTINA") == true ||
                     str.Contains("PLUS")
                     )
@@ -145,9 +145,23 @@ namespace Chamados
                 MessageBox.Show("Selecione uma empresa !", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtProcurar.Focus();
             }
-            else
+
+
+
+
+            if (txtDataBloqueio.Text != "")
             {
-                mdlEmpresa _mdlEmpresaDup  = new mdlEmpresa();
+
+
+                DialogResult dialogResult = MessageBox.Show("Empresa Bloqueada, Favor consultar o MARCELO(R.225), \n deseja abrir o chamado mesmo assim ?", "OPA !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+
+            }
+
+                mdlEmpresa _mdlEmpresaDup = new mdlEmpresa();
                 string Nome = txtAbrirChamadoCNPJ.Text;
                 _mdlEmpresaDup.Nome = Nome;
                 bool duplicado = ctlEmpresa.VerificarDuplicidade(Nome);
@@ -160,11 +174,11 @@ namespace Chamados
                     bool retornoComp = _ctlEmpresa.AbrirSoChamado(_mdlEmpresa);
                     if (retornoComp)
                     {
-                        if(txtDataBloqueio.Text != "")
-                        {
-                            MessageBox.Show("Empresa Bloqueda !!! ", "BLOQUEADA !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Close();
-                        }
+                        //if(txtDataBloqueio.Text != "")
+                        //{
+                        //    MessageBox.Show("Empresa Bloqueda !!! ", "BLOQUEADA !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    Close();
+                        //}
                         MessageBox.Show("Chamado Aberto com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         Close();
                     }
@@ -192,8 +206,7 @@ namespace Chamados
                 {
                     MessageBox.Show("Erro ao abrir chamado", "ERRO ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
+        }   
 
         void ProcurarTelefones()
         {
