@@ -40,13 +40,6 @@
             this.txtEmpresaSelecionada = new System.Windows.Forms.TextBox();
             this.btnListarResultado = new System.Windows.Forms.Button();
             this.dgvListarResultado = new System.Windows.Forms.DataGridView();
-            this.cbbEmpresa = new System.Windows.Forms.ComboBox();
-            this.txtEmpresaID = new System.Windows.Forms.TextBox();
-            this.btnLimparEmpresa = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +51,17 @@
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbbEmpresa = new System.Windows.Forms.ComboBox();
+            this.txtEmpresaID = new System.Windows.Forms.TextBox();
+            this.btnLimparEmpresa = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.lblTotalContagemEmpresa = new System.Windows.Forms.Label();
+            this.lblTotalEmpresa = new System.Windows.Forms.Label();
+            this.lblTotalResumo = new System.Windows.Forms.Label();
+            this.lblTotalContagemResumo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcurarEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,6 +100,7 @@
             this.txtProcurarEmpresa.Name = "txtProcurarEmpresa";
             this.txtProcurarEmpresa.Size = new System.Drawing.Size(459, 20);
             this.txtProcurarEmpresa.TabIndex = 3;
+            this.txtProcurarEmpresa.DoubleClick += new System.EventHandler(this.txtProcurarEmpresa_DoubleClick);
             this.txtProcurarEmpresa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProcurarEmpresa_KeyPress);
             // 
             // btnProcurarEmpresa
@@ -218,80 +223,6 @@
             this.dgvListarResultado.TabIndex = 6;
             this.dgvListarResultado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListarResultado_CellDoubleClick);
             // 
-            // cbbEmpresa
-            // 
-            this.cbbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbEmpresa.FormattingEnabled = true;
-            this.cbbEmpresa.Items.AddRange(new object[] {
-            "CNPJ",
-            "Nome"});
-            this.cbbEmpresa.Location = new System.Drawing.Point(58, 16);
-            this.cbbEmpresa.Name = "cbbEmpresa";
-            this.cbbEmpresa.Size = new System.Drawing.Size(79, 21);
-            this.cbbEmpresa.TabIndex = 2;
-            this.cbbEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbbEmpresa_SelectedIndexChanged);
-            // 
-            // txtEmpresaID
-            // 
-            this.txtEmpresaID.Location = new System.Drawing.Point(58, 71);
-            this.txtEmpresaID.Name = "txtEmpresaID";
-            this.txtEmpresaID.Size = new System.Drawing.Size(79, 20);
-            this.txtEmpresaID.TabIndex = 11;
-            this.txtEmpresaID.Visible = false;
-            // 
-            // btnLimparEmpresa
-            // 
-            this.btnLimparEmpresa.BackColor = System.Drawing.Color.Blue;
-            this.btnLimparEmpresa.ForeColor = System.Drawing.Color.White;
-            this.btnLimparEmpresa.Location = new System.Drawing.Point(19, 71);
-            this.btnLimparEmpresa.Name = "btnLimparEmpresa";
-            this.btnLimparEmpresa.Size = new System.Drawing.Size(118, 23);
-            this.btnLimparEmpresa.TabIndex = 5;
-            this.btnLimparEmpresa.Text = "Limpar Empresa";
-            this.btnLimparEmpresa.UseVisualStyleBackColor = false;
-            this.btnLimparEmpresa.Click += new System.EventHandler(this.btnLimparEmpresa_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtEmpresaSelecionada);
-            this.groupBox1.Controls.Add(this.btnListarResultado);
-            this.groupBox1.Location = new System.Drawing.Point(12, 132);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 50);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Empresa Selecionada:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnProcurarEmpresa);
-            this.groupBox2.Controls.Add(this.btnLimparEmpresa);
-            this.groupBox2.Controls.Add(this.cbbEmpresa);
-            this.groupBox2.Controls.Add(this.txtProcurarEmpresa);
-            this.groupBox2.Controls.Add(this.txtEmpresaID);
-            this.groupBox2.Location = new System.Drawing.Point(438, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(618, 180);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Procurar Empresa:";
-            // 
-            // printDocument
-            // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.Blue;
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 103);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(109, 23);
-            this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "Imprimir Resultado";
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // data
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -385,12 +316,130 @@
             this.dataFinal.ReadOnly = true;
             this.dataFinal.Visible = false;
             // 
+            // cbbEmpresa
+            // 
+            this.cbbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbEmpresa.FormattingEnabled = true;
+            this.cbbEmpresa.Items.AddRange(new object[] {
+            "CNPJ",
+            "Nome"});
+            this.cbbEmpresa.Location = new System.Drawing.Point(58, 16);
+            this.cbbEmpresa.Name = "cbbEmpresa";
+            this.cbbEmpresa.Size = new System.Drawing.Size(79, 21);
+            this.cbbEmpresa.TabIndex = 2;
+            this.cbbEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbbEmpresa_SelectedIndexChanged);
+            // 
+            // txtEmpresaID
+            // 
+            this.txtEmpresaID.Location = new System.Drawing.Point(58, 71);
+            this.txtEmpresaID.Name = "txtEmpresaID";
+            this.txtEmpresaID.Size = new System.Drawing.Size(79, 20);
+            this.txtEmpresaID.TabIndex = 11;
+            this.txtEmpresaID.Visible = false;
+            // 
+            // btnLimparEmpresa
+            // 
+            this.btnLimparEmpresa.BackColor = System.Drawing.Color.Blue;
+            this.btnLimparEmpresa.ForeColor = System.Drawing.Color.White;
+            this.btnLimparEmpresa.Location = new System.Drawing.Point(19, 71);
+            this.btnLimparEmpresa.Name = "btnLimparEmpresa";
+            this.btnLimparEmpresa.Size = new System.Drawing.Size(118, 23);
+            this.btnLimparEmpresa.TabIndex = 5;
+            this.btnLimparEmpresa.Text = "Limpar Empresa";
+            this.btnLimparEmpresa.UseVisualStyleBackColor = false;
+            this.btnLimparEmpresa.Click += new System.EventHandler(this.btnLimparEmpresa_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtEmpresaSelecionada);
+            this.groupBox1.Controls.Add(this.btnListarResultado);
+            this.groupBox1.Location = new System.Drawing.Point(12, 132);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(573, 50);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Empresa Selecionada:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTotalEmpresa);
+            this.groupBox2.Controls.Add(this.lblTotalContagemEmpresa);
+            this.groupBox2.Controls.Add(this.btnProcurarEmpresa);
+            this.groupBox2.Controls.Add(this.btnLimparEmpresa);
+            this.groupBox2.Controls.Add(this.cbbEmpresa);
+            this.groupBox2.Controls.Add(this.txtProcurarEmpresa);
+            this.groupBox2.Controls.Add(this.txtEmpresaID);
+            this.groupBox2.Location = new System.Drawing.Point(438, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(618, 180);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Procurar Empresa:";
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.Blue;
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(18, 103);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(109, 23);
+            this.btnImprimir.TabIndex = 7;
+            this.btnImprimir.Text = "Imprimir Resultado";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // lblTotalContagemEmpresa
+            // 
+            this.lblTotalContagemEmpresa.AutoSize = true;
+            this.lblTotalContagemEmpresa.Location = new System.Drawing.Point(112, 114);
+            this.lblTotalContagemEmpresa.Name = "lblTotalContagemEmpresa";
+            this.lblTotalContagemEmpresa.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalContagemEmpresa.TabIndex = 14;
+            this.lblTotalContagemEmpresa.Text = "0";
+            this.lblTotalContagemEmpresa.Visible = false;
+            // 
+            // lblTotalEmpresa
+            // 
+            this.lblTotalEmpresa.AutoSize = true;
+            this.lblTotalEmpresa.Location = new System.Drawing.Point(55, 114);
+            this.lblTotalEmpresa.Name = "lblTotalEmpresa";
+            this.lblTotalEmpresa.Size = new System.Drawing.Size(34, 13);
+            this.lblTotalEmpresa.TabIndex = 15;
+            this.lblTotalEmpresa.Text = "Total:";
+            this.lblTotalEmpresa.Visible = false;
+            // 
+            // lblTotalResumo
+            // 
+            this.lblTotalResumo.AutoSize = true;
+            this.lblTotalResumo.Location = new System.Drawing.Point(926, 566);
+            this.lblTotalResumo.Name = "lblTotalResumo";
+            this.lblTotalResumo.Size = new System.Drawing.Size(34, 13);
+            this.lblTotalResumo.TabIndex = 16;
+            this.lblTotalResumo.Text = "Total:";
+            this.lblTotalResumo.Visible = false;
+            // 
+            // lblTotalContagemResumo
+            // 
+            this.lblTotalContagemResumo.AutoSize = true;
+            this.lblTotalContagemResumo.Location = new System.Drawing.Point(1015, 566);
+            this.lblTotalContagemResumo.Name = "lblTotalContagemResumo";
+            this.lblTotalContagemResumo.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalContagemResumo.TabIndex = 17;
+            this.lblTotalContagemResumo.Text = "0";
+            this.lblTotalContagemResumo.Visible = false;
+            // 
             // frmListagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1068, 580);
+            this.Controls.Add(this.lblTotalContagemResumo);
+            this.Controls.Add(this.lblTotalResumo);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvListarResultado);
@@ -451,5 +500,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_idempresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataFinal;
+        private System.Windows.Forms.Label lblTotalEmpresa;
+        private System.Windows.Forms.Label lblTotalContagemEmpresa;
+        private System.Windows.Forms.Label lblTotalResumo;
+        private System.Windows.Forms.Label lblTotalContagemResumo;
     }
 }

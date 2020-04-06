@@ -40,11 +40,12 @@ namespace Chamados
 
         void Atualizar()
         {
-            string fileName = "EP3.MDB";
+            string fileNameSou = "EP3.mdb";
+            string fileNameTar = "EP3.tcm";
             string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
             string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug";
-            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-            string destFile = System.IO.Path.Combine(targetPath, fileName);
+            string sourceFile = System.IO.Path.Combine(sourcePath, fileNameSou);
+            string destFile = System.IO.Path.Combine(targetPath, fileNameTar);
 
             if (!System.IO.Directory.Exists(targetPath))
             {
@@ -53,7 +54,7 @@ namespace Chamados
             System.IO.File.Copy(sourceFile, destFile, true);
             if (System.IO.Directory.Exists(sourcePath))
             { 
-                destFile = System.IO.Path.Combine(targetPath, fileName);
+                destFile = System.IO.Path.Combine(targetPath, fileNameTar);
                 System.IO.File.Copy(sourceFile, destFile, true);
             }
             else
@@ -62,9 +63,9 @@ namespace Chamados
             }
         }
 
-        void Comparar()
+      /*  void Comparar()
         {
-            string fileName = "EP3.MDB";
+            string fileName = "EP3.tcm";
             string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
             string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp";
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
@@ -87,8 +88,8 @@ namespace Chamados
 
             byte[] ByteArray1 = null;
             byte[] ByteArray2 = null;
-            string File1 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.MDB";
-            string File2 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.MDB";
+            string File1 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.tcm";
+            string File2 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
 
             ByteArray1 = File.ReadAllBytes(File1);
             ByteArray2 = File.ReadAllBytes(File2);
@@ -104,7 +105,7 @@ namespace Chamados
                 btnAtualizar.Visible = true;
                 
             }
-        }
+        } */ // desativado, ja sobreescreve
                 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
@@ -125,13 +126,13 @@ namespace Chamados
             btnComoEsta.Text = " Atualizado ";
         }
 
-        private void btnComoEsta_MouseUp(object sender, MouseEventArgs e)
+      /*  private void btnComoEsta_MouseUp(object sender, MouseEventArgs e)
         {
             if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
             {
                 Comparar();
             }
-        }
+        } */ // descontinuado
 
         private void btnComoEsta_MouseDown(object sender, MouseEventArgs e)
         {

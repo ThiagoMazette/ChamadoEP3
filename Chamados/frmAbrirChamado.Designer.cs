@@ -67,6 +67,8 @@
             this.Dt_fwu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvFollowUP = new System.Windows.Forms.DataGridView();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblTotalContagem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
@@ -233,6 +235,7 @@
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(550, 20);
             this.txtProcurar.TabIndex = 2;
+            this.txtProcurar.DoubleClick += new System.EventHandler(this.txtProcurar_DoubleClick);
             this.txtProcurar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtProcurar_KeyUp);
             // 
             // dgvResumo
@@ -508,12 +511,36 @@
             this.dgvFollowUP.TabIndex = 29;
             this.dgvFollowUP.TabStop = false;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(373, 194);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(34, 13);
+            this.lblTotal.TabIndex = 31;
+            this.lblTotal.Text = "Total:";
+            this.lblTotal.Visible = false;
+            // 
+            // lblTotalContagem
+            // 
+            this.lblTotalContagem.AutoSize = true;
+            this.lblTotalContagem.Location = new System.Drawing.Point(423, 194);
+            this.lblTotalContagem.Name = "lblTotalContagem";
+            this.lblTotalContagem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTotalContagem.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalContagem.TabIndex = 32;
+            this.lblTotalContagem.Text = "0";
+            this.lblTotalContagem.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTotalContagem.Visible = false;
+            // 
             // frmAbrirChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(819, 464);
+            this.Controls.Add(this.lblTotalContagem);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dgvFollowUP);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -594,5 +621,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dt_fwu;
         private System.Windows.Forms.DataGridViewTextBoxColumn chvent;
         private System.Windows.Forms.DataGridView dgvFollowUP;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblTotalContagem;
     }
 }

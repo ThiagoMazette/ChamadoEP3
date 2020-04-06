@@ -91,6 +91,8 @@ namespace Chamados
             {
                 dgvResultado.CurrentRow.Selected = false;
             }
+
+            lblTotalContagem.Text = Convert.ToString(dgvResultado.Rows.Count);
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)
@@ -136,35 +138,25 @@ namespace Chamados
 
         void AbrirChamado()
         {
-
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-
             if (txtAbrirChamadoNome.Text == "")
             {
                 MessageBox.Show("Selecione uma empresa !", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtProcurar.Focus();
             }
-
-
-
-
             if (txtDataBloqueio.Text != "")
             {
-
-
                 DialogResult dialogResult = MessageBox.Show("Empresa Bloqueada, Favor consultar o MARCELO(R.225), \n deseja abrir o chamado mesmo assim ?", "OPA !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.No)
                 {
                     return;
                 }
-
             }
-
                 mdlEmpresa _mdlEmpresaDup = new mdlEmpresa();
-                string Nome = txtAbrirChamadoCNPJ.Text;
-                _mdlEmpresaDup.Nome = Nome;
-                bool duplicado = ctlEmpresa.VerificarDuplicidade(Nome);
+                string CNPJ = txtAbrirChamadoCNPJ.Text;
+                _mdlEmpresaDup.CNPJ = CNPJ;
+                bool duplicado = ctlEmpresa.VerificarDuplicidade(CNPJ);
                 if (duplicado)
                 {
                     _mdlEmpresa.ID = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
@@ -292,6 +284,7 @@ namespace Chamados
                 ProcurarTelefones();
             }
         }
+
 
         private void DgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -446,6 +439,20 @@ namespace Chamados
         private void DgvResumo_KeyUp(object sender, KeyEventArgs e)
         {
             ListarFollowIndividual();
+        }
+
+        void MostrarContadores()
+        {
+            lblTotal.Visible = true;
+            lblTotalContagem.Visible = true;
+        }
+
+        private void txtProcurar_DoubleClick(object sender, EventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                MostrarContadores();
+            }
         }
     }
 }

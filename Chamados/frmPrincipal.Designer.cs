@@ -83,7 +83,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Integracao 2.9.8";
+            this.label1.Text = "Integracao 2.9.9";
             // 
             // btnCadastrar
             // 
@@ -109,7 +109,6 @@
             this.btnComoEsta.UseVisualStyleBackColor = true;
             this.btnComoEsta.Visible = false;
             this.btnComoEsta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseDown);
-            this.btnComoEsta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnComoEsta_MouseUp);
             // 
             // btnAtualizar
             // 

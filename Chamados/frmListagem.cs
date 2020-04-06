@@ -39,6 +39,7 @@ namespace Chamados
             _mdlEmpresa.FiltroAbrirChamado = cbbEmpresa.Text;
             _mdlEmpresa.FiltrotxtProcurar = txtProcurarEmpresa.Text;
             dgvProcurarEmpresa.DataSource = _ctlEmpresa.PesquisarMDL(_mdlEmpresa);
+            lblTotalContagemEmpresa.Text = Convert.ToString(dgvProcurarEmpresa.RowCount);
         }
 
         private void btnProcurarEmpresa_Click(object sender, EventArgs e)
@@ -62,6 +63,9 @@ namespace Chamados
             {
                 MessageBox.Show("Nenhum resultado encontrado !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
+
+            lblTotalContagemResumo.Text = Convert.ToString(dgvListarResultado.Rows.Count);
         }
 
         private void btnListarResultado_Click(object sender, EventArgs e)
@@ -192,6 +196,22 @@ namespace Chamados
             if (txtProcurarEmpresa.Text.Length >= 2)
             {
                 EmpresaProcurar();
+            }
+        }
+
+        void MostrarContadores()
+        {
+            lblTotalContagemEmpresa.Visible = true;
+            lblTotalContagemResumo.Visible = true;
+            lblTotalEmpresa.Visible = true;
+            lblTotalResumo.Visible = true;
+        }
+
+        private void txtProcurarEmpresa_DoubleClick(object sender, EventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                MostrarContadores();
             }
         }
     }

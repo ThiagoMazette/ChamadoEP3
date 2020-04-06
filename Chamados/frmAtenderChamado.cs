@@ -18,7 +18,7 @@ namespace Chamados
         {
             Close();
         }
-     //   public static string txtEmpresaString;
+        //   public static string txtEmpresaString;
 
         void DataBloqueio()
         {
@@ -35,7 +35,7 @@ namespace Chamados
                 DateTime dataAtu = DateTime.Now;
                 DateTime dataBloq = Convert.ToDateTime(Data);
 
-                if (dataAtu > dataBloq || dataAtu == dataBloq)
+                if (dataAtu >= dataBloq)
                 {
                     //  lblDataBloqueio.Visible = true;
                     lblBloqueio.Visible = true;
@@ -80,7 +80,7 @@ namespace Chamados
                 {
                     row.DefaultCellStyle.BackColor = Color.Red;
                 }
-            } 
+            }
         }
 
         private void frmAtenderChamado_Load(object sender, EventArgs e)
@@ -97,6 +97,8 @@ namespace Chamados
             {
                 dgvOutrosAtendimentos.CurrentRow.Selected = false;
             }
+
+            lblTotalContagem.Text = Convert.ToString(dgvOutrosAtendimentos.RowCount);
 
 
             // dgvOutrosAtendimentos.;
@@ -123,7 +125,7 @@ namespace Chamados
             fed.Show();
             */
         }
-               
+
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             if (cbbTecnico.Text == "")
@@ -146,12 +148,12 @@ namespace Chamados
                 MessageBox.Show(" Selecione o tipo de Atendimento ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cbbAtendimento.DroppedDown = true;
             }
-            else if(txtResumo.Text=="")
+            else if (txtResumo.Text == "")
             {
                 MessageBox.Show(" Campo Descrição não pode ficar em branco", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtResumo.Focus();
             }
-            else if(txtResumo.Text.Length < 6)
+            else if (txtResumo.Text.Length < 6)
             {
                 MessageBox.Show(" De mais detalhes sobre o atendimento ... ", "Preguiçoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -188,21 +190,21 @@ namespace Chamados
             {
                 txtTelefone.Mask = "(00) 00000-0000";
             }
-            else if(txtTelefone.TextLength == 10)
+            else if (txtTelefone.TextLength == 10)
             {
                 txtTelefone.Mask = "(00) 0000-0000";
             }
-            else if(txtTelefone.TextLength == 8 || txtTelefone.TextLength == 9)
+            else if (txtTelefone.TextLength == 8 || txtTelefone.TextLength == 9)
             {
                 MessageBox.Show(" Digite o telefone com DDD sem ´(  )´", "Alou", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 txtTelefone.Focus();
             }
-            else if(txtTelefone.TextLength > 1 && txtTelefone.TextLength < 8)
+            else if (txtTelefone.TextLength > 1 && txtTelefone.TextLength < 8)
             {
                 MessageBox.Show(" Falta numero !!! ", "Olhe direito", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 txtTelefone.Focus();
             }
-            else if(txtTelefone.TextLength > 11)
+            else if (txtTelefone.TextLength > 11)
             {
                 MessageBox.Show(" Telefone tem numeros a mais ", "Olhe direito", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
@@ -211,18 +213,18 @@ namespace Chamados
         private void txtTelefone_Enter(object sender, EventArgs e)
         {
             string valorSemMascara = "";
-            valorSemMascara= txtTelefone.Text;
-            valorSemMascara = valorSemMascara.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ","");
+            valorSemMascara = txtTelefone.Text;
+            valorSemMascara = valorSemMascara.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
             txtTelefone.Text = "";
             txtTelefone.Mask = "";
             txtTelefone.Text = valorSemMascara;
-          //  txtTelefone.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+            //  txtTelefone.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
 
             //txtTelefone.Mask = "";
-           // var tirarmask = txtTelefone.Text;
-           // txtTelefone.Text = "";
-           // txtTelefone.Mask = "";
-           // txtTelefone.Text = tirarmask;
+            // var tirarmask = txtTelefone.Text;
+            // txtTelefone.Text = "";
+            // txtTelefone.Mask = "";
+            // txtTelefone.Text = tirarmask;
         }
 
         void FinalizarChamadoOK()
@@ -313,7 +315,7 @@ namespace Chamados
                 MessageBox.Show(" Selecionar o Técnico !! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cbbTecnico.DroppedDown = true;
             }
-           
+
             else
             {
                 ctlEmpresa _ctlEmpresa = new ctlEmpresa();
@@ -338,6 +340,80 @@ namespace Chamados
                     MessageBox.Show("Erro ao salvar chamado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        void MostrarContadores()
+        {
+            lblTotal.Visible = true;
+            lblTotalContagem.Visible = true;
+        }
+
+        private void txtDataBloqueio_DoubleClick(object sender, EventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+            {
+                MostrarContadores();
+            }
+        }
+
+        private void txtCNPJ_Enter(object sender, EventArgs e)
+        {
+            string valorSemMascara = "";
+            valorSemMascara = txtCNPJ.Text;
+            valorSemMascara = valorSemMascara.Replace(".", "").Replace(",", "").Replace("/", "").Replace("-", "");
+            txtCNPJ.Mask = "";
+            txtCNPJ.Text = valorSemMascara;
+        }
+
+        private void txtCNPJ_Leave(object sender, EventArgs e)
+        {
+            txtCNPJ.Mask = "00,000,000/0000-00";
+        }
+
+        private void dgvOutrosAtendimentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvOutrosAtendimentos.CurrentCell.ColumnIndex == 9) // contato/nome
+            {
+                if (txtContato.Text == "")
+                {
+                    txtContato.Text = dgvOutrosAtendimentos.CurrentRow.Cells["contato"].Value.ToString(); //["contato"].Value.ToString();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Contato JÁ preenchido, \n deseja substituir ?", "OPA !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        txtContato.Text = dgvOutrosAtendimentos.CurrentRow.Cells["contato"].Value.ToString();
+                    }
+                }
+            }
+            if (dgvOutrosAtendimentos.CurrentCell.ColumnIndex == 8) //telefone
+            {
+                if (txtTelefone.Text == "")
+                {
+                    txtTelefone.Text = dgvOutrosAtendimentos.CurrentRow.Cells["telefone"].Value.ToString();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Telefone JÁ preenchido, \n deseja substituir ?", "OPA !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        txtTelefone.Text = dgvOutrosAtendimentos.CurrentRow.Cells["telefone"].Value.ToString();
+                    }
+                }
+            }
+        }
+
+        private void txtTelefone_KeyUp(object sender, KeyEventArgs e)
+        {
+
+
+            if ((Control.ModifierKeys & Keys.Shift) == Keys.Decimal)
+            {
+                MessageBox.Show("este campo aceita somente numero");
+            }
+
+
         }
     }
 }
