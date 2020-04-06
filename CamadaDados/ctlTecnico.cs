@@ -13,7 +13,7 @@ namespace CamadaDados
 
         public static bool VerificarDuplicidade(string Nome)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\chamadosint.tcm";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string qexiste = "select count(1) from tb_tecnicos where Nome = @Nome";
@@ -45,7 +45,7 @@ namespace CamadaDados
 
         public bool CadastrarTecnicoMDL(global::CamadaModelos.mdlTecnico _mdlTecnico)
         {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\chamadosint.mdb";
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Usuario\source\repos\Chamados\Chamados\bin\Debug\chamadosint.tcm";
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
             string Query = "insert into tb_tecnicos(Nome, Ramal) values(@Nome, @Ramal)";
