@@ -23,14 +23,14 @@ namespace Chamados
             InitializeComponent();
         }
 
-        void ListarChamado()
-        {
-            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
-            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-            _mdlEmpresa.CNPJ = txtEmpresaSelecionada.Text;
-            _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
-            dgvListarResultado.DataSource = _ctlEmpresa.ListarChamado(_mdlEmpresa);
-        }
+        //void ListarChamado()
+        //{
+        //    ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+        //    mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+        //    _mdlEmpresa.CNPJ = txtEmpresaSelecionada.Text;
+        //    _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
+        //    dgvListarResultado.DataSource = _ctlEmpresa.ListarChamado(_mdlEmpresa);
+        //}
 
         void EmpresaProcurar()
         {

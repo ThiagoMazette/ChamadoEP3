@@ -415,5 +415,15 @@ namespace Chamados
 
 
         }
+
+        private void cbbTecnico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+            _mdlEmpresa.cbbTecnico = cbbTecnico.Text;
+            _mdlEmpresa.ID = txtChamadoID.Text;
+            _ctlEmpresa.SalvarTecnico(_mdlEmpresa);
+        }
     }
 }

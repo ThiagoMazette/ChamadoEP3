@@ -26,25 +26,29 @@ namespace Chamados
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            ListarChamado();
+            ListarChamados();
         }
 
-        void ListarChamado()
+        void ListarChamados()
         {
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-            dgvResultado.DataSource = _ctlEmpresa.ListarChamado(_mdlEmpresa);
-
+            dgvResultado.DataSource = _ctlEmpresa.ListarChamadoNaoAtendido(_mdlEmpresa);
+            dgvSendoAtendido.DataSource = _ctlEmpresa.ListarChamadoSendoAtendido(_mdlEmpresa);
             if (dgvResultado.Rows.Count != 0)
             {
                 dgvResultado.CurrentRow.Selected = false;
+            }
+            if (dgvSendoAtendido.Rows.Count != 0)
+            {
+                dgvSendoAtendido.CurrentRow.Selected = false;
             }
 
         }
 
         private void frmListarChamado_Load(object sender, EventArgs e)
         {
-            ListarChamado();
+            ListarChamados();
         }
 
         private void dgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,7 +67,7 @@ namespace Chamados
                 frmAC.txtResumo.Text = dgvResultado.CurrentRow.Cells["resumo"].Value.ToString();
                 frmAC.cbbAtendimento.Text = dgvResultado.CurrentRow.Cells["atendimento"].Value.ToString();
                 frmAC.ShowDialog();
-                ListarChamado();
+                ListarChamados();
             }
         }
     }

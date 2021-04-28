@@ -28,6 +28,7 @@ namespace Chamados
         private void frmAbrirChamado_Load(object sender, EventArgs e)
         {
             cbbSelecao.SelectedIndex = 1;
+            txtProcurar.Select();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -144,6 +145,7 @@ namespace Chamados
             {
                 MessageBox.Show("Selecione uma empresa !", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtProcurar.Focus();
+                return;
             }
             if (txtDataBloqueio.Text != "")
             {
@@ -153,52 +155,52 @@ namespace Chamados
                     return;
                 }
             }
-                mdlEmpresa _mdlEmpresaDup = new mdlEmpresa();
-                string CNPJ = txtAbrirChamadoCNPJ.Text;
-                _mdlEmpresaDup.CNPJ = CNPJ;
-                bool duplicado = ctlEmpresa.VerificarDuplicidade(CNPJ);
-                if (duplicado)
-                {
-                    _mdlEmpresa.ID = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
-                    _mdlEmpresa.CNPJ = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
-                    _mdlEmpresa.Nome = dgvResultado.CurrentRow.Cells["Nome"].Value.ToString();
-
-                    bool retornoComp = _ctlEmpresa.AbrirSoChamado(_mdlEmpresa);
-                    if (retornoComp)
-                    {
-                        //if(txtDataBloqueio.Text != "")
-                        //{
-                        //    MessageBox.Show("Empresa Bloqueda !!! ", "BLOQUEADA !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //    Close();
-                        //}
-                        MessageBox.Show("Chamado Aberto com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao abrir chamado", "ERRO ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    return;
-                }
+            mdlEmpresa _mdlEmpresaDup = new mdlEmpresa();
+            string CNPJ = txtAbrirChamadoCNPJ.Text;
+            _mdlEmpresaDup.CNPJ = CNPJ;
+            bool duplicado = ctlEmpresa.VerificarDuplicidade(CNPJ);
+            if (duplicado)
+            {
                 _mdlEmpresa.ID = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
                 _mdlEmpresa.CNPJ = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
                 _mdlEmpresa.Nome = dgvResultado.CurrentRow.Cells["Nome"].Value.ToString();
 
-                bool retorno1 = _ctlEmpresa.AbrirChamadoCompleto(_mdlEmpresa);
-                if (retorno1)
+                bool retornoComp = _ctlEmpresa.AbrirSoChamado(_mdlEmpresa);
+                if (retornoComp)
                 {
+                    //if(txtDataBloqueio.Text != "")
+                    //{
+                    //    MessageBox.Show("Empresa Bloqueda !!! ", "BLOQUEADA !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    Close();
+                    //}
                     MessageBox.Show("Chamado Aberto com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Close();
-                    /* dgvResultado.DataSource = null;
-                     txtEmpresaAbrirChamado.Text = "";
-                     txtProcurar.Text = "";
-                     txtProcurar.Focus(); */
                 }
                 else
                 {
                     MessageBox.Show("Erro ao abrir chamado", "ERRO ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-        }   
+                return;
+            }
+            _mdlEmpresa.ID = dgvResultado.CurrentRow.Cells["id"].Value.ToString();
+            _mdlEmpresa.CNPJ = dgvResultado.CurrentRow.Cells["CNPJ"].Value.ToString();
+            _mdlEmpresa.Nome = dgvResultado.CurrentRow.Cells["Nome"].Value.ToString();
+
+            bool retorno1 = _ctlEmpresa.AbrirChamadoCompleto(_mdlEmpresa);
+            if (retorno1)
+            {
+                MessageBox.Show("Chamado Aberto com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Close();
+                /* dgvResultado.DataSource = null;
+                 txtEmpresaAbrirChamado.Text = "";
+                 txtProcurar.Text = "";
+                 txtProcurar.Focus(); */
+            }
+            else
+            {
+                MessageBox.Show("Erro ao abrir chamado", "ERRO ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         void ProcurarTelefones()
         {
@@ -276,7 +278,7 @@ namespace Chamados
 
                 if (dgvFollowUP.Rows.Count != 0)
                 {
-          //          dgvFollowUP.CurrentRow.Selected = false;
+                    //          dgvFollowUP.CurrentRow.Selected = false;
                 }
 
                 DataBloqueio();
@@ -302,11 +304,11 @@ namespace Chamados
             {
                 ctlEmpresa _ctlEmpresa = new ctlEmpresa();
                 mdlEmpresa _mdlEmpresa = new mdlEmpresa();
-            
+
                 _mdlEmpresa.chvvnda = dgvResumo.CurrentRow.Cells["vndBchvvnda"].Value.ToString();
 
-                  dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa); 
-               //nao add linha, add em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
+                dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa);
+                //nao add linha, add em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
                 if (dgvFollowUP.Rows.Count != 0)
                 {
                     dgvFollowUP.CurrentRow.Selected = false;
@@ -390,41 +392,41 @@ namespace Chamados
 
 
 
-   /*     void ListarFollowTodos()
-        {
-            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
-            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+        /*     void ListarFollowTodos()
+             {
+                 ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+                 mdlEmpresa _mdlEmpresa = new mdlEmpresa();
 
-            //       string [] okk = new string [dgvResumo.Rows.Count];
-            //  string[] okk = new string[20];
-            List<Cliente> okk = (List<Clientes>)dgvFollowUP.DataSource;
-            int i = 0;
+                 //       string [] okk = new string [dgvResumo.Rows.Count];
+                 //  string[] okk = new string[20];
+                 List<Cliente> okk = (List<Clientes>)dgvFollowUP.DataSource;
+                 int i = 0;
 
-            foreach (DataGridViewRow row in dgvResumo.Rows)
-            {
-                //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
-                okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
-                _mdlEmpresa.chvvnda = okk[i];
-             //   dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
+                 foreach (DataGridViewRow row in dgvResumo.Rows)
+                 {
+                     //  okk[i] = row.Cells["vndBchvvnda"].Value != null ? row.Cells["vndBchvvnda"].Value.ToString() : string.Empty;
+                     okk[i] = row.Cells["vndBchvvnda"].Value.ToString();
+                     _mdlEmpresa.chvvnda = okk[i];
+                  //   dgvFollowUP.Rows.Add((_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa)));
 
-                //  vndBchvvnda.Add(row.Cells[i].Value);
-                i++;
-            }
-
-
-
-            /* List<Clientes> dadosGrid = (List<Clientes>)dgvClientes.DataSource
-                 dadosGrid.Add(new Cliente() { id = 1, Nome = "Fulano de tal" });
-                 //e pode até repassar os dados para o grid, limpando antes:
-
-                 dgvClientes.DataSource = null;
-                 dgvClientes.DataSource = dadosGrid;
-                 //a linha acima, preenche o datagridview, com todos os ítens que já estavam nele antes, da forma que estavam e com um cliente novo adicionado.
-                 */
+                     //  vndBchvvnda.Add(row.Cells[i].Value);
+                     i++;
+                 }
 
 
 
-     //   }   // nao vai :(
+                 /* List<Clientes> dadosGrid = (List<Clientes>)dgvClientes.DataSource
+                      dadosGrid.Add(new Cliente() { id = 1, Nome = "Fulano de tal" });
+                      //e pode até repassar os dados para o grid, limpando antes:
+
+                      dgvClientes.DataSource = null;
+                      dgvClientes.DataSource = dadosGrid;
+                      //a linha acima, preenche o datagridview, com todos os ítens que já estavam nele antes, da forma que estavam e com um cliente novo adicionado.
+                      */
+
+
+
+        //   }   // nao vai :(
 
 
 

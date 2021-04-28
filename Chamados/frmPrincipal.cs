@@ -38,6 +38,7 @@ namespace Chamados
             _frmAtenderChamado.ShowDialog();
         }
 
+
         void Atualizar()
         {
             string fileNameSou = "EP3.mdb";
@@ -53,60 +54,62 @@ namespace Chamados
             }
             System.IO.File.Copy(sourceFile, destFile, true);
             if (System.IO.Directory.Exists(sourcePath))
-            { 
+            {
                 destFile = System.IO.Path.Combine(targetPath, fileNameTar);
-                System.IO.File.Copy(sourceFile, destFile, true);
-            }
-            else
-            {
-               MessageBox.Show(" Caminho do banco atualizado não encontrado !!! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-      /*  void Comparar()
-        {
-            string fileName = "EP3.tcm";
-            string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
-            string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp";
-            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-            string destFile = System.IO.Path.Combine(targetPath, fileName);
-
-            if (!System.IO.Directory.Exists(targetPath))
-            {
-                System.IO.Directory.CreateDirectory(targetPath);
-            }
-            System.IO.File.Copy(sourceFile, destFile, true);
-            if (System.IO.Directory.Exists(sourcePath))
-            {
-                destFile = System.IO.Path.Combine(targetPath, fileName);
                 System.IO.File.Copy(sourceFile, destFile, true);
             }
             else
             {
                 MessageBox.Show(" Caminho do banco atualizado não encontrado !!! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
 
-            byte[] ByteArray1 = null;
-            byte[] ByteArray2 = null;
-            string File1 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.tcm";
-            string File2 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
 
-            ByteArray1 = File.ReadAllBytes(File1);
-            ByteArray2 = File.ReadAllBytes(File2);
 
-            if (ByteArray1.SequenceEqual<byte>(ByteArray2) == true)
-            {
-                btnComoEsta.Text = "Atualizado !";
+        /*  void Comparar()
+          {
+              string fileName = "EP3.tcm";
+              string sourcePath = @"\\REP_SERVER\publica\Dropbox\EMPRESARIO3\Dados";
+              string targetPath = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp";
+              string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+              string destFile = System.IO.Path.Combine(targetPath, fileName);
 
-            }
-            else
-            {
-                btnComoEsta.Visible = false;
-                btnAtualizar.Visible = true;
-                
-            }
-        } */ // desativado, ja sobreescreve
-                
+              if (!System.IO.Directory.Exists(targetPath))
+              {
+                  System.IO.Directory.CreateDirectory(targetPath);
+              }
+              System.IO.File.Copy(sourceFile, destFile, true);
+              if (System.IO.Directory.Exists(sourcePath))
+              {
+                  destFile = System.IO.Path.Combine(targetPath, fileName);
+                  System.IO.File.Copy(sourceFile, destFile, true);
+              }
+              else
+              {
+                  MessageBox.Show(" Caminho do banco atualizado não encontrado !!! ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              }
+
+              byte[] ByteArray1 = null;
+              byte[] ByteArray2 = null;
+              string File1 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\temp\EP3.tcm";
+              string File2 = @"\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
+
+              ByteArray1 = File.ReadAllBytes(File1);
+              ByteArray2 = File.ReadAllBytes(File2);
+
+              if (ByteArray1.SequenceEqual<byte>(ByteArray2) == true)
+              {
+                  btnComoEsta.Text = "Atualizado !";
+
+              }
+              else
+              {
+                  btnComoEsta.Visible = false;
+                  btnAtualizar.Visible = true;
+
+              }
+          } */ // desativado, ja sobreescreve
+
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             Atualizar();

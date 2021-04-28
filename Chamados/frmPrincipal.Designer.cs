@@ -83,7 +83,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Integracao 2.9.9";
+            this.label1.Text = "Integracao 3.1.1";
             // 
             // btnCadastrar
             // 
