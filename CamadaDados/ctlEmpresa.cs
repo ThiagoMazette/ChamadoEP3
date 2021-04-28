@@ -295,7 +295,7 @@ namespace CamadaDados
             return resultado > 0;
         }
 
-        public DataTable ListarChamado(CamadaModelos.mdlEmpresa _mdlEmpresa)
+        public DataTable ListarChamadoNaoAtendido(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
             string ConexaoA = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
             OleDbConnection BancoA = new OleDbConnection(ConexaoA);
@@ -304,7 +304,7 @@ namespace CamadaDados
             string Query = "select tb_empresas.id, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
-                        "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' order by tb_chamados.id desc";
+                        "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' AND tb_chamados.SendoAtendido='0' order by tb_chamados.id desc";
 
             OleDbCommand cmd = new OleDbCommand(Query, BancoA);
             cmd.CommandType = CommandType.Text;
@@ -315,6 +315,34 @@ namespace CamadaDados
             BancoA.Close();
             return lista;
         }
+
+
+
+
+        public DataTable ListarChamadoSendoAtendido(CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoA = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
+            OleDbConnection BancoA = new OleDbConnection(ConexaoA);
+            BancoA.Open();
+
+            string Query = "select tb_empresas.id, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
+                        "FROM tb_empresas" +
+                        " inner join tb_chamados " +
+                        "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' AND tb_chamados.SendoAtendido='1' order by tb_chamados.id desc";
+
+            OleDbCommand cmd = new OleDbCommand(Query, BancoA);
+            cmd.CommandType = CommandType.Text;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable lista = new DataTable();
+            da.Fill(lista);
+            BancoA.Close();
+            return lista;
+        }
+
+
+
+
 
         public DataTable ListagemResultado(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
@@ -611,6 +639,38 @@ namespace CamadaDados
             pmtContato.DbType = DbType.String;
             pmtContato.Value = _mdlEmpresa.Contato;
             cmd.Parameters.Add(pmtContato);
+
+            var pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            cmd.ExecuteNonQuery();
+            int resultado = cmd.ExecuteNonQuery();
+            ConexaoDB.Close();
+            return resultado > 0;
+        }
+
+        public bool SalvarTecnico(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "update tb_chamados " +
+                "set " +
+                "fk_idtecnico=@tec, " +
+                "where id = @id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            cmd.CommandType = CommandType.Text;
+
+            var pmttec = cmd.CreateParameter();
+            pmttec.ParameterName = "@tec";
+            pmttec.DbType = DbType.String;
+            pmttec.Value = _mdlEmpresa.cbbTecnico;
+            cmd.Parameters.Add(pmttec);
 
             var pmtID = cmd.CreateParameter();
             pmtID.ParameterName = "@id";
