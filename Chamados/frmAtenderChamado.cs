@@ -83,8 +83,19 @@ namespace Chamados
             }
         }
 
+
+        void MudarStatusSendoAtendido()
+        {
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+            _mdlEmpresa.ID = txtChamadoID.Text;
+            _ctlEmpresa.MudarStatusSendoAtendido(_mdlEmpresa);
+        }
+
         private void frmAtenderChamado_Load(object sender, EventArgs e)
         {
+            MudarStatusSendoAtendido();
             DataBloqueio();
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
