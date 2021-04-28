@@ -85,7 +85,7 @@ namespace CamadaDados
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
-            string Query = "insert into tb_chamados(aberto, fk_idempresa, data) values(@aberto, @fk_idempresa, @data);";
+            string Query = "insert into tb_chamados(aberto, SendoAtendido, fk_idempresa, data) values(@aberto, @SendoAtendido, @fk_idempresa, @data);";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
@@ -94,6 +94,12 @@ namespace CamadaDados
             pmtAbrirChamado.DbType = DbType.String;
             pmtAbrirChamado.Value = "1";
             cmd.Parameters.Add(pmtAbrirChamado);
+
+            var pmtSendoAtendido = cmd.CreateParameter();
+            pmtSendoAtendido.ParameterName = "@SendoAtendido";
+            pmtSendoAtendido.DbType = DbType.String;
+            pmtSendoAtendido.Value = "0";
+            cmd.Parameters.Add(pmtSendoAtendido);
 
             var pmtfkidempresa = cmd.CreateParameter();
             pmtfkidempresa.ParameterName = "@fk_idempresa";
@@ -127,7 +133,7 @@ namespace CamadaDados
             OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
             ConexaoDB.Open();
 
-            string Query = "insert into tb_chamados(aberto, fk_idempresa, data) values(@aberto, @fk_idempresa, @data);";
+            string Query = "insert into tb_chamados(aberto, SendoAtendido, fk_idempresa, data) values(@aberto, @SendoAtendido, @fk_idempresa, @data);";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
 
@@ -136,6 +142,12 @@ namespace CamadaDados
             pmtAbrirChamado.DbType = DbType.String;
             pmtAbrirChamado.Value = "1";
             cmd.Parameters.Add(pmtAbrirChamado);
+
+            var pmtSendoAtendido = cmd.CreateParameter();
+            pmtSendoAtendido.ParameterName = "@SendoAtendido";
+            pmtSendoAtendido.DbType = DbType.String;
+            pmtSendoAtendido.Value = "0";
+            cmd.Parameters.Add(pmtSendoAtendido);
 
             var pmtfkidempresa = cmd.CreateParameter();
             pmtfkidempresa.ParameterName = "@fk_idempresa";
@@ -229,6 +241,7 @@ namespace CamadaDados
             string Query = "update tb_chamados " +
                 "set " +
                 "aberto=@aberto, " +
+                "SendoAtendido=@SendoAtendido, " +
                 "fk_idtecnico=@tec, " +
                 "atendimento=@atendimento, " +
                 "resumo=@resumo, " +
@@ -245,6 +258,12 @@ namespace CamadaDados
             pmtFecharChamado.DbType = DbType.String;
             pmtFecharChamado.Value = "0";
             cmd.Parameters.Add(pmtFecharChamado);
+
+            var pmtSendoAtendido = cmd.CreateParameter();
+            pmtSendoAtendido.ParameterName = "@SendoAtendido";
+            pmtSendoAtendido.DbType = DbType.String;
+            pmtSendoAtendido.Value = "0";
+            cmd.Parameters.Add(pmtSendoAtendido);
 
             var pmttec = cmd.CreateParameter();
             pmttec.ParameterName = "@tec";
@@ -304,7 +323,7 @@ namespace CamadaDados
             string Query = "select tb_empresas.id, tb_empresas.cnpj, tb_empresas.nome, tb_chamados.fk_idempresa, tb_chamados.data, tb_chamados.id, tb_chamados.contato, tb_chamados.telefone, tb_chamados.fk_idtecnico, tb_chamados.resumo, tb_chamados.atendimento " +
                         "FROM tb_empresas" +
                         " inner join tb_chamados " +
-                        "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' AND tb_chamados.SendoAtendido='0' order by tb_chamados.id desc";
+                        "on tb_chamados.fk_idempresa = tb_empresas.id where tb_chamados.aberto = '1' AND tb_chamados.SendoAtendido ='0' order by tb_chamados.id desc";
 
             OleDbCommand cmd = new OleDbCommand(Query, BancoA);
             cmd.CommandType = CommandType.Text;
@@ -661,6 +680,7 @@ namespace CamadaDados
             string Query = "update tb_chamados " +
                 "set " +
                 "fk_idtecnico=@tec, " +
+                "SendoAtendido='1' " +
                 "where id = @id";
 
             OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
@@ -683,6 +703,36 @@ namespace CamadaDados
             ConexaoDB.Close();
             return resultado > 0;
         }
+
+
+
+        public bool MudarStatusSendoAtendido(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "update tb_chamados " +
+                "set " +
+                "SendoAtendido='1' " +
+                "where id = @id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            cmd.CommandType = CommandType.Text;
+           
+            var pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            cmd.ExecuteNonQuery();
+            int resultado = cmd.ExecuteNonQuery();
+            ConexaoDB.Close();
+            return resultado > 0;
+        }
+
+
 
         public string DataBloqueio(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
