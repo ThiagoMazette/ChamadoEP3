@@ -335,9 +335,6 @@ namespace CamadaDados
             return lista;
         }
 
-
-
-
         public DataTable ListarChamadoSendoAtendido(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
             string ConexaoA = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
@@ -358,10 +355,6 @@ namespace CamadaDados
             BancoA.Close();
             return lista;
         }
-
-
-
-
 
         public DataTable ListagemResultado(CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
@@ -704,36 +697,6 @@ namespace CamadaDados
             return resultado > 0;
         }
 
-
-
-        public bool MudarStatusSendoAtendido(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
-        {
-            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
-            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
-            ConexaoDB.Open();
-
-            string Query = "update tb_chamados " +
-                "set " +
-                "SendoAtendido='1' " +
-                "where id = @id";
-
-            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
-            cmd.CommandType = CommandType.Text;
-           
-            var pmtID = cmd.CreateParameter();
-            pmtID.ParameterName = "@id";
-            pmtID.DbType = DbType.String;
-            pmtID.Value = _mdlEmpresa.ID;
-            cmd.Parameters.Add(pmtID);
-
-            cmd.ExecuteNonQuery();
-            int resultado = cmd.ExecuteNonQuery();
-            ConexaoDB.Close();
-            return resultado > 0;
-        }
-
-
-
         public string DataBloqueio(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
             string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
@@ -815,7 +778,6 @@ namespace CamadaDados
 
         } */
 
-
         public bool ArrumarChamado(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
         {
             string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
@@ -889,5 +851,108 @@ namespace CamadaDados
             ConexaoDB.Close();
             return resultado > 0;
         }
+
+        public bool MudarStatusSendoAtendido(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\chamadosint.tcm";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "update tb_chamados " +
+                "set " +
+                "SendoAtendido='1' " +
+                "where id = @id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+            cmd.CommandType = CommandType.Text;
+
+            var pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.ID;
+            cmd.Parameters.Add(pmtID);
+
+            cmd.ExecuteNonQuery();
+            int resultado = cmd.ExecuteNonQuery();
+            ConexaoDB.Close();
+            return resultado > 0;
+        }
+
+        public string DataInativo(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            string Query = "Select Dt_Inat from cli where chvbfj=@id";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@id";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.txtAbrirChamadoID;
+            cmd.Parameters.Add(pmtID);
+
+            OleDbDataReader myReader = cmd.ExecuteReader();
+            while (myReader.Read())
+            {
+                return myReader["Dt_Inat"].ToString();
+            }
+            ConexaoDB.Close();
+            return string.Empty;
+
+            /* 1 DataSet ds = new DataSet();
+             if (da.Fill(ds) != 0)
+             {
+                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                 {
+                     _mdlEmpresa.txtDataBloqueio = ds.Tables[0].Rows[i]["Dt_Bloq"].ToString();
+                 }
+             }
+
+             return _mdlEmpresa.txtDataBloqueio; 1 */
+        }
+
+        public string PesquisarVendedor(global::CamadaModelos.mdlEmpresa _mdlEmpresa)
+        {
+            string ConexaoAccess = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\REP_SERVER\publica2\Thiago\Meus Documentos\Visual Studio 2017\Chamados\Chamados\bin\Debug\EP3.tcm";
+            OleDbConnection ConexaoDB = new OleDbConnection(ConexaoAccess);
+            ConexaoDB.Open();
+
+            //string Query = "Select vnda.chvvnd, vnda.chvvnda, vndb.chvnda, vend.chvvend, vend.chvbfj, bfj.chvbfj, bfj.rzs " +
+            string Query = "Select vndb.chvvnda, vnda.chvvnda, vnda.chvvnd, vend.chvvend, bfj.chvbfj, vend.chvbfj, bfj.rzs " +
+                   "From ((( " +
+                   "vndb " +
+                   "inner join vnda " +
+                   "on vndb.chvvnda = vnda.chvvnda) " +
+                   "inner join vend " +
+                   "on vnda.chvvnd = vend.chvvend) " +
+                   "inner join bfj " +
+                   "on bfj.chvbfj = vend.chvbfj) " +
+                   "where vndb.chvvnda=@NPed";
+
+            OleDbCommand cmd = new OleDbCommand(Query, ConexaoDB);
+
+            cmd.CommandType = CommandType.Text;
+            OleDbParameter pmtID = cmd.CreateParameter();
+            pmtID.ParameterName = "@NPed";
+            pmtID.DbType = DbType.String;
+            pmtID.Value = _mdlEmpresa.VendedorvndBchvvnda;
+            cmd.Parameters.Add(pmtID);
+
+    
+            OleDbDataReader myReader = cmd.ExecuteReader();
+            while (myReader.Read())
+            {
+                return myReader["rzs"].ToString();
+            }
+            ConexaoDB.Close();
+            return string.Empty;
+
+        }
+
+
     }
 }

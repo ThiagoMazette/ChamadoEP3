@@ -30,5 +30,7 @@ namespace CamadaModelos
         public string chvvnda { get; set; }
         public string Inicial { get; set; }
         public string Final { get; set; }
+        public string VendedorvndBchvvnda { get; set; }
+
     }
 }
