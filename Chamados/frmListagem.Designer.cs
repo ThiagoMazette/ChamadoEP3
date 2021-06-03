@@ -56,10 +56,10 @@
             this.btnLimparEmpresa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTotalEmpresa = new System.Windows.Forms.Label();
+            this.lblTotalContagemEmpresa = new System.Windows.Forms.Label();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.lblTotalContagemEmpresa = new System.Windows.Forms.Label();
-            this.lblTotalEmpresa = new System.Windows.Forms.Label();
             this.lblTotalResumo = new System.Windows.Forms.Label();
             this.lblTotalContagemResumo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcurarEmpresa)).BeginInit();
@@ -77,7 +77,7 @@
             "Fabio",
             "Jadilson",
             "Thiago",
-            "Rafael",
+            "Raphael",
             "Beto",
             "Todos"});
             this.cbbTecnico.Location = new System.Drawing.Point(68, 18);
@@ -376,6 +376,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Procurar Empresa:";
             // 
+            // lblTotalEmpresa
+            // 
+            this.lblTotalEmpresa.AutoSize = true;
+            this.lblTotalEmpresa.Location = new System.Drawing.Point(55, 114);
+            this.lblTotalEmpresa.Name = "lblTotalEmpresa";
+            this.lblTotalEmpresa.Size = new System.Drawing.Size(34, 13);
+            this.lblTotalEmpresa.TabIndex = 15;
+            this.lblTotalEmpresa.Text = "Total:";
+            this.lblTotalEmpresa.Visible = false;
+            // 
+            // lblTotalContagemEmpresa
+            // 
+            this.lblTotalContagemEmpresa.AutoSize = true;
+            this.lblTotalContagemEmpresa.Location = new System.Drawing.Point(112, 114);
+            this.lblTotalContagemEmpresa.Name = "lblTotalContagemEmpresa";
+            this.lblTotalContagemEmpresa.Size = new System.Drawing.Size(13, 13);
+            this.lblTotalContagemEmpresa.TabIndex = 14;
+            this.lblTotalContagemEmpresa.Text = "0";
+            this.lblTotalContagemEmpresa.Visible = false;
+            // 
             // printDocument
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
@@ -391,26 +411,6 @@
             this.btnImprimir.Text = "Imprimir Resultado";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // lblTotalContagemEmpresa
-            // 
-            this.lblTotalContagemEmpresa.AutoSize = true;
-            this.lblTotalContagemEmpresa.Location = new System.Drawing.Point(112, 114);
-            this.lblTotalContagemEmpresa.Name = "lblTotalContagemEmpresa";
-            this.lblTotalContagemEmpresa.Size = new System.Drawing.Size(13, 13);
-            this.lblTotalContagemEmpresa.TabIndex = 14;
-            this.lblTotalContagemEmpresa.Text = "0";
-            this.lblTotalContagemEmpresa.Visible = false;
-            // 
-            // lblTotalEmpresa
-            // 
-            this.lblTotalEmpresa.AutoSize = true;
-            this.lblTotalEmpresa.Location = new System.Drawing.Point(55, 114);
-            this.lblTotalEmpresa.Name = "lblTotalEmpresa";
-            this.lblTotalEmpresa.Size = new System.Drawing.Size(34, 13);
-            this.lblTotalEmpresa.TabIndex = 15;
-            this.lblTotalEmpresa.Text = "Total:";
-            this.lblTotalEmpresa.Visible = false;
             // 
             // lblTotalResumo
             // 

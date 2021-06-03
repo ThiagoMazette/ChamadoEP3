@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +40,17 @@
             this.cbbTecnico = new System.Windows.Forms.ComboBox();
             this.txtContato = new System.Windows.Forms.TextBox();
             this.dgvOutrosAtendimentos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_final = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendoAtendido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResumo = new System.Windows.Forms.TextBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -66,17 +77,6 @@
             this.lblTotalContagem = new System.Windows.Forms.Label();
             this.lblOutrosTotalContagem = new System.Windows.Forms.Label();
             this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aberto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_idtecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendoAtendido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutrosAtendimentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDsc)).BeginInit();
             this.SuspendLayout();
@@ -135,7 +135,7 @@
             "Fabio",
             "Jadilson",
             "Thiago",
-            "Rafael",
+            "Raphael",
             "Beto",
             "Outros"});
             this.cbbTecnico.Location = new System.Drawing.Point(63, 45);
@@ -178,6 +178,101 @@
             this.dgvOutrosAtendimentos.Size = new System.Drawing.Size(855, 334);
             this.dgvOutrosAtendimentos.TabIndex = 12;
             this.dgvOutrosAtendimentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutrosAtendimentos_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // aberto
+            // 
+            this.aberto.DataPropertyName = "aberto";
+            this.aberto.HeaderText = "aberto";
+            this.aberto.Name = "aberto";
+            this.aberto.ReadOnly = true;
+            this.aberto.Visible = false;
+            // 
+            // fk_idempresa
+            // 
+            this.fk_idempresa.DataPropertyName = "fk_idempresa";
+            this.fk_idempresa.HeaderText = "fk_idempresa";
+            this.fk_idempresa.Name = "fk_idempresa";
+            this.fk_idempresa.ReadOnly = true;
+            this.fk_idempresa.Visible = false;
+            // 
+            // atendimento
+            // 
+            this.atendimento.DataPropertyName = "atendimento";
+            this.atendimento.HeaderText = "atendimento";
+            this.atendimento.Name = "atendimento";
+            this.atendimento.ReadOnly = true;
+            this.atendimento.Visible = false;
+            // 
+            // resumo
+            // 
+            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.resumo.DataPropertyName = "resumo";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.resumo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.resumo.HeaderText = "Resumo";
+            this.resumo.Name = "resumo";
+            this.resumo.ReadOnly = true;
+            this.resumo.Width = 71;
+            // 
+            // fk_idtecnico
+            // 
+            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
+            this.fk_idtecnico.HeaderText = "Técnico";
+            this.fk_idtecnico.Name = "fk_idtecnico";
+            this.fk_idtecnico.ReadOnly = true;
+            this.fk_idtecnico.Width = 71;
+            // 
+            // data
+            // 
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "Data Inicio";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.Width = 83;
+            // 
+            // data_final
+            // 
+            this.data_final.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.data_final.DataPropertyName = "dataFinal";
+            this.data_final.HeaderText = "Data Fim";
+            this.data_final.Name = "data_final";
+            this.data_final.ReadOnly = true;
+            this.data_final.Width = 74;
+            // 
+            // telefone
+            // 
+            this.telefone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            this.telefone.Width = 74;
+            // 
+            // Contato
+            // 
+            this.Contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Contato.DataPropertyName = "contato";
+            this.Contato.HeaderText = "Contato";
+            this.Contato.Name = "Contato";
+            this.Contato.ReadOnly = true;
+            // 
+            // SendoAtendido
+            // 
+            this.SendoAtendido.DataPropertyName = "SendoAtendido";
+            this.SendoAtendido.HeaderText = "SendoAtendido";
+            this.SendoAtendido.Name = "SendoAtendido";
+            this.SendoAtendido.ReadOnly = true;
+            this.SendoAtendido.Visible = false;
             // 
             // txtResumo
             // 
@@ -470,101 +565,6 @@
             this.txtCNPJ.TabStop = false;
             this.txtCNPJ.Enter += new System.EventHandler(this.txtCNPJ_Enter);
             this.txtCNPJ.Leave += new System.EventHandler(this.txtCNPJ_Leave);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // aberto
-            // 
-            this.aberto.DataPropertyName = "aberto";
-            this.aberto.HeaderText = "aberto";
-            this.aberto.Name = "aberto";
-            this.aberto.ReadOnly = true;
-            this.aberto.Visible = false;
-            // 
-            // fk_idempresa
-            // 
-            this.fk_idempresa.DataPropertyName = "fk_idempresa";
-            this.fk_idempresa.HeaderText = "fk_idempresa";
-            this.fk_idempresa.Name = "fk_idempresa";
-            this.fk_idempresa.ReadOnly = true;
-            this.fk_idempresa.Visible = false;
-            // 
-            // atendimento
-            // 
-            this.atendimento.DataPropertyName = "atendimento";
-            this.atendimento.HeaderText = "atendimento";
-            this.atendimento.Name = "atendimento";
-            this.atendimento.ReadOnly = true;
-            this.atendimento.Visible = false;
-            // 
-            // resumo
-            // 
-            this.resumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.resumo.DataPropertyName = "resumo";
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.resumo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.resumo.HeaderText = "Resumo";
-            this.resumo.Name = "resumo";
-            this.resumo.ReadOnly = true;
-            this.resumo.Width = 71;
-            // 
-            // fk_idtecnico
-            // 
-            this.fk_idtecnico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.fk_idtecnico.DataPropertyName = "fk_idtecnico";
-            this.fk_idtecnico.HeaderText = "Técnico";
-            this.fk_idtecnico.Name = "fk_idtecnico";
-            this.fk_idtecnico.ReadOnly = true;
-            this.fk_idtecnico.Width = 71;
-            // 
-            // data
-            // 
-            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.data.DataPropertyName = "data";
-            this.data.HeaderText = "Data Inicio";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            this.data.Width = 83;
-            // 
-            // data_final
-            // 
-            this.data_final.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.data_final.DataPropertyName = "dataFinal";
-            this.data_final.HeaderText = "Data Fim";
-            this.data_final.Name = "data_final";
-            this.data_final.ReadOnly = true;
-            this.data_final.Width = 74;
-            // 
-            // telefone
-            // 
-            this.telefone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.telefone.DataPropertyName = "telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.ReadOnly = true;
-            this.telefone.Width = 74;
-            // 
-            // Contato
-            // 
-            this.Contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Contato.DataPropertyName = "contato";
-            this.Contato.HeaderText = "Contato";
-            this.Contato.Name = "Contato";
-            this.Contato.ReadOnly = true;
-            // 
-            // SendoAtendido
-            // 
-            this.SendoAtendido.DataPropertyName = "SendoAtendido";
-            this.SendoAtendido.HeaderText = "SendoAtendido";
-            this.SendoAtendido.Name = "SendoAtendido";
-            this.SendoAtendido.ReadOnly = true;
-            this.SendoAtendido.Visible = false;
             // 
             // frmAtenderChamado
             // 

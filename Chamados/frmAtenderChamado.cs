@@ -97,6 +97,7 @@ namespace Chamados
         {
             MudarStatusSendoAtendido();
             DataBloqueio();
+
             ctlEmpresa _ctlEmpresa = new ctlEmpresa();
             mdlEmpresa _mdlEmpresa = new mdlEmpresa();
             _mdlEmpresa.txtEmpresaID = txtEmpresaID.Text;

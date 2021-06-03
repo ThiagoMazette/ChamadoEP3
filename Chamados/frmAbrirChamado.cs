@@ -155,6 +155,14 @@ namespace Chamados
                     return;
                 }
             }
+            if (txtDataInativo.Text != "")
+            {
+                DialogResult dialogResult = MessageBox.Show("Empresa Inativa, Provavelmente NÂO tem contrato !!! \n deseja abrir o chamado mesmo assim ?", "SEM CONTRATO !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
             mdlEmpresa _mdlEmpresaDup = new mdlEmpresa();
             string CNPJ = txtAbrirChamadoCNPJ.Text;
             _mdlEmpresaDup.CNPJ = CNPJ;
@@ -282,11 +290,64 @@ namespace Chamados
                 }
 
                 DataBloqueio();
+                DataInativa();
                 PintarDataGrid();
                 ProcurarTelefones();
+                txtVendedor.Text = "";
+
             }
         }
 
+        void ProcurarVendedor()
+        {
+           
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+
+            _mdlEmpresa.VendedorvndBchvvnda = dgvResumo.CurrentRow.Cells["vndBchvvnda"].Value.ToString();//pegar o id do pedido
+
+            txtVendedor.Text = _ctlEmpresa.PesquisarVendedor(_mdlEmpresa);
+            //tirado 14/05/21
+            //if (dgvFollowUP.Rows.Count != 0)
+            //{
+            //    dgvFollowUP.CurrentRow.Selected = false;
+            //}
+
+
+
+        }
+
+        void DataInativa()
+        {
+            ctlEmpresa _ctlEmpresa = new ctlEmpresa();
+            mdlEmpresa _mdlEmpresa = new mdlEmpresa();
+            _mdlEmpresa.txtAbrirChamadoID = txtAbrirChamadoID.Text;
+
+            txtDataInativo.Text = _ctlEmpresa.DataInativo(_mdlEmpresa);
+            if (txtDataInativo.Text != "")
+            {
+                string Data = txtDataInativo.Text.Substring(0, 10);
+                txtDataInativo.Text = Data;
+
+                DateTime dataAtu = DateTime.Now;
+                DateTime dataBloq = Convert.ToDateTime(Data);
+
+                if (dataAtu > dataBloq || dataAtu == dataBloq)
+                {
+                    lblInativa.Visible = true;
+                    lblInativa.Text = "INATIVA";
+                }
+                else if (dataAtu < dataBloq)
+                {
+                    lblInativa.Visible = true;
+                    lblInativa.Text = "Data Inativa Maior que data atual";
+                }
+            }
+            else
+            {
+                lblInativa.Visible = false;
+            }
+        }
 
         private void DgvResultado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -307,6 +368,7 @@ namespace Chamados
 
                 _mdlEmpresa.chvvnda = dgvResumo.CurrentRow.Cells["vndBchvvnda"].Value.ToString();
 
+
                 dgvFollowUP.DataSource = _ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa);
                 //nao add linha, add em branco dgvFollowUP.Rows.Add (_ctlEmpresa.PesquisaFollowUPIndividual(_mdlEmpresa));
                 if (dgvFollowUP.Rows.Count != 0)
@@ -315,7 +377,6 @@ namespace Chamados
                 }
             }
         }
-
 
         /* void ListarFollowTodos()
          {
@@ -340,8 +401,6 @@ namespace Chamados
    
 
          }  */ // nao vai :(
-
-
 
         /*   void ListarFollowTodos() // teste esse
            {
@@ -390,8 +449,6 @@ namespace Chamados
 
            }  */  // nao vai :(  teste ok
 
-
-
         /*     void ListarFollowTodos()
              {
                  ctlEmpresa _ctlEmpresa = new ctlEmpresa();
@@ -424,23 +481,18 @@ namespace Chamados
                       //a linha acima, preenche o datagridview, com todos os ítens que já estavam nele antes, da forma que estavam e com um cliente novo adicionado.
                       */
 
-
-
         //   }   // nao vai :(
-
-
-
-
-
 
         private void DgvResumo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ListarFollowIndividual();
+            ProcurarVendedor();
         }
 
         private void DgvResumo_KeyUp(object sender, KeyEventArgs e)
         {
             ListarFollowIndividual();
+            ProcurarVendedor();
         }
 
         void MostrarContadores()
@@ -456,5 +508,20 @@ namespace Chamados
                 MostrarContadores();
             }
         }
+
+        private void txtProcurar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Procurar();
+                if (dgvResultado.Rows.Count == 0)
+                {
+                    MessageBox.Show("Empresa não Encontrada !!!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+
+
     }
 }

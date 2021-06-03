@@ -69,12 +69,20 @@
             this.dgvFollowUP = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblTotalContagem = new System.Windows.Forms.Label();
+            this.txtVendedor = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDataInativo = new System.Windows.Forms.TextBox();
+            this.lblInativa = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFollowUP)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnProcurar
@@ -171,7 +179,7 @@
             this.btnVoltar.BackColor = System.Drawing.Color.Blue;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(691, 220);
+            this.btnVoltar.Location = new System.Drawing.Point(691, 256);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(118, 23);
             this.btnVoltar.TabIndex = 6;
@@ -181,17 +189,17 @@
             // 
             // txtAbrirChamadoNome
             // 
-            this.txtAbrirChamadoNome.Location = new System.Drawing.Point(15, 217);
+            this.txtAbrirChamadoNome.Location = new System.Drawing.Point(255, 208);
             this.txtAbrirChamadoNome.Name = "txtAbrirChamadoNome";
             this.txtAbrirChamadoNome.ReadOnly = true;
-            this.txtAbrirChamadoNome.Size = new System.Drawing.Size(443, 20);
+            this.txtAbrirChamadoNome.Size = new System.Drawing.Size(430, 20);
             this.txtAbrirChamadoNome.TabIndex = 4;
             this.txtAbrirChamadoNome.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 198);
+            this.label1.Location = new System.Drawing.Point(198, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 8;
@@ -221,12 +229,12 @@
             // 
             // txtAbrirChamadoCNPJ
             // 
-            this.txtAbrirChamadoCNPJ.Location = new System.Drawing.Point(12, 191);
+            this.txtAbrirChamadoCNPJ.Location = new System.Drawing.Point(80, 208);
             this.txtAbrirChamadoCNPJ.Name = "txtAbrirChamadoCNPJ";
-            this.txtAbrirChamadoCNPJ.Size = new System.Drawing.Size(100, 20);
+            this.txtAbrirChamadoCNPJ.ReadOnly = true;
+            this.txtAbrirChamadoCNPJ.Size = new System.Drawing.Size(112, 20);
             this.txtAbrirChamadoCNPJ.TabIndex = 13;
             this.txtAbrirChamadoCNPJ.TabStop = false;
-            this.txtAbrirChamadoCNPJ.Visible = false;
             // 
             // txtProcurar
             // 
@@ -236,6 +244,7 @@
             this.txtProcurar.Size = new System.Drawing.Size(550, 20);
             this.txtProcurar.TabIndex = 2;
             this.txtProcurar.DoubleClick += new System.EventHandler(this.txtProcurar_DoubleClick);
+            this.txtProcurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProcurar_KeyPress);
             this.txtProcurar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtProcurar_KeyUp);
             // 
             // dgvResumo
@@ -257,7 +266,7 @@
             this.Dsc,
             this.c_vlr});
             this.dgvResumo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvResumo.Location = new System.Drawing.Point(15, 249);
+            this.dgvResumo.Location = new System.Drawing.Point(15, 289);
             this.dgvResumo.MultiSelect = false;
             this.dgvResumo.Name = "dgvResumo";
             this.dgvResumo.ReadOnly = true;
@@ -373,7 +382,7 @@
             this.dgvTelefones.AllowUserToDeleteRows = false;
             this.dgvTelefones.AllowUserToResizeRows = false;
             this.dgvTelefones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTelefones.Location = new System.Drawing.Point(445, 264);
+            this.dgvTelefones.Location = new System.Drawing.Point(445, 304);
             this.dgvTelefones.MultiSelect = false;
             this.dgvTelefones.Name = "dgvTelefones";
             this.dgvTelefones.ReadOnly = true;
@@ -447,7 +456,7 @@
             // 
             this.groupBox2.Controls.Add(this.txtDataBloqueio);
             this.groupBox2.Controls.Add(this.lblBloqueio);
-            this.groupBox2.Location = new System.Drawing.Point(464, 198);
+            this.groupBox2.Location = new System.Drawing.Point(247, 234);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(221, 45);
             this.groupBox2.TabIndex = 28;
@@ -500,7 +509,7 @@
             this.Dt_fwu,
             this.M_desc});
             this.dgvFollowUP.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvFollowUP.Location = new System.Drawing.Point(365, 249);
+            this.dgvFollowUP.Location = new System.Drawing.Point(365, 289);
             this.dgvFollowUP.MultiSelect = false;
             this.dgvFollowUP.Name = "dgvFollowUP";
             this.dgvFollowUP.ReadOnly = true;
@@ -533,12 +542,74 @@
             this.lblTotalContagem.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblTotalContagem.Visible = false;
             // 
+            // txtVendedor
+            // 
+            this.txtVendedor.Location = new System.Drawing.Point(6, 19);
+            this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.ReadOnly = true;
+            this.txtVendedor.Size = new System.Drawing.Size(179, 20);
+            this.txtVendedor.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 211);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "CNPJ/CPF:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtDataInativo);
+            this.groupBox3.Controls.Add(this.lblInativa);
+            this.groupBox3.Location = new System.Drawing.Point(512, 234);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(173, 45);
+            this.groupBox3.TabIndex = 29;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Data Inativo:";
+            // 
+            // txtDataInativo
+            // 
+            this.txtDataInativo.Location = new System.Drawing.Point(6, 19);
+            this.txtDataInativo.Name = "txtDataInativo";
+            this.txtDataInativo.ReadOnly = true;
+            this.txtDataInativo.Size = new System.Drawing.Size(72, 20);
+            this.txtDataInativo.TabIndex = 17;
+            this.txtDataInativo.TabStop = false;
+            // 
+            // lblInativa
+            // 
+            this.lblInativa.AutoSize = true;
+            this.lblInativa.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInativa.ForeColor = System.Drawing.Color.Red;
+            this.lblInativa.Location = new System.Drawing.Point(85, 19);
+            this.lblInativa.Name = "lblInativa";
+            this.lblInativa.Size = new System.Drawing.Size(85, 20);
+            this.lblInativa.TabIndex = 18;
+            this.lblInativa.Text = "INATIVA";
+            this.lblInativa.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtVendedor);
+            this.groupBox4.Location = new System.Drawing.Point(15, 234);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(191, 45);
+            this.groupBox4.TabIndex = 37;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Vendedor:";
+            // 
             // frmAbrirChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(819, 464);
+            this.ClientSize = new System.Drawing.Size(819, 501);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotalContagem);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dgvFollowUP);
@@ -575,6 +646,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFollowUP)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,5 +698,11 @@
         private System.Windows.Forms.DataGridView dgvFollowUP;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblTotalContagem;
+        private System.Windows.Forms.TextBox txtVendedor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtDataInativo;
+        private System.Windows.Forms.Label lblInativa;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
